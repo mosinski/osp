@@ -1,0 +1,37 @@
+<%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+    <% if  (@user.errors.count) == 1  %>
+      <h2>Użytkownik nie został stworzony z powodu jednego błędu</h2>
+    <% elsif (@user.errors.count) > 1 %>
+        <h2>Użytkownik nie został stworzony z powodu <%= @user.errors.count %> błędów</h2>
+    <% end %>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+<div class="field">
+  <%= f.label :Nazwa_Użytkownika %>
+  <%= f.text_field :username %>
+</div>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+ <div class="field">
+  <%= f.label :hasło %>
+  <%= f.password_field :password %>
+</div>
+<div class="field">
+  <%= f.label :Potwierdź_hasło %>
+  <%= f.password_field :password_confirmation %>
+</div>
+<br />
+ <div class="actions">
+     <%= f.submit :value => 'Zrejestruj', "style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;" %>
+</div>
+<% end %>

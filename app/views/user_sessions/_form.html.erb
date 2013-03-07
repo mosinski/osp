@@ -1,0 +1,29 @@
+<%= form_for(@user_session) do |f| %>
+  <% if @user_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user_session from being saved:</h2>
+
+      <ul>
+      <% @user_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br />
+<center>
+  <div class="field" style="display:inline-block">
+    <%= f.label :Nazwa_użytkownika %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field" style="display:inline-block">
+    <%= f.label :hasło %>
+    <%= f.password_field :password %>
+  </div>
+</center>
+<br />
+  <div class="actions">
+     <%= f.submit :value => 'Zaloguj', "style" => "height:35px;width:70px;font-weight:bold;cursor:pointer;" %>
+     <input name="commit" style="height:15.4px;width:60px;font-weight:bold;cursor:pointer;" value=" Powrót" onclick="location.href = '/'">
+  </div>
+<% end %>
