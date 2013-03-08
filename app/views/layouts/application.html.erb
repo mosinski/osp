@@ -47,18 +47,28 @@
 					<% end %>
 						<a href="/">Start</a> <span>This is just a placeholder</span>
 					</li>
+					<li>
+						<a href="news.html">Aktualności</a> <span>This is just a placeholder</span>
+					</li>
+					<% if current_page?(:controller => 'users_', :action => 'galeria') %>
+					<li class="selected">
+					<% else %>
+					<li>
+					<% end %>
+						<a href="/galeria">Galeria</a> <span>This is just a placeholder</span>
+					</li>
+					<li>
+						<a href="contact.html">Zarząd</a> <span>This is just a placeholder</span>
+					</li>
+					<li>
+						<a href="contact.html">Kontakt</a> <span>This is just a placeholder</span>
+					</li>
 					<% if current_page?(:controller => 'users_', :action => 'about') %>
 					<li class="selected">
 					<% else %>
 					<li>
 					<% end %>
 						<a href="/about">O nas</a> <span>This is just a placeholder</span>
-					</li>
-					<li>
-						<a href="news.html">Aktualności</a> <span>This is just a placeholder</span>
-					</li>
-					<li>
-						<a href="contact.html">Kontakt</a> <span>This is just a placeholder</span>
 					</li>
 				</ul>
 				<div class="featured">
@@ -71,9 +81,7 @@
 			</div>
 		</div>
 		<div class="body">
-			<div class="home">
 			<%= yield %>
-			</div>
 			<div class="sidebar">
 				<h4>Featured</h4>
 				<ul>

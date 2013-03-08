@@ -6,6 +6,7 @@ match 'logout' => 'user_sessions#destroy', :as => :logout
 match 'logowanie' => 'user_sessions#new', :as => :login
 match 'rejestracja' => 'users#new'
 match 'about' => 'users_#about'
+match 'galeria' => 'users_#galeria'
 root :to => "users_#start"
 
 
