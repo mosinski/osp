@@ -71,6 +71,8 @@
 						<a href="/about">O nas</a> <span>This is just a placeholder</span>
 					</li>
 				</ul>
+				<% if current_page?(:controller => 'users_', :action => 'galeria') %>
+				<% else %>
 				<div class="featured">
 					<h3>Lorem Ipsum Dolor Sit Amet</h3>
 					<p>
@@ -78,6 +80,7 @@
 					</p>
 					<a href="news.html">Read more&#62;&#62;</a>
 				</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="body">
