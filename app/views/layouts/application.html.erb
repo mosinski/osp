@@ -4,6 +4,7 @@
 	<title>OSP Leśniewo</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Exo:800italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="http://osp.herokuapp.com/logo.png" rel="icon" type="image/x-icon">
 	<script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -41,44 +42,47 @@
 				</div>
 				<ul>
 					<% if current_page?(:controller => 'users_', :action => 'start') %>
-					<li class="selected">
+					<li class="selected" onclick="location.href = '/'">
 					<% else %>
-					<li>
+					<li onclick="location.href = '/'">
 					<% end %>
-						<a href="/">Start</a> <span>This is just a placeholder</span>
+						<a href="/">Start</a>
 					</li>
-					<li>
-						<a href="news.html">Aktualności</a> <span>This is just a placeholder</span>
+					<% if current_page?("/aktualnosci") %>
+					<li class="selected" onclick="location.href = '/aktualnosci'">
+					<% else %>
+					<li onclick="location.href = '/aktualnosci'">
+					<% end %>
+						<a href="/aktualnosci">Aktualności</a>
 					</li>
 					<% if current_page?(:controller => 'users_', :action => 'galeria') %>
-					<li class="selected">
+					<li class="selected" onclick="location.href = '/galeria'">
 					<% else %>
-					<li>
+					<li onclick="location.href = '/galeria'">
 					<% end %>
-						<a href="/galeria">Galeria</a> <span>This is just a placeholder</span>
+						<a href="/galeria">Galeria</a>
 					</li>
 					<li>
-						<a href="contact.html">Zarząd</a> <span>This is just a placeholder</span>
+						<a href="contact.html">Zarząd</a>
 					</li>
 					<li>
-						<a href="contact.html">Kontakt</a> <span>This is just a placeholder</span>
+						<a href="contact.html">Kontakt</a>
 					</li>
 					<% if current_page?(:controller => 'users_', :action => 'about') %>
-					<li class="selected">
+					<li class="selected" onclick="location.href = '/about'">
 					<% else %>
-					<li>
+					<li onclick="location.href = '/about'">
 					<% end %>
-						<a href="/about">O nas</a> <span>This is just a placeholder</span>
+						<a href="/about">O nas</a>
 					</li>
 				</ul>
-				<% if current_page?(:controller => 'users_', :action => 'galeria') %>
+				<% if (current_page?(:controller => 'users_', :action => 'galeria'))||(current_page?("/aktualnosci")) %>
 				<% else %>
 				<div class="featured">
-					<h3>Lorem Ipsum Dolor Sit Amet</h3>
+					<h3>TEL. ALARMOWY 998 lub 112</h3>
 					<p>
-						Vivamus dapibus fermentum
+						Widzisz pożar? Zadzwoń!
 					</p>
-					<a href="news.html">Read more&#62;&#62;</a>
 				</div>
 				<% end %>
 			</div>
@@ -114,6 +118,9 @@
 					<input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter e-mail address':this.value;" value="Enter e-mail address" id="email">
 					<input type="submit" value="">
 				</form>
+				<br /><br />
+				<h4>Przekaż 1%</h4>
+				<%= image_tag("1_proc_Plakat.jpg", "style"=>"width:80%;margin-left:30px;") %>
 			</div>
 			<div class="section">
 				<div>
@@ -156,9 +163,12 @@
 					<li>
 						<a href="contact.html">Contact</a>
 					</li>
+					<% if current_user && current_user.username == "Administrator" && current_user.id == 1%>
+					<%= link_to 'Dodaj News-a', new_news_path %>
+					<% end %>
 				</ul>
 				<p>
-					&#169; Copyright &#169; <%= Time.now.year %>. OSP Leśniewo all rights reserved.
+					Copyright &#169; <%= Time.now.year %>. OSP Leśniewo all rights reserved.
 				</p>
 			</div>
 		</div>

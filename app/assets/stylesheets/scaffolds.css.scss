@@ -142,6 +142,7 @@ a img {
 	background:url(/assets/interface.png) no-repeat 0 -135px;
 	height:48px;
 	width:159px;
+	cursor: pointer;
 }
 .header div ul li.selected a {
 	color:#040101;
@@ -160,6 +161,7 @@ a img {
 	float:left;
 	height:48px;
 	width:159px;
+	cursor: pointer;
 }
 .header div ul li a {
 	color:#fff;
@@ -919,4 +921,14 @@ margin-bottom:-85px;
     position: fixed;
     top: 14px;
     right: 2%;
+}
+#news_index_tytul{
+line-height:25px;
+}
+#news_show{
+height:100%;
+}
+#news_form_tytul{
+width:99%;
+background:white;
 }
