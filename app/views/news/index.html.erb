@@ -9,7 +9,15 @@
 <li>
 <a href=""><%= image_tag("icon-logo2.jpg") %>
 <br />
-<center><span class="label label-info">Wydarzenie</span></center>
+<center>
+<% if news.rodzaj == "Wydarzenie" %>
+ <span class="label label-info">
+<% elsif news.rodzaj == "Interwencja" %>
+ <span class="label label-important">
+<% end %>
+<%= news.rodzaj %>
+</span>
+</center>
 </a>
 <div>
 <h3 id="news_index_tytul"><%= news.tytul.capitalize %></h3>
