@@ -96,14 +96,13 @@
 					<li>
 						<div style="width:100%">
 							<h3>Wszystkich Zdarzeń:  <font id="statystyki">Liczba</font></h3>
-							<a href="news.html">Read more&#62;&#62;</a>
 						</div>
 					</li>
 					<li>
-						<div>
+						<div style="width:100%">
 							<h3>Pożary:  <font id="statystyki1">Liczba</font></h3> 
+							<h3>Miejscowych Zagrożeń: <font id="statystyki1">Liczba</font></h3> 
 							<h3>Alarmy Fałszywe:  <font id="statystyki1">Liczba</font></h3>
-							<a href="news.html">Read more&#62;&#62;</a>
 						</div>
 					</li>
 				</ul>
@@ -127,7 +126,8 @@
 				</div>
 				<div class="connect">
 					<h4>Linki</h4>
-					<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a> <a href="http://freewebsitetemplates.com/go/facebook/" id="fb">fb</a> <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">google+</a> <a href="http://freewebsitetemplates.com/go/youtube/" id="vimeo">vimeo</a>
+					<a href="http://www.kppsp.puck.pl/"><%= image_tag("psp.png") %></a>
+					<a href="http://www.zosprp.pl/"><%= image_tag("zosp.png") %></a>
 				</div>
 			</div>
 		</div>
@@ -135,10 +135,10 @@
 			<div>
 				<ul>
 					<li>
-						<a href="/">Home</a>
+						<a href="/">Start</a>
 					</li>
 					<li>
-						<a href="/about">About</a>
+						<a href="/about">O nas</a>
 					</li>
 					<li>
 						 <% if current_user %>
@@ -149,7 +149,7 @@
 						<% end %>
 					</li>
 					<li>
-						<a href="contact.html">Contact</a>
+						<a href="contact.html">Kontakt</a>
 					</li>
 					<% if current_user && current_user.username == "Administrator" && current_user.id == 1%>
 					<%= link_to 'Dodaj News-a', new_news_path %>

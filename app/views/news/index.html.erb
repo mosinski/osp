@@ -1,6 +1,6 @@
 <div class="news">
 <div>
-<h4>Aktualnośći</h4>
+<h4>Aktualności</h4>
 <ul>
 </ul>
 </div>
@@ -21,13 +21,19 @@
 </a>
 <div>
 <h3 id="news_index_tytul"><%= news.tytul.capitalize %></h3>
-<span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
+  <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+<% else %>
+  <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+<% end %>
 <p>
 <%= news.tresc[0..300]+"..." %>
 </p>
 <%= link_to 'Czytaj więcej »', news %>
+<% if (current_user) && (current_user.username == "Administrator") %>
 <%= link_to 'Edit', edit_news_path(news) %>
 <%= link_to 'Destroy', news, confirm: 'Are you sure?', method: :delete %>
+<% end %>
 </div>
 </li>
 <% end %>
