@@ -110,7 +110,7 @@ end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-if current_user
+  if current_user
     @user = User.find(params[:id])
        if (current_user.username == 'Administrator')||(current_user.username == @user.username)
     @user.destroy
@@ -126,4 +126,14 @@ if current_user
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
+
+ def start
+    @news = News.all.sort_by(&:created_at).reverse
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
 end

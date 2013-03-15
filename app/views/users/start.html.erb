@@ -1,71 +1,22 @@
 			<div class="home">
 				<h4>Aktualności</h4>
 				<ul>
+					<% @news.each do |news| %>
 					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
+						<a href="news.html"><%= image_tag("icon-logo.jpg") %></a>
 						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
+							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
+							<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
+  							<span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+							<% else %>
+  							<span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+							<% end %>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
+								<%= news.tresc[0..100]+"..." %>
 							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
+							<%= link_to 'Czytaj więcej »', news %>
 						</div>
 					</li>
-					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
-						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
-							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
-						</div>
-					</li>
-					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
-						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
-							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
-						</div>
-					</li>
-					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
-						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
-							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
-						</div>
-					</li>
-					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
-						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
-							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
-						</div>
-					</li>
-					<li>
-						<a href="news.html"><img src="images/icon-logo.jpg" alt=""></a>
-						<div>
-							<h3>News Title One Example Title</h3>
-							<span>Posted on 12/12/12</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus fermentum elit. Suspendisse
-							</p>
-							<a href="news.html">Read more&gt;&gt;</a>
-						</div>
-					</li>
+					<% end %>
 				</ul>
 			</div>
