@@ -31,8 +31,8 @@
 </p>
 <%= link_to 'Czytaj więcej »', news %>
 <% if (current_user) && (current_user.username == "Administrator") %>
-<%= link_to 'Edit', edit_news_path(news) %>
-<%= link_to 'Destroy', news, confirm: 'Are you sure?', method: :delete %>
+<%= link_to 'Edytuj', edit_news_path(news) %>
+<%= link_to 'Usuń', news, confirm: 'Czy napewno chcesz usunąć aktualność?', method: :delete %>
 <% end %>
 </div>
 </li>
