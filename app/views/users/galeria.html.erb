@@ -6,6 +6,7 @@
 					</ul>
 				</div>
 <% licznik = 0 %>
+<% if @zdjecia != nil %>
 <div id="myCarousel" class="carousel slide">  
   <!-- Carousel items -->  
   <div class="carousel-inner">  
@@ -40,6 +41,7 @@
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
   <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>  
 </div>  
+<% end %>
 				<ul class="section">
 					<% @zdjecia_page.each do |zdjecia| %>
 <a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
