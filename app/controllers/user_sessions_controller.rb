@@ -7,6 +7,7 @@ def new
 	redirect_to users_path, :notice => 'Informacja! Jeste&#347; ju&#380; zalogowany!'
   else
 	@user_session = UserSession.new
+        @zdjecia_stopka = Image.last(3)
  
 	respond_to do |format|
 		format.html # new.html.erb
