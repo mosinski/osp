@@ -45,6 +45,7 @@ require 'net/ftp'
    if current_user
        if (current_user.username == 'Administrator')
     		file = params[:file]
+		if file != nil
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
     		  ftp = Net::FTP.new('s4.masternet.pl')
@@ -68,6 +69,9 @@ require 'net/ftp'
     		  end
 		else
 		  redirect_to "/images/new", :notice => 'Uwaga! Zdj&#281;cie o takiej nazwie ju&#380; jest w bazie!'
+		end
+		else
+		  redirect_to "/images/new", :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera!'
 		end
 	else
   	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
