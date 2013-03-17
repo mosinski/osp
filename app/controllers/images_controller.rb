@@ -42,6 +42,7 @@ require 'net/ftp'
   # POST /images
   # POST /images.json
   def create
+  @news = News.find(params[:id])
    if current_user
        if (current_user.username == 'Administrator')
     		file = params[:file]
@@ -63,15 +64,15 @@ require 'net/ftp'
         		format.html { redirect_to "/aktualnosci", notice: 'Gratulacje! Dodano zdjecie do aktualno&#347;ci' }
         		format.json { render json: @image, status: :created, location: @image }
       		    else
-        		format.html { redirect_to websites_path, notice: 'Uwaga! Niepowodznie dodania zdjecia' }
+        		format.html { redirect_to @news, notice: 'Uwaga! Niepowodznie dodania zdjecia' }
         		format.json { render json: @image.errors, status: :unprocessable_entity }
       		    end
     		  end
 		else
-		  redirect_to "/images/new", :notice => 'Uwaga! Zdj&#281;cie o takiej nazwie ju&#380; jest w bazie!'
+		  redirect_to @news, :notice => 'Uwaga! Zdj&#281;cie o takiej nazwie ju&#380; jest w bazie!'
 		end
 		else
-		  redirect_to "/images/new", :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera!'
+		  redirect_to @news, :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera!'
 		end
 	else
   	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
