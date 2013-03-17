@@ -42,10 +42,10 @@ require 'net/ftp'
   # POST /images
   # POST /images.json
   def create
-  @news = News.find(params[:id])
    if current_user
        if (current_user.username == 'Administrator')
     		file = params[:file]
+		@news = News.find(params[:przydzial])
 		if file != nil
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
