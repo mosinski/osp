@@ -706,10 +706,6 @@ a img {
 	padding:0 6px;
 	text-decoration:none;
 }
-.body .gallery img {
-	display:block;
-	margin:18px 0 23px 10px;
-}
 .body .gallery ul {
 	list-style:none;
 	margin:0;
@@ -749,12 +745,6 @@ a img {
 	line-height:24px;
 	margin:38px 0 18px;
 	text-indent:10px;
-}
-.body .gallery p {
-	color:#091b1c;
-	font-size:12px;
-	line-height:24px;
-	margin:0 10px 24px;
 }
 .body .gallery p a {
 	color:#091b1c;
@@ -854,7 +844,7 @@ a img {
 .body .news div ul li a:hover, .body .news div ul li a.first, .body .news div ul li a.last, .body .news ul li div h3 a:hover, .body .gallery div ul li a.first, .body .gallery div ul li a.last, .body .gallery div ul li a:hover {
 	text-decoration:underline;
 }
-.body .contact div, .body .gallery div {
+.body .contact div, .body .gallery .gallery_div {
 	background:none repeat scroll 0 0 #1D3536;
 	height:42px;
 }
@@ -952,3 +942,64 @@ textarea {
     margin-left: 0px;
     border: 2px solid;
 }
+.body .news div ul a, .body .gallery .gallery_div ul a, .body .news div ul em,.body .news div ul span, .body .gallery .gallery_div ul em, .body .gallery .gallery_div ul span {
+    color: rgb(116, 201, 209);
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 42px;
+    margin: 0px;
+    padding: 0px 6px;
+    text-decoration: none;
+}
+.news div ul em, .body .gallery .gallery_div ul em{
+font-weight:bold;
+}
+.body .news div ul a:hover,.body .gallery .gallery_div ul a:hover{
+text-decoration: underline;
+}
+.images_form_opis{
+width:400px;
+}
+.body .home .galeria ul.section {
+    background: url("/assets/border.png") repeat-x scroll left top transparent;
+    border: 0px none;
+    clear: none;
+    margin: 0px 10px;
+    padding: 25px 0px 30px;
+    margin-bottom: -50px;
+}
+.body .home .galeria ul li {
+    float: left;	
+    width: 180px;
+}
+.body .home .galeria ul {
+    list-style: none outside none;
+}
+.body .home .galeria ul li a img {
+    border: 2px solid rgb(47, 84, 85);
+    margin: 0px;
+    display:inline;
+}
+.img-polaroid{
+margin-bottom:3px;
+display:inline;					
+}
+.img-polaroid:hover{
+border-color: rgb(0, 136, 204);
+}
+.lista_zdjec{
+display:inline-block;
+width:89px;
+border:1px solid;
+background:rgb(16, 34, 35);
+margin-bottom:10px;
+margin-right:3px;
+}
+.lista_zdjec img{
+width:85px;
+height:90px;
+}
+.carousel-control {
+    line-height: 38px;
+}
+

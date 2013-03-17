@@ -150,7 +150,8 @@
 						<a href="contact.html">Kontakt</a>
 					</li>
 					<% if current_user && current_user.username == "Administrator" && current_user.id == 1%>
-					<%= link_to 'Dodaj News-a', new_news_path %>
+					<%= link_to 'Dodaj News', new_news_path %> | 
+					<%= link_to 'Lista Zdjęć', images_path %>
 					<% end %>
 				</ul>
 				<p>

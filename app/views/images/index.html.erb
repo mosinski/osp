@@ -1,0 +1,19 @@
+<div class="home">
+<h4>Lista Wszystkich Zdjęć</h4>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;padding: 5px 19px 0px 18px;">
+
+<% @images.each do |image| %>
+<div class="lista_zdjec">
+<center>
+<div style="width:85px;">
+<img src="http://m1l05z.pl/osp/<%= image.nazwa %>" class="img-rounded"" title="<%= image.nazwa %>"/>
+</div>
+<%= link_to 'Edytuj', edit_image_path(image) %> | <%= link_to 'Usuń', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+</center>
+</div>
+<% end %>
+</div>
+<form>
+<input name="commit" style="height:15.4px;width:100px;font-weight:bold;cursor:pointer;" value=" Wróć do listy" onclick="location.href = '/aktualnosci'">
+</form>
+</div>

@@ -4,7 +4,30 @@
 <p>
   <%= simple_format(@news.tresc) %>
 </p>
-<br>
+<div class="galeria">
+    <ul class="section">
+	<% @zdjecia.each do |zdjecia| %>
+	<a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
+        <img style="width:125px;height:130px;" src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" class="img-polaroid"" />
+	</a>
+	<% end %>
+    </ul>
+</div>
+<% if current_user && current_user.username == "Administrator" %>
+<div style="margin-top:40px;">
+<%= form_tag '/ftp/upload', :method => :post, :multipart => true do %>
+<%= text_field_tag :przydzial, @news.id, "style"=>"display:none"%>
+<center><b><%= label_tag(:q, "Dodaj zdjęcie do aktualności:") %></b>
+<%= file_field_tag "file", "style"=>"height:40px;" %>
+<%= submit_tag "Dodaj Zdjęcie", "style"=>"width:100px;margin-left:100px;height:40px;cursor:pointer;"%><br>
+<div class="field">
+    <%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Krótki opis do zdjęcia..." %>
+ </div>
+</center>
+<% end %>
+</div>
+<% end %>
+<br><br>
 </div>
 <form>
 <% if current_user && current_user.username == "Administrator" %>

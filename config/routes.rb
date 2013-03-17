@@ -1,6 +1,6 @@
 Osp::Application.routes.draw do
 
-resources :users, :user_sessions,:news
+resources :users, :user_sessions,:news,:images
 
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout
@@ -9,6 +9,7 @@ match 'rejestracja' => 'users#new'
 match 'about' => 'users_#about'
 match 'galeria' => 'users_#galeria'
 match 'aktualnosci' => 'news#index'
+match '/ftp/upload' => 'images#create'
 root :to => "users_#start"
 
 
