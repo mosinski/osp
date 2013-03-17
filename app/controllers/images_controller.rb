@@ -4,6 +4,7 @@ require 'net/ftp'
   # GET /images.json
   def index
     @images = Image.all
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -129,6 +129,7 @@ end
 
  def start
     @news = News.last(6).sort_by(&:created_at).reverse
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -139,6 +140,16 @@ end
  def galeria
     @zdjecia = Image.all.sort_by(&:created_at).reverse
     @zdjecia_page = Image.page(params[:page]).per_page(9).order("created_at DESC")
+    @zdjecia_stopka = Image.last(3)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
+ def about
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # index.html.erb

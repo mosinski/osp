@@ -111,15 +111,11 @@
 				<div>
 					<h4>Galeria</h4>
 					<ul>
+					<% @zdjecia_stopka.each do |zdjecia| %>
 						<li>
-							<a href="gallery.html"><%= image_tag("fireman1.jpg") %></a>
+						<a href="/galeria"><img src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" style="height:120px;width:180px;"></a>
 						</li>
-						<li>
-							<a href="gallery.html"><%= image_tag("fireman2.jpg") %></a>
-						</li>
-						<li>
-							<a href="gallery.html"><%= image_tag("fireman3.jpg") %></a>
-						</li>
+					<% end %>
 					</ul>
 				</div>
 				<div class="connect">

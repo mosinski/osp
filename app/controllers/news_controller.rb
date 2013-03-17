@@ -3,6 +3,7 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.page(params[:page]).per_page(5).order("created_at DESC")
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class NewsController < ApplicationController
   def show
     @news = News.find(params[:id])
     @zdjecia = Image.find_all_by_przydzial(params[:id])
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +30,7 @@ class NewsController < ApplicationController
    if current_user
        if (current_user.username == 'Administrator')
     @news = News.new
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # new.html.erb
