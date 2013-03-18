@@ -8,7 +8,7 @@
 						<% if @images.count == 0 %>
 						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg") %></a>
 						<% else %>
-						<a href="/news/<%= news.id %>"><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="60px" width="61px"></a>
+			
 						<% end %>
 						<div>
 							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
