@@ -2,14 +2,7 @@
 				<h4>Aktualności</h4>
 				<ul>
 					<% @news.each do |news| %>
-					<% @images = Image.find_all_by_przydzial(news.id) %>
-					<% @logo = Image.find_all_by_przydzial(news.id).first %>
-					<li>
-						<% if @images.count == 0 %>
-						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg") %></a>
-						<% else %>
-			
-						<% end %>
+
 						<div>
 							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
 							<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
