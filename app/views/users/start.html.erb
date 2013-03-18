@@ -2,8 +2,14 @@
 				<h4>Aktualności</h4>
 				<ul>
 					<% @news.each do |news| %>
+					<% @images = Image.find_all_by_przydzial(news.id) %>
+					<% @logo = Image.find_all_by_przydzial(news.id).first %>
 					<li>
-						<a href="news.html"><%= image_tag("icon-logo.jpg") %></a>
+						<% if @images.count == 0 %>
+						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg") %></a>
+						<% else %>
+						<a href="/news/<%= news.id %>"><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="60px" width="61px"></a>
+						<% end %>
 						<div>
 							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
 							<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>

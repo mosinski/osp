@@ -7,8 +7,14 @@
 </div>
 <ul>
 <% @news.each do |news| %>
+<% @images = Image.find_all_by_przydzial(news.id) %>
+<% @logo = Image.find_all_by_przydzial(news.id).first %>
 <li>
-<a href=""><%= image_tag("icon-logo2.jpg") %>
+<% if @images.count == 0 %>	
+<a><%= image_tag("icon-logo2.jpg") %>
+<% else %>
+<a><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="96px" width="97px">
+<% end %>
 <br />
 <center>
 <% if news.rodzaj == "Wydarzenie" %>
