@@ -2,6 +2,9 @@
 				<h4>Aktualności</h4>
 				<ul>
 					<% @news.each do |news| %>
+					<% @images = Image.find_all_by_przydzial(news.id) %>
+					<% @logo = Image.find_all_by_przydzial(news.id).first %>
+					<li>
 
 						<div>
 							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
