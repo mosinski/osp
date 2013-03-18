@@ -7,8 +7,8 @@
 </div>
 <ul>
 <% @news.each do |news| %>
-<% @images = Image.find_all_by_przydzial(news.id) %>
-<% @logo = Image.find_all_by_przydzial(news.id).first %>
+<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
+<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
 <li>
 <% if @images.count == 0 %>	
 <a><%= image_tag("icon-logo2.jpg") %>
