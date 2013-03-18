@@ -7,9 +7,27 @@
 	<link href="http://osp.herokuapp.com/logo.png" rel="icon" type="image/x-icon">
 	<script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery.fancybox.css" media="screen" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<script type="text/javascript">
+ $(document).ready(function() {
+	$('.fancybox').fancybox();
+
+	$(".fancybox-effects-b").fancybox({
+		openEffect  : 'none',
+		closeEffect	: 'none',
+
+		helpers : {
+			title : {
+			type : 'over'
+				}
+			}
+	});
+});
+</script>
 </head>
 <body>
 <% if notice %>

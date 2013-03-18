@@ -7,7 +7,7 @@
 <div class="galeria">
     <ul class="section">
 	<% @zdjecia.each do |zdjecia| %>
-	<a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
+	<a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>">
         <img style="width:125px;height:130px;" src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" class="img-polaroid"" />
 	</a>
 	<% end %>
