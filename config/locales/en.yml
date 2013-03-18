@@ -201,10 +201,9 @@ en:
         remember_me:           'zapamiętaj mnie'
     errors:
       <<: *errors
-
   authlogic:
     error_messages:
-      login_blank: "nie może być pusty"
+      login_blank: "nie może być pusta"
       login_not_found: "nie istnieje"
       login_invalid: "może składać się wyłącznie z liter (a-z) oraz liczb (0-9)"
       consecutive_failed_logins_limit_exceeded: "Przekroczono dozwoloną ilość prób nieudanego logowania, dostęp do konta został zablokowany"
@@ -219,7 +218,7 @@ en:
       user_session:
     attributes:
       user_session:
-        login: "Nazwa użytkownika"
+        username: "Nazwa użytkownika"
         email: "E-mail"
         password: "Hasło"
         remember_me: "Pamiętaj mnie"

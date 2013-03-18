@@ -1,16 +1,15 @@
 <%= form_for(@user_session) do |f| %>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;padding: 5px 19px 0px 18px;">
   <% if @user_session.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user_session from being saved:</h2>
-
+      <h5 style="color: rgb(185, 74, 72);text-shadow: 1px 1px 1px rgb(0, 0, 0);">Logowanie nie powiodło się, popraw błędy i spróbuj ponownie.</h5>
       <ul>
       <% @user_session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li style="margin-top:-35px;"><div class="alert-error"><%= msg %></div></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-<br />
 <center>
   <div class="field" style="display:inline-block">
     <%= f.label :Nazwa_użytkownika %>
@@ -22,6 +21,7 @@
   </div>
 </center>
 <br />
+</div>
   <div class="actions">
      <%= f.submit :value => 'Zaloguj', "style" => "height:35px;width:70px;font-weight:bold;cursor:pointer;" %>
      <input name="commit" style="height:15.4px;width:60px;font-weight:bold;cursor:pointer;" value=" Powrót" onclick="location.href = '/'">

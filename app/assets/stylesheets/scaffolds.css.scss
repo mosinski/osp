@@ -1002,4 +1002,15 @@ height:90px;
 .carousel-control {
     line-height: 38px;
 }
+.alert-error {
+    color: black;
+    padding: 6px 35px 6px 14px;
+    margin-bottom: 5px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    background-color: rgb(252, 248, 227);
+    border: 1px solid rgb(185, 74, 72);
+    border-radius: 4px 4px 4px 4px;
+    font-weight: bold;
+    width:280px !important;
+}
 
