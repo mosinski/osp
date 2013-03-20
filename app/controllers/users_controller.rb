@@ -42,14 +42,13 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-   if current_user
     @user = User.new
+    @zdjecia_stopka = Image.last(3)
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
-  end
 end
 
   # GET /users/1/edit
