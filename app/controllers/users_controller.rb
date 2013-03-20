@@ -43,16 +43,12 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
    if current_user
-    redirect_to root_url, :notice => 'Informacja! Wyloguj si&#281; aby dokona&#263; rejestracji'
-   else
-    redirect_to root_url, :notice => 'Informacja! Rejestracja zosta&#322;a wy&#322;&#261;czona'
-   end
-    #@user = User.new
+    @user = User.new
 
-    #respond_to do |format|
-      #format.html # new.html.erb
-      #format.json { render json: @user }
-    #end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
   end
 
   # GET /users/1/edit
@@ -72,18 +68,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
 def create
-  redirect_to root_url, :notice => 'Informacja! Rejestracja zosta&#322;a wy&#322;&#261;czona'
-    #@user = User.new(params[:user])
+  @user = User.new(params[:user])
 
-    #respond_to do |format|
-      #if @user.save
-        #format.html { redirect_to( root_url, :notice => 'Informacja! Konto zarejestrowane!') }
-        #format.xml { render :xml => @user, :status => :created, :location => @user }
-      #else
-        #format.html { render :action => "new" }
-        #format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
-      #end
-    #end
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to( root_url, :notice => 'Informacja! Konto zarejestrowane!') }
+        format.xml { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { render :action => "new" }
+        format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
 end
 
   # PUT /users/1
