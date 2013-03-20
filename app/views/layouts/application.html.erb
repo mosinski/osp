@@ -111,22 +111,22 @@
 				<ul>
 					<li>
 						<div style="width:100%">
-							<h3>Wszystkich Zdarzeń:  <font id="statystyki"></font></h3>
+							<h3>Wszystkich Zdarzeń:  <font id="statystyki"><%= @statystyki.pozary+@statystyki.zagrozenia+@statystyki.falarmy %></font></h3>
 						</div>
 					</li>
 					<li>
 						<div style="width:100%">
-							<h3>Pożary:  <font id="statystyki1">
+							<h3>Pożary:  <font id="statystyki1"><%= @statystyki.pozary %>
 							<% if current_user && current_user.username == "Administrator" %>
 							<a href="/pozar_plus" id="plus">[+]</a><a href="/pozar_minus" id="plus">[-]</a>
 							<% end %>
 							</font></h3> 
-							<h3>Miejscowych Zagrożeń: <font id="statystyki1">
+							<h3>Miejscowych Zagrożeń: <font id="statystyki1"><%= @statystyki.zagrozenia %>
 							<% if current_user && current_user.username == "Administrator" %>
 							<a href="/zagrozenia_plus" id="plus">[+]</a><a href="/zagrozenia_minus" id="plus">[-]</a>
 							<% end %>
 							</font></h3> 
-							<h3>Alarmy Fałszywe:  <font id="statystyki1">
+							<h3>Alarmy Fałszywe:  <font id="statystyki1"><%= @statystyki.falarmy %>
 							<% if current_user && current_user.username == "Administrator" %>
 							<a href="/alarmy_plus" id="plus">[+]</a><a href="/alarmy_minus" id="plus">[-]</a>
 							<% end %>
