@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rok: 1
+  pozary: 1
+  zagrozenia: 1
+  falarmy: 1
+
+two:
+  rok: 1
+  pozary: 1
+  zagrozenia: 1
+  falarmy: 1

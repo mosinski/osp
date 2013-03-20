@@ -5,6 +5,8 @@ require 'net/ftp'
   def index
     @images = Image.all
     @zdjecia_stopka = Image.last(3)
+    @statistic = Statistic.find_by_rok(Time.now.year)
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,6 +40,7 @@ require 'net/ftp'
   def edit
     @image = Image.find(params[:id])
     @zdjecia_stopka = Image.last(3)
+    @statistic = Statistic.find_by_rok(Time.now.year)
   end
 
   # POST /images

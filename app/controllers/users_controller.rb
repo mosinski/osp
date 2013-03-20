@@ -5,6 +5,7 @@ class UsersController < ApplicationController
    if current_user
        if (current_user.username == 'Administrator')
     @users = User.all
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
   if current_user
     @user = User.find(params[:id])
        if (current_user.username == 'Administrator')||(current_user.username == @user.username)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -58,6 +60,7 @@ class UsersController < ApplicationController
     if current_user
     @user = User.find(params[:id])
        if (current_user.username == 'Administrator')||(current_user.username == @user.username)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 	else
   	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
@@ -130,6 +133,7 @@ end
  def start
     @news = News.last(6).sort_by(&:created_at).reverse
     @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -141,6 +145,7 @@ end
     @zdjecia = Image.all.sort_by(&:created_at).reverse
     @zdjecia_page = Image.page(params[:page]).per_page(9).order("created_at DESC")
     @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -150,6 +155,7 @@ end
 
  def about
     @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
