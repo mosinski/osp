@@ -7,7 +7,7 @@ def new
 	redirect_to users_path, :notice => 'Informacja! Jeste&#347; ju&#380; zalogowany!'
   else
         @zdjecia_stopka = Image.last(3)
-    	@statistic = Statistic.find_by_rok(Time.now.year)
+    	@statystyki = Statistic.find_by_rok(Time.now.year)
 	@user_session = UserSession.new
  
 	respond_to do |format|
