@@ -11,18 +11,6 @@ class StatisticsController < ApplicationController
     end
   end
 
-  # GET /statistics/1
-  # GET /statistics/1.json
-  def show
-    @statistic = Statistic.find(params[:id])
-    @zdjecia_stopka = Image.last(3)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @statistic }
-    end
-  end
-
   # GET /statistics/new
   # GET /statistics/new.json
   def new
