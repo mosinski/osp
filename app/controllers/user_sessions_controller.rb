@@ -6,9 +6,9 @@ def new
   if current_user
 	redirect_to users_path, :notice => 'Informacja! Jeste&#347; ju&#380; zalogowany!'
   else
+	@user_session = UserSession.new
         @zdjecia_stopka = Image.last(3)
     	@statystyki = Statistic.find_by_rok(Time.now.year)
-	@user_session = UserSession.new
  
 	respond_to do |format|
 		format.html # new.html.erb
@@ -21,6 +21,8 @@ end
 # POST /user_sessions.xml
 def create
   @user_session = UserSession.new(params[:user_session])
+  @zdjecia_stopka = Image.last(3)
+  @statystyki = Statistic.find_by_rok(Time.now.year)
  
 	respond_to do |format|
 	 if @user_session.save
