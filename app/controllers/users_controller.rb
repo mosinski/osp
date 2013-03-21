@@ -159,4 +159,14 @@ end
     end
   end
 
+ def czlonkowie
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
 end

@@ -7,6 +7,7 @@ match 'logout' => 'user_sessions#destroy', :as => :logout
 match 'logowanie' => 'user_sessions#new', :as => :login
 match 'rejestracja' => 'users#new'
 match 'about' => 'users_#about'
+match 'czlonkowie' => 'users_#czlonkowie'
 match 'galeria' => 'users_#galeria'
 match 'aktualnosci' => 'news#index'
 match 'aktualnosci_grupuj' => 'news#group'

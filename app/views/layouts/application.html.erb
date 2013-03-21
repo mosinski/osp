@@ -80,8 +80,12 @@
 					<% end %>
 						<a href="/galeria">Galeria</a>
 					</li>
-					<li>
-						<a href="contact.html">Członkowie</a>
+					<% if current_page?(:controller => 'users_', :action => 'czlonkowie') %>
+					<li class="selected" onclick="location.href = '/czlonkowie'">
+					<% else %>
+					<li onclick="location.href = '/czlonkowie'">
+					<% end %>
+						<a href="/czlonkowie">Członkowie</a>
 					</li>
 					<li>
 						<a href="contact.html">Wynajem Sali</a>
