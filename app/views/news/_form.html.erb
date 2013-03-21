@@ -20,8 +20,8 @@
     <%= f.text_area :tresc , "style" => "width:99%;"%>
   </div>
   <div class="kategoria_box">
-    <%= f.label :Rodzaj_aktualności %>
-    <%= f.select(:rodzaj, options_for_select([['Wydarzenie', 'Wydarzenie'], ['Interwencja', 'Interwencja'], ['Ćwiczenia', 'Ćwiczenia'], ['Imprezy', 'Imprezy']],@news.rodzaj), {}, {:class => "kategoria"}) %>
+    <%= f.label :Rodzaj_grupy %>
+    <%= f.select(:rodzaj, options_for_select([['Interwencje', 'Interwencje'], ['Szkolenia', 'Szkolenia'], ['Imprezy', 'Imprezy'], ['Inne', 'Inne']],@news.rodzaj), {}, {:class => "kategoria"}) %>
   </div>
   <div class="actions">
     <%= f.submit :value => 'Dodaj', "style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;" %>

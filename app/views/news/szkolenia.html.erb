@@ -21,15 +21,7 @@
 <% end %>
 <br />
 <center>
-<% if news.rodzaj == "Imprezy" %>
- <span class="label label-info">
-<% elsif news.rodzaj == "Interwencje" %>
- <span class="label label-important">
-<% elsif news.rodzaj == "Szkolenia" %>
- <span class="label label-success">
-<% elsif news.rodzaj == "Inne" %>
- <span class="label label-inverse">
-<% end %>
+<span class="label label-success">
 <%= news.rodzaj %>
 </span>
 </center>

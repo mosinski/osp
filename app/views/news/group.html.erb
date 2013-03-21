@@ -11,15 +11,25 @@
 <ul>
 <% @news.each do |news| %>
 <li>
-<a><%= image_tag("icon-logo2.jpg") %>
+<% if news == "Imprezy" %>
+<a><img src="https://lh6.googleusercontent.com/-c75tOn0btzs/T2ZrWXEQUuI/AAAAAAAACxk/ODfNv9UHjlg/s684/P3130171.JPG" height="96px" width="97px">
+<% elsif news == "Interwencje" %>
+<a><img src="https://lh6.googleusercontent.com/-BUvvfZPGObg/UHWp98J3ZsI/AAAAAAAAC3g/vNaS9mCWElA/s684/20120814%28001%29.jpg" height="96px" width="97px">
+<% elsif news == "Szkolenia" %>
+<a><img src="https://lh6.googleusercontent.com/-c3JTjQ_lafE/UHh6JfUgNeI/AAAAAAAAC4g/9rypo3TmD5o/w431-h242-p-o-k/DSC00019.JPG" height="96px" width="97px">
+<% elsif news == "Inne" %>
+<a><img src="https://lh3.googleusercontent.com/-rGVKJWrb9i4/SWnboYQ3O1I/AAAAAAAAAEY/1SYAGl7HtZ8/s755/skanuj0002.jpg" height="96px" width="97px">
+<% end %>
 <br />
 <center>
-<% if news == "Wydarzenie" %>
+<% if news == "Imprezy" %>
  <span class="label label-info">
-<% elsif news == "Interwencja" %>
+<% elsif news == "Interwencje" %>
  <span class="label label-important">
-<% elsif news == "Ćwiczenia" %>
+<% elsif news == "Szkolenia" %>
  <span class="label label-success">
+<% elsif news == "Inne" %>
+ <span class="label label-inverse">
 <% end %>
 <%= news %>
 </span>
@@ -27,21 +37,23 @@
 </a>
 <div>
 <h3 id="news_index_tytul"><%= news.capitalize %></h3>
-  <span style="margin-top:-5px">W grupie jest <%= News.find_all_by_rodzaj(news).count %> aktualności</span>
+<% if News.find_all_by_rodzaj(news).count == 1 %>
+  <span style="margin-top:-5px">W grupie jest <%= News.find_all_by_rodzaj(news).count %> aktualność</span>
+<% else %>
+  <span style="margin-top:-5px">W grupie są <%= News.find_all_by_rodzaj(news).count %> aktualności</span>
+<% end %>
 <p>
-<% if news == "Wydarzenie" %>
-Tu znajdują się wszystkie wydarzenia w jakich brała udział nasza jednostka
-<% elsif news == "Interwencja" %>
+<% if news == "Imprezy" %>
+Tu znajdują się wszystkie imprezy w jakich brała udział nasza jednostka
+<% elsif news == "Interwencje" %>
 Tu znajdują się wszystkie interwencje w jakich brała udział nasza jednostka
-<% elsif news == "Ćwiczenia" %>
-Tu znajdują się wszystkie ćwiczenia w jakich brała udział nasza jednostka
+<% elsif news == "Szkolenia" %>
+Tu znajdują się wszystkie szkolenia i ćwiczenia w jakich brała udział nasza jednostka
+<% elsif news == "Inne" %>
+Tu znajdują się wszystkie aktualności nie sklasyfikowane do żadnej grupy
 <% end %>
 </p>
-<%= link_to 'Czytaj więcej »', news %>
-<% if (current_user) && (current_user.username == "Administrator") %>
-<%= link_to 'Edytuj', edit_news_path(news) %>
-<%= link_to 'Usuń', news, confirm: 'Czy napewno chcesz usunąć aktualność?', method: :delete %>
-<% end %>
+<%= link_to 'Przeglądaj Aktualności z grupy »', news.mb_chars.downcase.to_s %>
 </div>
 </li>
 <% end %>

@@ -1,0 +1,28 @@
+			<div class="home">
+				<h4>Aktualności</h4>
+				<ul>
+					<% @news.each do |news| %>
+					<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
+					<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
+					<li>
+						<% if @images.count == 0 %>
+						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg") %></a>
+						<% else %>
+						<a href="/news/<%= news.id %>"><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="60px" width="61px"></a>
+						<% end %>
+						<div>
+							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
+							<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
+  							<span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+							<% else %>
+  							<span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+							<% end %>
+							<p>
+								<%= news.tresc[0..100]+"..." %>
+							</p>
+							<%= link_to 'Czytaj więcej »', news %>
+						</div>
+					</li>
+					<% end %>
+				</ul>
+			</div>

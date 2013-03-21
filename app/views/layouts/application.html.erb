@@ -81,7 +81,7 @@
 						<a href="/galeria">Galeria</a>
 					</li>
 					<li>
-						<a href="contact.html">Zarząd</a>
+						<a href="contact.html">Członkowie</a>
 					</li>
 					<li>
 						<a href="contact.html">Wynajem Sali</a>
@@ -94,8 +94,7 @@
 						<a href="/about">O nas</a>
 					</li>
 				</ul>
-<% if (current_page?(:controller => 'users_', :action => 'galeria'))||(current_page?("/aktualnosci"))||(current_page?("/news"))||(current_page?("/aktualnosci_grupuj")) %>
-				<% else %>
+<% if (current_page?("/"))||(current_page?("/about")) %>
 				<div class="featured">
 					<h3>TEL. ALARMOWY 998 lub 112</h3>
 					
@@ -180,6 +179,8 @@
 					<% if current_user && current_user.username == "Administrator" && current_user.id == 1%>
 					<%= link_to 'Dodaj News', new_news_path %> | 
 					<%= link_to 'Lista Zdjęć', images_path %>
+					<% else %>
+					<div class="g-plusone" data-href="http://osp-lesniewo.pl/"></div>
 					<% end %>
 				</ul>
 				<p>
@@ -189,4 +190,13 @@
 		</div>
 </div>
 </body>
+<script type="text/javascript">
+  window.___gcfg = {lang: 'pl'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 </html>

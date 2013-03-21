@@ -131,12 +131,56 @@ class NewsController < ApplicationController
   end
 
   def group
-    @news = News.uniq.pluck(:rodzaj)
+    @news = News.uniq.pluck(:rodzaj).reverse
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html
+      format.json { render json: @news }
+    end
+  end
+
+  def imprezy
+    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Imprezy")
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @news }
+    end
+  end
+
+  def interwencje
+    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Interwencje")
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @news }
+    end
+  end
+
+  def szkolenia
+    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Szkolenia")
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @news }
+    end
+  end
+
+  def inne
+    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Inne")
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html # index.html.erb
       format.json { render json: @news }
     end
   end
