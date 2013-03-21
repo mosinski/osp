@@ -6,41 +6,36 @@
 <a href="/aktualnosci_grupuj" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Grupuj</a>
 </ul>
 <ul>
-<%= will_paginate @articles, :container => false %>
 </ul>
 </div>
 <ul>
 <% @news.each do |news| %>
-<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
-<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
 <li>
-<% if @images.count == 0 %>	
 <a><%= image_tag("icon-logo2.jpg") %>
-<% else %>
-<a><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="96px" width="97px">
-<% end %>
 <br />
 <center>
-<% if news.rodzaj == "Wydarzenie" %>
+<% if news == "Wydarzenie" %>
  <span class="label label-info">
-<% elsif news.rodzaj == "Interwencja" %>
+<% elsif news == "Interwencja" %>
  <span class="label label-important">
-<% elsif news.rodzaj == "Ćwiczenia" %>
+<% elsif news == "Ćwiczenia" %>
  <span class="label label-success">
 <% end %>
-<%= news.rodzaj %>
+<%= news %>
 </span>
 </center>
 </a>
 <div>
-<h3 id="news_index_tytul"><%= news.tytul.capitalize %></h3>
-<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
-  <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
-<% else %>
-  <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
-<% end %>
+<h3 id="news_index_tytul"><%= news.capitalize %></h3>
+  <span style="margin-top:-5px">W grupie jest <%= News.find_all_by_rodzaj(news).count %> aktualności</span>
 <p>
-<%= news.tresc[0..300]+"..." %>
+<% if news == "Wydarzenie" %>
+Tu znajdują się wszystkie wydarzenia w jakich brała udział nasza jednostka
+<% elsif news == "Interwencja" %>
+Tu znajdują się wszystkie interwencje w jakich brała udział nasza jednostka
+<% elsif news == "Ćwiczenia" %>
+Tu znajdują się wszystkie ćwiczenia w jakich brała udział nasza jednostka
+<% end %>
 </p>
 <%= link_to 'Czytaj więcej »', news %>
 <% if (current_user) && (current_user.username == "Administrator") %>

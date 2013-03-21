@@ -129,4 +129,15 @@ class NewsController < ApplicationController
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
+
+  def group
+    @news = News.uniq.pluck(:rodzaj)
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @news }
+    end
+  end
 end

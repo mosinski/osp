@@ -66,7 +66,7 @@
 					<% end %>
 						<a href="/">Start</a>
 					</li>
-					<% if current_page?("/aktualnosci") %>
+					<% if current_page?("/aktualnosci")||current_page?("/aktualnosci_grupuj") %>
 					<li class="selected" onclick="location.href = '/aktualnosci'">
 					<% else %>
 					<li onclick="location.href = '/aktualnosci'">
@@ -94,7 +94,7 @@
 						<a href="/about">O nas</a>
 					</li>
 				</ul>
-<% if (current_page?(:controller => 'users_', :action => 'galeria'))||(current_page?("/aktualnosci"))||(current_page?("/news")) %>
+<% if (current_page?(:controller => 'users_', :action => 'galeria'))||(current_page?("/aktualnosci"))||(current_page?("/news"))||(current_page?("/aktualnosci_grupuj")) %>
 				<% else %>
 				<div class="featured">
 					<h3>TEL. ALARMOWY 998 lub 112</h3>
@@ -109,6 +109,7 @@
 				<div style="margin-top:-20px;float:right;color:white;"><%= I18n.l Time.now, :format => "%A, %B %d, %Y" %></div>
 				<h4>Licznik Zdarzeń</h4>
 				<ul>
+					<div style="border:1px solid rgb(220, 247, 221);border-radius: 5px 5px 5px 5px;padding: 10px 10px 10px 15px;box-shadow: 0px 0px 15px rgb(65, 131, 196);">
 					<li>
 						<div style="width:100%">
 							<h3>Wszystkich Zdarzeń:  <font id="statystyki"><%= @statystyki.pozary+@statystyki.zagrozenia+@statystyki.falarmy %></font></h3>
@@ -133,6 +134,7 @@
 							</font></h3>
 						</div>
 					</li>
+					</div>
 				</ul>
 				<h4>Przekaż 1%</h4>
 				<a href="/assets/1_proc_Plakat.jpg" target="_blank"><%= image_tag("1_proc_Plakat.jpg", "style"=>"width:80%;margin-left:30px;") %></a>

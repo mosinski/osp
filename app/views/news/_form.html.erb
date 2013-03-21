@@ -21,7 +21,7 @@
   </div>
   <div class="kategoria_box">
     <%= f.label :Rodzaj_aktualności %>
-    <%= f.select(:rodzaj, options_for_select([['Wydarzenie', 'Wydarzenie'], ['Interwencja', 'Interwencja']],@news.rodzaj), {}, {:class => "kategoria"}) %>
+    <%= f.select(:rodzaj, options_for_select([['Wydarzenie', 'Wydarzenie'], ['Interwencja', 'Interwencja'], ['Ćwiczenia', 'Ćwiczenia'], ['Imprezy', 'Imprezy']],@news.rodzaj), {}, {:class => "kategoria"}) %>
   </div>
   <div class="actions">
     <%= f.submit :value => 'Dodaj', "style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;" %>
