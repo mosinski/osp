@@ -136,7 +136,7 @@ end
 	@statystyki.pozary = 0
 	@statystyki.zagrozenia = 0
 	@statystyki.falarmy = 0
-	@statistic.save
+	@statystyki.save
     end
 
     respond_to do |format|
