@@ -114,7 +114,6 @@
 				<ul>
 					<div style="border:1px solid rgb(220, 247, 221);border-radius: 5px 5px 5px 5px;padding: 10px 10px 10px 15px;box-shadow: 0px 0px 15px rgb(65, 131, 196);">
 					<li>
-							<% if @statystyki != nil %>
 						<div style="width:100%">
 							<h3>Wszystkich Zdarzeń:  <font id="statystyki"><%= @statystyki.pozary+@statystyki.zagrozenia+@statystyki.falarmy %></font></h3>
 						</div>
@@ -137,9 +136,6 @@
 							<% end %>
 							</font></h3>
 						</div>
-							<% else %>
-							Brak aktualnego roku!
-							<% end %>
 					</li>
 					</div>
 				</ul>

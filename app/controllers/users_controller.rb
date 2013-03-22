@@ -130,6 +130,14 @@ end
     @news = News.last(6).sort_by(&:created_at).reverse
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
+    if @statystyki == nil
+	@statystyki = Statistic.new
+	@statystyki.rok = Time.now.year
+	@statystyki.pozary = 0
+	@statystyki.zagrozenia = 0
+	@statystyki.falarmy = 0
+	@statistic.save
+    end
 
     respond_to do |format|
       format.html # index.html.erb
