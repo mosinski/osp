@@ -1,6 +1,6 @@
 Osp::Application.routes.draw do
 
-resources :users, :user_sessions,:news,:images,:statistics
+resources :users, :user_sessions,:news,:images,:statistics,:members
 
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout

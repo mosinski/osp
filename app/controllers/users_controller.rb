@@ -160,6 +160,8 @@ end
   end
 
  def czlonkowie
+    @member = Member.new
+    @members = Member.all
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 

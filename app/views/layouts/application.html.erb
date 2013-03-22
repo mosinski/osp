@@ -66,7 +66,7 @@
 					<% end %>
 						<a href="/">Start</a>
 					</li>
-					<% if current_page?("/aktualnosci")||current_page?("/aktualnosci_grupuj") %>
+					<% if current_page?("/aktualnosci")||current_page?("/aktualnosci_grupuj")||current_page?("/imprezy")||current_page?("/interwencje")||current_page?("/inne")||current_page?("/szkolenia") %>
 					<li class="selected" onclick="location.href = '/aktualnosci'">
 					<% else %>
 					<li onclick="location.href = '/aktualnosci'">
@@ -191,6 +191,9 @@
 					Copyright &#169; <%= Time.now.year %>. OSP Leśniewo all rights reserved.
 				</p>
 			</div>
+		</div>
+		<div style="margin-top:-50px">
+		<center>Projekt <a href="http://m1l05z.pl">Miłosz Osiński</a> i <a href="http://khallmann.pl">Krystian Hallmann</a></center>
 		</div>
 </div>
 </body>

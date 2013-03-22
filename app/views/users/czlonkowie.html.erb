@@ -1,6 +1,38 @@
 <div class="home">
-<h4>Członkowie OSP Leśniewo</h4>
-<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;padding: 5px 19px 0px 18px;">
+<h4>Struktura OSP Leśniewo</h4>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;display:block;padding: 5px 19px 0px 18px;">
 <br>
-<br><br></div>
+<div style="display:inline-block;width:49%;height:500px;border-right:2px solid;border-color:rgb(16, 34, 35);float:left;">
+<center><h4>Zarząd</h4></center>
+<% @members.each do |member| %>
+<% if member.stanowisko != "Członek OSP" %>
+<center><span class="label label-inverse"><%= member.stanowisko %></span> <font id="czlonkowie_lista"><%= member.nazwa %></font>
+  <% if current_user && current_user.username == "Administrator" %>
+	<%= link_to '[x]', member, method: :delete, data: { confirm: "Czy napewno chcesz usunąć '#{member.nazwa}'?" } %>
+  <% end %>
+</center>
+<% end %>
+<% end %>
+</div>
+<div style="display:inline-block;width:50%;height:500px;margin-left:-4px;margin-bottom:100px;">
+<center><h4>Członkowie</h4></center>
+<% @members.each do |member| %>
+<% if member.stanowisko == "Członek OSP" %>
+<center><font id="czlonkowie_lista"><%= member.nazwa %></font>
+  <% if current_user && current_user.username == "Administrator" %>
+	<%= link_to '[x]', member, method: :delete, data: { confirm: "Czy napewno chcesz usunąć '#{member.nazwa}'?" } %>
+  <% end %>
+</center>
+<% end %>
+<% end %>
+</div>
+<% if current_user && current_user.username == "Administrator" %>
+<%= form_for Member.new do |f| %>
+  <%= f.label :Imie_i_Nazwisko %>
+  <%= f.text_field :nazwa, :width => "160px" %>
+  <%= f.select(:stanowisko, options_for_select([['Prezes', 'Prezes'], ['V-ce Prezes', 'V-ce Prezes'], ['Naczelnik OSP', 'Naczelnik OSP'], ['Sekretarz', 'Sekretarz'], ['Skarbnik', 'Skarbnik'], ['Gospodarz', 'Gospodarz'], ['Członek Zarządu', 'Członek Zarządu'], ['Członek OSP', 'Członek OSP']]), {}, {:style =>"width:180px;height:40px;font-size:20px;"}) %>
+  <%= f.submit "Dodaj","style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;margin-top:-10px;" %>
+<% end %>
+<% end %>
+</div>
 </div>
