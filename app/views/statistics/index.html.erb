@@ -1,29 +1,29 @@
-<h1>Listing statistics</h1>
-
-<table>
-  <tr>
-    <th>Rok</th>
-    <th>Pozary</th>
-    <th>Zagrozenia</th>
-    <th>Falarmy</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @statistics.each do |statistic| %>
-  <tr>
-    <td><%= statistic.rok %></td>
-    <td><%= statistic.pozary %></td>
-    <td><%= statistic.zagrozenia %></td>
-    <td><%= statistic.falarmy %></td>
-    <td><%= link_to 'Show', statistic %></td>
-    <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
-    <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Rok', 'Miejscowe Zagrożenia', 'Pożary', 'Fałszywe Alarmy'],
+<% @statistics.each do |statystyka| %>
+          ['<%= statystyka.rok %>',  <%= statystyka.zagrozenia %>,      <%= statystyka.pozary %>,	<%= statystyka.falarmy %>],
 <% end %>
-</table>
+        ]);
 
-<br />
+        var options = {
+          title: 'Statystyki szczegółowo',
+          hAxis: {title: 'Rok', titleTextStyle: {color: 'black'}},
+          backgroundColor: '#749596'
+        };
 
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+<div class="home">
+<h4></h4>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);">
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
 <%= link_to 'New Statistic', new_statistic_path %>
+</div>
+</div>
+

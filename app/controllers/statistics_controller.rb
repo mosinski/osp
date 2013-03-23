@@ -4,6 +4,7 @@ class StatisticsController < ApplicationController
   def index
     @statistics = Statistic.all
     @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
