@@ -1,0 +1,42 @@
+<div class="news">
+<div>
+<h4>OTWP</h4>
+<ul>
+<%= will_paginate @articles, :container => false %>
+</ul>
+</div>
+<ul>
+<% @news.each do |news| %>
+<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
+<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
+<li>
+<% if @images.count == 0 %>	
+<a><%= image_tag("icon-logo2.jpg") %>
+<% else %>
+<a><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="96px" width="97px">
+<% end %>
+<br />
+
+</a>
+<div>
+<h3 id="news_index_tytul"><%= news.tytul.capitalize %></h3>
+<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
+  <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+<% else %>
+  <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+<% end %>
+<p>
+<%= news.tresc[0..300]+"..." %>
+</p>
+<%= link_to 'Czytaj więcej »', news %>
+<% if (current_user) && (current_user.username == "Administrator") %>
+<%= link_to 'Edytuj', edit_news_path(news) %>
+<%= link_to 'Usuń', news, confirm: 'Czy napewno chcesz usunąć aktualność?', method: :delete %>
+<% end %>
+</div>
+</li>
+<% end %>
+</ul>
+
+<br />
+</div>

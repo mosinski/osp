@@ -88,6 +88,13 @@
 					<% end %>
 						<a href="/czlonkowie">Członkowie</a>
 					</li>
+					<% if current_page?(:controller => 'news', :action => 'otwp') %>
+					<li class="selected" onclick="location.href = '/otwp'">
+					<% else %>
+					<li onclick="location.href = '/otwp'">
+					<% end %>
+						<a href="/otwp">OTWP</a>
+					</li>
 					<li>
 						<a href="contact.html">Wynajem Sali</a>
 					</li>

@@ -10,6 +10,7 @@
 </div>
 <ul>
 <% @news.each do |news| %>
+<% if news != "OTWP" %>
 <li>
 <% if news == "Imprezy" %>
 <a><img src="https://lh6.googleusercontent.com/-c75tOn0btzs/T2ZrWXEQUuI/AAAAAAAACxk/ODfNv9UHjlg/s684/P3130171.JPG" height="96px" width="97px">
@@ -56,6 +57,7 @@ Tu znajdują się wszystkie aktualności nie sklasyfikowane do żadnej grupy
 <%= link_to 'Przeglądaj Aktualności z grupy »', news.mb_chars.downcase.to_s %>
 </div>
 </li>
+<% end %>
 <% end %>
 </ul>
 
