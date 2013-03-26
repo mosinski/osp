@@ -16,7 +16,8 @@ class NewsController < ApplicationController
   # GET /news/1.json
   def show
     @news = News.find(params[:id])
-    @zdjecia = Image.find_all_by_przydzial(params[:id])
+    @album = Album.find_by_nr_newsa(@news.id)
+    @zdjecia = Image.find_all_by_przydzial(params[:id]).last(4)
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 

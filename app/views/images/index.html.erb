@@ -8,7 +8,7 @@
 <div style="width:85px;">
 <img src="http://m1l05z.pl/osp/<%= image.nazwa %>" class="img-rounded"" title="<%= image.nazwa %>"/>
 </div>
-<%= link_to 'Edytuj', edit_image_path(image) %> | <%= link_to 'Usuń', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edytuj', edit_image_path(image) %> | <%= link_to 'Usuń', image, method: :delete, data: { confirm: 'Napewno chcesz usunąć to zjdęcie?' } %>
 </center>
 </div>
 <% end %>

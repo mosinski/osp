@@ -50,6 +50,7 @@ require 'net/ftp'
        if (current_user.username == 'Administrator')
     		file = params[:file]
 		@news = News.find(params[:przydzial])
+		@albums = Album.find_all_by_nr_newsa(@news.id)
 		if file != nil
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
@@ -62,6 +63,12 @@ require 'net/ftp'
 		  @image.nazwa = file.original_filename
         	  @image.opis = params[:opis]
 		  @image.przydzial = params[:przydzial]
+		  if @albums.count == 0
+		  @album = Album.new
+		  @album.tytul = @news.tytul
+	          @album.nr_newsa = @news.id
+		  @album.save
+		  end
 
     		  respond_to do |format|
       		    if @image.save

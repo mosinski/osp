@@ -1,5 +1,8 @@
 Osp::Application.routes.draw do
 
+  resources :albums
+
+
 resources :users, :user_sessions,:news,:images,:statistics,:members
 
 match 'login' => 'user_sessions#new', :as => :login

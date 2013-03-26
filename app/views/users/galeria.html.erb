@@ -1,52 +1,46 @@
 			<div class="gallery">
 				<div class="gallery_div">
-					<h4>Galeria</h4>
+					<h4 style="float:left;">Galeria</h4>
+<ul style="float:left;margin-left:20px;height:35px;margin-top:6.5px;">
+<a href="/galeria" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Albumy</a>
+<a href="/aktualnosci_grupuj" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Wszystkie</a>
+</ul>
 					<ul>
 					<%= will_paginate @zdjecia_page, :container => false %>
 					</ul>
 				</div>
-<% licznik = 0 %>
-<% if @zdjecia.count != 0 %>
-<div id="myCarousel" class="carousel slide">  
-  <!-- Carousel items -->  
-  <div class="carousel-inner">  
-<% @zdjecia.each do |zdjecia| %>
-<% if licznik == 0 %>
-    <div class="active item">
-	<center>
-	<img src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" style="height:370px;">
-	</center>
-		<% if (zdjecia.opis != "") && (zdjecia.opis != nil) %>
-		<div class="carousel-caption">
-                      <p><%= zdjecia.opis %></p>
-                </div>
-		<% end %>
-    </div> 
+					<% @albums.each do |album| %>
+<% @zdjecie_pierwsze = Image.find_all_by_przydzial(album.nr_newsa).first %>
+<% @fotki = Image.find_all_by_przydzial(album.nr_newsa).first(6) %>
+<% @numer = Image.find_all_by_przydzial(album.nr_newsa).count %>
+<%= link_to 'Usuń', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:20px;display:block;" %>
+<% if @zdjecie_pierwsze != nil %>
+<div class="album_list" style="background:url(http://m1l05z.pl/osp/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
 <% else %>
-    <div class="item">
-	<center>
-	<img src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" style="height:370px;">
-	</center>
-		<% if (zdjecia.opis != "") && (zdjecia.opis != nil) %>
-		<div class="carousel-caption">
-                      <p><%= zdjecia.opis %></p>
-                </div>
-		<% end %>
-    </div> 
-<% end %> 
-<% licznik += 1 %> 
+<div class="album_list" onclick="location.href = '/albums/<%= album.id %>'" %>
 <% end %>
-  </div>  
-  <!-- Carousel nav -->  
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>  
-</div>  
+Opublikowano: <%= album.created_at.strftime("%H:%M %d-%m-%Y") %>
+
+<div class="album_inside">
+<%= album.tytul[0..45] %> (<%= @numer  %>
+<% if @numer.to_s.last(1) == "1" %>
+zdjęcie
+<% elsif @numer.to_s.last(1) == "2" || @numer.to_s.last(1) == "3" || @numer.to_s.last(1) == "4" %>
+zdjęcia
+<% else %>
+zdjęć
+<% end %>)
+<% @fotki.each do |fotka| %>
+<img src="http://m1l05z.pl/osp/<%= fotka.nazwa %>" class="img-rounded"/>
 <% end %>
-				<ul class="section">
-					<% @zdjecia_page.each do |zdjecia| %>
-<a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
-        <img style="width:185px;height:190px;" src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" class="img-polaroid"" />
-</a>
+</div>
+</div>
 					<% end %>
-				</ul>
+<% if current_user && current_user.username == "Administrator" %>
+<%= form_for Album.new do |f| %>
+  <%= f.label :Tytuł_albumu %>
+  <%= f.text_field :tytul, :width => "160px" %>
+  <%= f.submit "Dodaj","style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;margin-top:-10px;" %>
+<% end %>
+<% end %>
 			</div>
