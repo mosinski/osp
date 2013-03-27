@@ -74,7 +74,7 @@
 					<% end %>
 						<a href="/aktualnosci">Aktualności</a>
 					</li>
-					<% if current_page?(:controller => 'users_', :action => 'galeria') %>
+					<% if current_page?("/galeria")||current_page?("/galeria_wszystkie") %>
 					<li class="selected" onclick="location.href = '/galeria'">
 					<% else %>
 					<li onclick="location.href = '/galeria'">
@@ -143,7 +143,7 @@
 							<a href="/alarmy_plus" id="plus">[+]</a><a href="/alarmy_minus" id="plus">[-]</a>
 							<% end %>
 							</font></h3>
-							<a href="/statystyki">zobacz wykres >></a>
+							<a href="/statystyki">zobacz wykres »</a>
 						</div>
 					</li>
 					</div>

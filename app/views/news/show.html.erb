@@ -14,7 +14,7 @@
     </ul>
 </div>
 <% if @zdjecia.count != 0 %>
-<a href="/albums/<%= @album.id %>" style="float:right">przejdź do galeri >></a>
+<a href="/albums/<%= @album.id %>" style="float:right;margin-top:16px;color: rgb(0, 85, 128);">przejdź do galeri »</a>
 <% end %>
 <% if current_user && current_user.username == "Administrator" %>
 <div style="margin-top:40px;">

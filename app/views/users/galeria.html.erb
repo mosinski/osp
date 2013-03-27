@@ -3,7 +3,7 @@
 					<h4 style="float:left;">Galeria</h4>
 <ul style="float:left;margin-left:20px;height:35px;margin-top:6.5px;">
 <a href="/galeria" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Albumy</a>
-<a href="/aktualnosci_grupuj" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Wszystkie</a>
+<a href="/galeria_wszystkie" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Wszystkie</a>
 </ul>
 					<ul>
 					<%= will_paginate @zdjecia_page, :container => false %>
@@ -13,7 +13,7 @@
 <% @zdjecie_pierwsze = Image.find_all_by_przydzial(album.nr_newsa.to_s).first %>
 <% @fotki = Image.find_all_by_przydzial(album.nr_newsa.to_s).first(6) %>
 <% @numer = Image.find_all_by_przydzial(album.nr_newsa.to_s).count %>
-<%= link_to 'Usuń', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:20px;display:block;" %>
+<%= link_to '[x]', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;" %>
 <% if @zdjecie_pierwsze != nil %>
 <div class="album_list" style="background:url(http://m1l05z.pl/osp/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
 <% else %>
