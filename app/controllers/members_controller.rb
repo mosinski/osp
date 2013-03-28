@@ -1,19 +1,8 @@
 class MembersController < ApplicationController
 
-  # GET /members/new
-  # GET /members/new.json
-  def new
-    @member = Member.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @member }
-    end
-  end
-
   def create
-    if current_user
-    if (current_user.username == 'Administrator')
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @member = Member.new(params[:member])
 
     respond_to do |format|
@@ -34,12 +23,20 @@ class MembersController < ApplicationController
   end
 
   def destroy
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @member = Member.find(params[:id])
     @member.destroy
 
     respond_to do |format|
       format.html { redirect_to "/czlonkowie", notice: 'Informacja! Usuni&#281to Cz&#322onka OSP.' }
       format.json { head :no_content }
+    end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 end

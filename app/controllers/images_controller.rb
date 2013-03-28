@@ -3,6 +3,8 @@ require 'net/ftp'
   # GET /images
   # GET /images.json
   def index
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @images = Image.all
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -12,42 +14,35 @@ require 'net/ftp'
       format.html # index.html.erb
       format.json { render json: @images }
     end
-  end
-
-  # GET /images/1
-  # GET /images/1.json
-  def show
-    @image = Image.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @image }
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 
-  # GET /images/new
-  # GET /images/new.json
-  def new
-    @image = Image.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @image }
-    end
-  end
 
   # GET /images/1/edit
   def edit
+  if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @image = Image.find(params[:id])
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # POST /images
   # POST /images.json
   def create
-   if current_user
-       if (current_user.username == 'Administrator')
+  if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     		file = params[:file]
 		@news = News.find(params[:przydzial])
 		@albums = Album.find_all_by_nr_newsa(@news.id)
@@ -96,6 +91,8 @@ require 'net/ftp'
   # PUT /images/1
   # PUT /images/1.json
   def update
+if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @image = Image.find(params[:id])
 
     respond_to do |format|
@@ -107,17 +104,31 @@ require 'net/ftp'
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
+  if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @image = Image.find(params[:id])
     @image.destroy
 
     respond_to do |format|
       format.html { redirect_to images_url }
       format.json { head :no_content }
+    end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 end

@@ -15,6 +15,8 @@ class StatisticsController < ApplicationController
   # GET /statistics/new
   # GET /statistics/new.json
   def new
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)
     @statistic = Statistic.new
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -23,10 +25,18 @@ class StatisticsController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @statistic }
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # GET /statistics/1/edit
   def edit
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find(params[:id])
     @zdjecia_stopka = Image.last(3)
   end
@@ -34,6 +44,8 @@ class StatisticsController < ApplicationController
   # POST /statistics
   # POST /statistics.json
   def create
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)
     @statistic = Statistic.new(params[:statistic])
 
     respond_to do |format|
@@ -45,11 +57,19 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # PUT /statistics/1
   # PUT /statistics/1.json
   def update
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find(params[:id])
 
     respond_to do |format|
@@ -61,11 +81,19 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # DELETE /statistics/1
   # DELETE /statistics/1.json
   def destroy
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)
     @statistic = Statistic.find(params[:id])
     @statistic.destroy
 
@@ -73,9 +101,17 @@ class StatisticsController < ApplicationController
       format.html { redirect_to statistics_url }
       format.json { head :no_content }
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   def pozar_plus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.pozary += 1
     respond_to do |format|
@@ -87,9 +123,17 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
   
   def pozar_minus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.pozary -= 1
     respond_to do |format|
@@ -101,9 +145,17 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   def zagrozenia_plus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.zagrozenia += 1
     respond_to do |format|
@@ -115,9 +167,17 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   def zagrozenia_minus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.zagrozenia -= 1
     respond_to do |format|
@@ -129,9 +189,17 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   def alarmy_plus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.falarmy += 1
     respond_to do |format|
@@ -143,9 +211,17 @@ class StatisticsController < ApplicationController
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
     end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   def alarmy_minus
+   if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.falarmy -= 1
     respond_to do |format|
@@ -156,6 +232,12 @@ class StatisticsController < ApplicationController
         format.html { redirect_to root_url, notice: 'Uwaga! Niepowodzenie' }
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
       end
+    end
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 end

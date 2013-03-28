@@ -31,7 +31,7 @@ class NewsController < ApplicationController
   # GET /news/new.json
   def new
    if current_user
-       if (current_user.username == 'Administrator')
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.new
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -51,7 +51,7 @@ class NewsController < ApplicationController
   # GET /news/1/edit
   def edit
    if current_user
-       if (current_user.username == 'Administrator')
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.find(params[:id])
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -67,7 +67,7 @@ class NewsController < ApplicationController
   # POST /news.json
   def create
    if current_user
-       if (current_user.username == 'Administrator')
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.new(params[:news])
 
     respond_to do |format|
@@ -91,7 +91,7 @@ class NewsController < ApplicationController
   # PUT /news/1.json
   def update
    if current_user
-       if (current_user.username == 'Administrator')
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.find(params[:id])
 
     respond_to do |format|
@@ -115,7 +115,7 @@ class NewsController < ApplicationController
   # DELETE /news/1.json
   def destroy
    if current_user
-       if (current_user.username == 'Administrator')
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.find(params[:id])
     @news.destroy
 
