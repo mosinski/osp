@@ -49,9 +49,9 @@ require 'net/ftp'
 		if file != nil
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
-    		  ftp = Net::FTP.new('s4.masternet.pl')
+    		  ftp = Net::FTP.new('s3.masternet.pl')
         	  ftp.passive = true
-    		  ftp.login(user = "m1l05z-osp", passwd = "masakra123")
+    		  ftp.login(user = ENV['ftp_login'], passwd = ENV['ftp_haslo'])
     		  ftp.storbinary("STOR " + file.original_filename, StringIO.new(file.read), Net::FTP::DEFAULT_BLOCKSIZE)
     		  ftp.quit()
 		  @image = Image.new
