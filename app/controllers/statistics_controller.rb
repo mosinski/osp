@@ -39,6 +39,12 @@ class StatisticsController < ApplicationController
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find(params[:id])
     @zdjecia_stopka = Image.last(3)
+	else
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # POST /statistics
@@ -221,7 +227,7 @@ class StatisticsController < ApplicationController
 
   def alarmy_minus
    if current_user
-       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+    if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @statistic = Statistic.find_by_rok(Time.now.year)
     @statistic.falarmy -= 1
     respond_to do |format|
