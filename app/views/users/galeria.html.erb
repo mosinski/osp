@@ -22,7 +22,7 @@
 Opublikowano: <%= album.created_at.strftime("%H:%M %d-%m-%Y") %>
 
 <div class="album_inside">
-<div style="display: block;"
+<div style="display: block;">
 <%= album.tytul[0..45] %> (<%= @numer  %>
 <% if @numer.to_s.last(1) == "1" %>
 zdjęcie
