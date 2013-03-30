@@ -11,7 +11,7 @@
 				</div>
 					<% @albums.each do |album| %>
 <% @zdjecie_pierwsze = Image.find_all_by_przydzial(album.nr_newsa.to_s).first %>
-<% @fotki = Image.find_all_by_przydzial(album.nr_newsa.to_s).first(6) %>
+<% @fotki = Image.find_all_by_przydzial(album.nr_newsa.to_s).first(5) %>
 <% @numer = Image.find_all_by_przydzial(album.nr_newsa.to_s).count %>
 <%= link_to '[x]', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;" %>
 <% if @zdjecie_pierwsze != nil %>
@@ -31,7 +31,7 @@ zdjęcia
 zdjęć
 <% end %>)
 <% @fotki.each do |fotka| %>
-<img src="http://serwer.osp-lesniewo.pl/<%= fotka.nazwa %>" class="img-rounded"/>
+<img src="http://serwer.osp-lesniewo.pl/<%= fotka.nazwa %>" class="img-rounded" style="margin-right:5px"/>
 <% end %>
 </div>
 </div>
