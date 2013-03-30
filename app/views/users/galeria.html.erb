@@ -13,7 +13,9 @@
 <% @zdjecie_pierwsze = Image.find_all_by_przydzial(album.nr_newsa.to_s).first %>
 <% @fotki = Image.find_all_by_przydzial(album.nr_newsa.to_s).first(5) %>
 <% @numer = Image.find_all_by_przydzial(album.nr_newsa.to_s).count %>
+<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <%= link_to '[x]', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;" %>
+<% end %>
 <% if @zdjecie_pierwsze != nil %>
 <div class="album_list" style="background:url(http://serwer.osp-lesniewo.pl/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
 <% else %>
