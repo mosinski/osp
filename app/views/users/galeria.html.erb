@@ -22,6 +22,7 @@
 Opublikowano: <%= album.created_at.strftime("%H:%M %d-%m-%Y") %>
 
 <div class="album_inside">
+<div style="display: block;"
 <%= album.tytul[0..45] %> (<%= @numer  %>
 <% if @numer.to_s.last(1) == "1" %>
 zdjęcie
@@ -30,6 +31,7 @@ zdjęcia
 <% else %>
 zdjęć
 <% end %>)
+</div>
 <% @fotki.each do |fotka| %>
 <img src="http://serwer.osp-lesniewo.pl/<%= fotka.nazwa %>" class="img-rounded" style="margin-right:5px"/>
 <% end %>
