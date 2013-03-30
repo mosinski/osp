@@ -1,9 +1,13 @@
 			<div class="gallery">
 				<div class="gallery_div">
+					<% if @news != nil %>
 					<% if @news.tytul.length > 48 %>
 					<h4>Galeria: <%= @news.tytul[0..40]+".." %></h4>
 					<% else %>
 					<h4>Galeria: <%= @news.tytul %></h4>
+					<% end %>
+					<% else %>
+					<h4>Galeria</h4>
 					<% end %>
 					<ul>
 					<%= will_paginate @zdjecia_page, :container => false %>
@@ -53,4 +57,18 @@
 </a>
 					<% end %>
 				</ul>
+<% if current_user && current_user.username == "Administrator" %>
+<div style="margin-top:40px;">
+<%= form_tag '/ftp/upload', :method => :post, :multipart => true do %>
+<%= text_field_tag :przydzial, @album.nr_newsa, "style"=>"display:none"%>
+<center><b><%= label_tag(:q, "Dodaj zdjęcie do aktualności:") %></b>
+<%= file_field_tag "file", "style"=>"height:40px;" %>
+<%= submit_tag "Dodaj Zdjęcie", "style"=>"width:100px;margin-left:100px;height:40px;cursor:pointer;"%><br>
+<div class="field">
+    <%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Krótki opis do zdjęcia..." %>
+ </div>
+</center>
+<% end %>
+</div>
+<% end %>
 			</div>

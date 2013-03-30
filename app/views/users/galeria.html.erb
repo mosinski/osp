@@ -2,8 +2,8 @@
 				<div class="gallery_div">
 					<h4 style="float:left;">Galeria</h4>
 <ul style="float:left;margin-left:20px;height:35px;margin-top:6.5px;">
-<a href="/galeria" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Albumy</a>
-<a href="/galeria_wszystkie" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Wszystkie</a>
+<%= link_to "Albumy", "/galeria", :class => "zakladki_male" %>
+<%= link_to "Wszystkie", "/galeria_wszystkie", :class => "zakladki_male" %>
 </ul>
 					<ul>
 					<%= will_paginate @zdjecia_page, :container => false %>

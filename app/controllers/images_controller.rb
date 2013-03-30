@@ -44,8 +44,12 @@ require 'net/ftp'
   if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     		file = params[:file]
+		if News.find_all_by_id(params[:przydzial]).count != 0
 		@news = News.find(params[:przydzial])
 		@albums = Album.find_all_by_nr_newsa(@news.id)
+		else
+		@albums = Album.find_all_by_nr_newsa(params[:przydzial])
+		end
 		if file != nil
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
