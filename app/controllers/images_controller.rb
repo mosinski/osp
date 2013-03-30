@@ -71,7 +71,7 @@ require 'net/ftp'
 
     		  respond_to do |format|
       		    if @image.save
-        		format.html { redirect_to "/aktualnosci", notice: 'Gratulacje! Dodano zdj&#281;cie do aktualno&#347;ci' }
+        		format.html { redirect_to @news, notice: 'Gratulacje! Dodano zdj&#281;cie do aktualno&#347;ci' }
         		format.json { render json: @image, status: :created, location: @image }
       		    else
         		format.html { redirect_to @news, notice: 'Uwaga! Niepowodznie dodania zdjecia' }
