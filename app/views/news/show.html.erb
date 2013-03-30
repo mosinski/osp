@@ -33,7 +33,7 @@
 <br><br>
 </div>
 <form>
-<% if current_user && current_user.username == "Administrator" %>
+<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <input name="commit" style="height:15.4px;width:55px;font-weight:bold;cursor:pointer;" value=" Edytuj" onclick="location.href = '<%= edit_news_path(@news) %>'">
 <% end %>
 <input name="commit" style="height:15.4px;width:100px;font-weight:bold;cursor:pointer;" value=" Wróć do listy" onclick="location.href = '/aktualnosci'">
