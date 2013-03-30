@@ -2,8 +2,8 @@
 <div>
 <h4>Aktualności</h4>
 <ul style="float:left;margin-left:20px;height:35px;margin-top:6.5px;">
-<a href="/aktualnosci" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Wszystkie</a>
-<a href="/aktualnosci_grupuj" style="background: none repeat scroll 0% 0% rgb(116, 149, 150); padding: -8px 5px 5px 5px;border-radius: 5px 5px 5px 5px;border:1px solid;color:black;display: inline-block;">Grupuj</a>
+<%= link_to "Wszystkie", "/aktualnosci", :class => "zakladki_male" %>
+<%= link_to "Grupuj", "/aktualnosci_grupuj", :class => "zakladki_male" %>
 </ul>
 <ul>
 <%= will_paginate @articles, :container => false %>
@@ -17,7 +17,7 @@
 <% if @images.count == 0 %>	
 <a><%= image_tag("icon-logo2.jpg") %>
 <% else %>
-<a><img src="http://m1l05z.pl/osp/<%= @logo.nazwa %>" height="96px" width="97px">
+<a><img src="http://serwer.osp-lesniewo.pl/<%= @logo.nazwa %>" height="96px" width="97px">
 <% end %>
 <br />
 <center>

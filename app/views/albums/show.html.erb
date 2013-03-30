@@ -22,7 +22,7 @@
 <% if licznik == 0 %>
     <div class="active item">
 	<center>
-	<img src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" style="height:370px;">
+	<img src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" style="height:370px;">
 	</center>
 		<% if (zdjecia.opis != "") && (zdjecia.opis != nil) %>
 		<div class="carousel-caption">
@@ -33,7 +33,7 @@
 <% else %>
     <div class="item">
 	<center>
-	<img src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" style="height:370px;">
+	<img src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" style="height:370px;">
 	</center>
 		<% if (zdjecia.opis != "") && (zdjecia.opis != nil) %>
 		<div class="carousel-caption">
@@ -52,8 +52,8 @@
 <% end %>
 				<ul class="section">
 					<% @zdjecia_page.each do |zdjecia| %>
-<a class="fancybox-effects-b" href="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
-        <img style="width:185px;height:190px;" src="http://m1l05z.pl/osp/<%= zdjecia.nazwa %>" class="img-polaroid"" />
+<a class="fancybox-effects-b" href="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
+        <img style="width:185px;height:190px;" src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" class="img-polaroid"" />
 </a>
 					<% end %>
 				</ul>

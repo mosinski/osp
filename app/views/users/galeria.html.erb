@@ -15,7 +15,7 @@
 <% @numer = Image.find_all_by_przydzial(album.nr_newsa.to_s).count %>
 <%= link_to '[x]', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;" %>
 <% if @zdjecie_pierwsze != nil %>
-<div class="album_list" style="background:url(http://m1l05z.pl/osp/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
+<div class="album_list" style="background:url(http://serwer.osp-lesniewo.pl/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
 <% else %>
 <div class="album_list" onclick="location.href = '/albums/<%= album.id %>'" %>
 <% end %>
@@ -31,7 +31,7 @@ zdjęcia
 zdjęć
 <% end %>)
 <% @fotki.each do |fotka| %>
-<img src="http://m1l05z.pl/osp/<%= fotka.nazwa %>" class="img-rounded"/>
+<img src="http://serwer.osp-lesniewo.pl/<%= fotka.nazwa %>" class="img-rounded"/>
 <% end %>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <div class="lista_zdjec">
 <center>
 <div style="width:85px;">
-<img src="http://m1l05z.pl/osp/<%= image.nazwa %>" class="img-rounded"" title="<%= image.nazwa %>"/>
+<img src="http://serwer.osp-lesniewo.pl/<%= image.nazwa %>" class="img-rounded"" title="<%= image.nazwa %>"/>
 </div>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <%= link_to 'Edytuj', edit_image_path(image) %> | <%= link_to 'Usuń', image, method: :delete, data: { confirm: 'Napewno chcesz usunąć to zjdęcie?' } %>
