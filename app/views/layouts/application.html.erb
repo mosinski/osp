@@ -15,8 +15,6 @@
   <%= csrf_meta_tags %>
 <script type="text/javascript">
  $(document).ready(function() {
-	$('.fancybox').fancybox();
-
 	$(".fancybox-effects-b").fancybox({
 		openEffect  : 'none',
 		closeEffect	: 'none',
@@ -27,6 +25,18 @@
 				}
 			}
 	});
+$(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        beforeShow: function () {
+            /* Add watermark */
+            $('<div class="watermark"></div>')
+                .bind("contextmenu", function (e) {
+                    return false; /* Disables right click */
+                })
+                .prependTo( $.fancybox.inner );   
+        }
+    });
 });
 </script>
 </head>

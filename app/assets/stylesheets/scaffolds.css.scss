@@ -1087,3 +1087,12 @@ display: inline-block;
 width:61px !important;
 height:60px !important;
 }
+.watermark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url(/assets/znak_wodny.png) bottom right no-repeat;
+    z-index: 1100;
+}
