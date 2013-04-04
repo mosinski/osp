@@ -4,11 +4,37 @@
 					<% @news.each do |news| %>
 					<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
 					<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
-					<li>
+					<li class="news_start">
 						<% if @images.count == 0 %>
-						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg") %></a>
+						<div style="position:absolute; left:45px; bottom:15px;">
+						<% if news.rodzaj == "Imprezy" %>
+						<%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
+						<% elsif news.rodzaj == "Interwencje" %>
+         					<%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
+						<% elsif news.rodzaj == "Szkolenia" %>
+         					<%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
+						<% elsif news.rodzaj == "Inne" %>
+         					<%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
+						<% elsif news.rodzaj == "OTWP" %>
+         					<%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
+						<% end %>
+    						</div>
+						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg", :class => "start_logo") %></a>
 						<% else %>
 						<a href="/news/<%= news.id %>"><img src="http://serwer.osp-lesniewo.pl/<%= @logo.nazwa %>" class="glowna_miniatura"></a>
+						<div style="position:absolute; left:45px; bottom:15px;">
+						<% if news.rodzaj == "Imprezy" %>
+						<%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
+						<% elsif news.rodzaj == "Interwencje" %>
+         					<%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
+						<% elsif news.rodzaj == "Szkolenia" %>
+         					<%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
+						<% elsif news.rodzaj == "Inne" %>
+         					<%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
+						<% elsif news.rodzaj == "OTWP" %>
+         					<%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
+						<% end %>
+    						</div>
 						<% end %>
 						<div>
 							<h3><%= news.tytul.capitalize[0..28]+' ...' %></h3>
