@@ -260,6 +260,7 @@ a img {
 	padding: 2px 0px 0px 2px;
 	position:relative;
 	width:300px;
+	height:235px;
 }
 .body .home ul li a {
 	display:inline-block;
@@ -1115,6 +1116,7 @@ height:69px !important;
 .start_logo{
 width:70px !important;
 height:69px !important;
+box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 .bookmars{
 margin-left:-50px;
@@ -1122,4 +1124,12 @@ z-index:2;
 width:80px;
 height:40px;
 }
-
+#start_a{
+position:absolute;
+bottom:15px;
+right:15px;
+color:white !important;
+}
+#start_a:hover{
+text-decoration:underline;
+}
