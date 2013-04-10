@@ -2,14 +2,14 @@
 <html>
 <head>
 	<title>OSP Leśniewo</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Exo:800italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href="http://osp.herokuapp.com/logo.png" rel="icon" type="image/x-icon">
 	<script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery.fancybox.css" media="screen" />
+	<script type="text/javascript" src="/javascripts/jquery.flexslider.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -105,8 +105,12 @@ $(".fancybox")
 					<% end %>
 						<a href="/otwp">OTWP</a>
 					</li>
-					<li>
-						<a href="contact.html">Wynajem Sali</a>
+					<% if current_page?(:controller => 'users', :action => 'wynajem_sali') %>
+					<li class="selected" onclick="location.href = '/wynajem_sali'">
+					<% else %>
+					<li onclick="location.href = '/wynajem_sali'">
+					<% end %>
+						<a href="/wynajem_sali">Wynajem Sali</a>
 					</li>
 					<% if current_page?(:controller => 'users_', :action => 'about') %>
 					<li class="selected" onclick="location.href = '/about'">
@@ -116,7 +120,7 @@ $(".fancybox")
 						<a href="/about">O nas</a>
 					</li>
 				</ul>
-<% if (current_page?("/"))||(current_page?("/about"))||(current_page?("/czlonkowie")) %>
+<% if (current_page?("/"))||(current_page?("/about"))||(current_page?("/czlonkowie"))||(current_page?("/wynajem_sali")) %>
 				<div class="featured">
 					<h3>TEL. ALARMOWY 998 lub 112</h3>
 					

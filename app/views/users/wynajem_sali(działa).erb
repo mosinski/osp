@@ -1,0 +1,127 @@
+<style>
+#slider{
+height:500px;
+}
+#gora_slajdy img{
+height:500px;
+}
+#slajdy_dol img{
+height:132px;
+}
+</style>
+
+        <div id="slider" class="flexslider">
+          <ul class="slides" id="gora_slajdy">
+            <li>
+  	    	    <img src="http://serwer.osp-lesniewo.pl/borys4.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="http://serwer.osp-lesniewo.pl/borys4.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="/images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="/images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="/images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+          </ul>
+        </div>
+        <div id="carousel" class="flexslider">
+          <ul class="slides">
+            <li id="slajdy_dol">
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+          </ul>
+        </div>
+      
+  
+  
+  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+  
+  <!-- FlexSlider -->
+  <script src="http://flexslider.woothemes.com/js/jquery.flexslider.js"></script>
+  
+  <script type="text/javascript">
+    $(window).load(function(){
+      $('#carousel').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 210,
+        itemMargin: 5,
+        asNavFor: '#slider'
+      });
+      
+      $('#slider').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        sync: "#carousel",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+

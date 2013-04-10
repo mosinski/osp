@@ -1,6 +1,73 @@
-			<div class="gallery">
-				<div class="gallery_div">
-					<h4 style="float:left;">Wynajem Sali</h4>
-				</div>
-
-			</div>
+    <style>
+		a {
+			color: #09f;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		#back_to_camera {
+			clear: both;
+			display: block;
+			height: 80px;
+			line-height: 40px;
+			padding: 20px;
+		}
+		.fluid_container {
+			margin: 0 auto;
+			max-width: 1000px;
+			width: 100%;
+		}
+		#osoba {
+		font-weight:bold;
+		font-size:25px;
+		line-height:35px;
+		}
+	</style>
+    <script type='text/javascript' src='http://www.pixedelic.com/plugins/camera/development/camera_1.0.6/scripts/jquery.min.js'></script>
+    <script type='text/javascript' src='http://www.pixedelic.com/plugins/camera/development/camera_1.0.6/scripts/jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='http://www.pixedelic.com/plugins/camera/development/camera_1.0.6/scripts/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='http://www.pixedelic.com/plugins/camera/development/camera_1.0.6/scripts/camera.min.js'></script> 
+    
+    <script>
+		jQuery(function(){
+			jQuery('#camera_wrap_2').camera({
+				height: '400px',
+				pagination: false,
+				thumbnails: true
+			});
+		});
+	</script>
+<div class="about">
+<h4>Wynajem Sali</h4>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;">
+    <div class="fluid_container">
+        <div class="camera_wrap camera_black_skin" id="camera_wrap_2">
+            <div data-thumb="/assets/sala/thumbs/IMG_9460.JPG" data-src="/assets/sala/IMG_9460.JPG">
+            </div>
+            <div data-thumb="/assets/sala/thumbs/IMG_9475.JPG" data-src="/assets/sala/IMG_9475.JPG">
+                <div class="camera_caption fadeFromBottom">
+                    Do dyspozycji jest ruchoma scena..
+                </div>
+            </div>
+            <div data-thumb="/assets/sala/thumbs/IMG_9476.JPG" data-src="/assets/sala/IMG_9476.JPG">
+            </div>
+            <div data-thumb="/assets/sala/thumbs/IMG_9478.JPG" data-src="/assets/sala/IMG_9478.JPG">
+		<div class="camera_caption fadeFromBottom">
+                    Sala jest doskonale oświetlona..
+                </div>
+            </div>
+            <div data-thumb="/assets/sala/thumbs/IMG_9479.JPG" data-src="/assets/sala/IMG_9479.JPG">
+            </div>
+            <div data-thumb="/assets/sala/thumbs/IMG_9482.JPG" data-src="/assets/sala/IMG_9482.JPG">
+            </div>
+        </div><!-- #camera_wrap_2 -->
+    </div><!-- .fluid_container -->
+    
+    <div style="clear:both; display:block; height:50px"></div>
+<font style="font-size:18px;font-weight: 400;letter-spacing: 0.05em;text-indent: 25px;"><center>Oferujemy Państwu wynajem sali na imprezy okolicznościowe.<br><br>
+Wszystkich informacji dotyczących wynajmu sali udziela<br><font id="osoba">Pani <u>Jadwiga Siniczyn</u></font><br>pod numerem telefonu:<br> 
+<font id="osoba">782978957</font>
+<br><br>
+</center></font>
+</div>
+</div>
