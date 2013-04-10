@@ -5,9 +5,6 @@
 <%= link_to "Albumy", "/galeria", :class => "zakladki_male" %>
 <%= link_to "Wszystkie", "/galeria_wszystkie", :class => "zakladki_male" %>
 </ul>
-					<ul>
-					<%= will_paginate @zdjecia_page, :container => false %>
-					</ul>
 				</div>
 					<% @albums.each do |album| %>
 <% @zdjecie_pierwsze = Image.find_all_by_przydzial(album.nr_newsa.to_s).first %>
