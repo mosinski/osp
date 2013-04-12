@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="/javascripts/jsapi.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -199,7 +199,7 @@ $(".fancybox")
 						<% end %>
 					</li>
 					<li>
-						<a href="contact.html">Kontakt</a>
+						<a data-toggle="modal" href="#kontakt">Kontakt</a>
 					</li>
 					<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 					<%= link_to 'Dodaj News', new_news_path %> | 
@@ -219,6 +219,42 @@ $(".fancybox")
 		<center>Projekt <a href="http://m1l05z.pl">Miłosz Osiński</a> i <a href="http://khallmann.pl">Krystian Hallmann</a></center>
 		</div>
 </div>
+<div id="kontakt" class="modal hide fade">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Ochotnicza Straż Pożarna w Leśniewie.</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Kontakt</h4>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><span style="text-decoration: underline;"><span style="font-size: 14pt;"><strong style="color: #000000; text-decoration: underline;">Prezes:</strong></span></span></td>
+<td><span style="text-decoration: underline;"><span style="font-size: 14pt;"><strong style="color: #000000; text-decoration: underline;">Naczelnik:</strong></span></span></td>
+</tr>
+<tr>
+<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">Lanc Wincenty</span></strong></td>
+<td><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">Semmerling Ryszard</span></strong></span></td>
+</tr>
+<tr>
+<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">ul. Starowiejska 22</span></strong></td>
+<td><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">ul. Cicha 2</span></strong></span></td>
+</tr>
+<tr>
+<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">84-106 Leśniewo</span></strong></td>
+<td><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">84-106 Leśniewo</span></strong></td>
+</tr>
+<tr>
+<td width="50%"><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">tel. 509-445-521</span></strong></span></td>
+<td><strong><span style="font-size: small; color: #ff0000;"><span style="font-size: 16px; font-style: normal;">tel. 692-328-905</span></span></strong></td>
+</tr>
+</tbody>
+</table>
+            </div>
+            <div class="modal-footer">
+              <center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
+            </div>
+</div> 
 </body>
 <script type="text/javascript">
   window.___gcfg = {lang: 'pl'};
