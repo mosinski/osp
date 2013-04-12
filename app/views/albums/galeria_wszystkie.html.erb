@@ -4,6 +4,7 @@
 <ul style="float:left;margin-left:20px;height:35px;margin-top:6.5px;">
 <%= link_to "Albumy", "/galeria", :class => "zakladki_male" %>
 <%= link_to "Wszystkie", "/galeria_wszystkie", :class => "zakladki_male" %>
+<%= image_tag("/assets/gplus.png", :height => '47', :width => '42', :class =>"galeriaplus", :onclick => "window.open('https://plus.google.com/101678126146835185818/posts','external');return false;", :title => "Galeria na Picasa Web") %>
 </ul>
 					<ul>
 					<%= will_paginate @zdjecia_page, :container => false %>

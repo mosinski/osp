@@ -1,8 +1,8 @@
 <div class="home">
 <h4>Struktura OSP Leśniewo</h4>
-<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;display:block;padding: 5px 19px 0px 18px;">
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;display:block;padding: 5px 19px 0px 18px;min-height:500px;">
 <br>
-<div style="display:inline-block;width:49%;height:500px;border-right:2px solid;border-color:rgb(16, 34, 35);float:left;">
+<div style="display:inline-block;width:50%;height:500px;float:left;">
 <center><h4>Zarząd</h4></center>
 <% @members.each do |member| %>
 <% if member.stanowisko != "Członek OSP" %>
@@ -14,7 +14,7 @@
 <% end %>
 <% end %>
 </div>
-<div style="display:inline-block;width:50%;height:500px;margin-left:-4px;margin-bottom:100px;">
+<div style="display:inline-block;width:49%;margin-left:0px;margin-bottom:50px;border-left:2px solid;border-color:rgb(16, 34, 35);">
 <center><h4>Członkowie</h4></center>
 <% @members.each do |member| %>
 <% if member.stanowisko == "Członek OSP" %>
