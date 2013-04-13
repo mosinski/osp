@@ -1,5 +1,5 @@
 			<div class="home">
-				<h4>Ostatnio Dodane Aktualności</h4>
+			<h4>Ostatnio Dodane Aktualności <%= image_tag("rss.png","title" => "Subskrypcja Aktualności", :class => "przycisk_rss", :onclick => "window.open('/news.atom','external');return false;") %></h4>
 				<ul>
 					<% @news.each do |news| %>
 					<% @images = Image.find_all_by_przydzial(news.id.to_s) %>

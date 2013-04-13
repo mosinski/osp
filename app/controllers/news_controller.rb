@@ -3,12 +3,15 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
+    @aktualnosci_atom =  News.all
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @news }
+      format.atom     # index.atom.builder
+      format.xml  { render :xml => @news }  
     end
   end
 
