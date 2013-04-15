@@ -15,7 +15,7 @@
 <%= link_to '[x]', album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;" %>
 <% end %>
 <% if @zdjecie_pierwsze != nil %>
-<div class="album_list" style="background:url(http://serwer.osp-lesniewo.pl/<%= @zdjecie_pierwsze.nazwa %>)" onclick="location.href = '/albums/<%= album.id %>'">
+<div class="album_list" style="background:url(http://serwer.osp-lesniewo.pl/<%= @zdjecie_pierwsze.nazwa %>); background-size: 100%;" onclick="location.href = '/albums/<%= album.id %>'">
 <% else %>
 <div class="album_list" onclick="location.href = '/albums/<%= album.id %>'" %>
 <% end %>
