@@ -84,6 +84,18 @@
 	asset-url('exo-bold-webfont.ttf', font) format('truetype'), 
 	asset-url('exo-bold-webfont.svg#exobold', font) format('svg');
 }
+@font-face {
+	font: {
+  	family: 'Exo';
+  	weight: 800;
+  	style: 'italic';
+	}
+	src: asset-url('Exo-ExtraBold-Italic.eot', font);
+	src: asset-url('Exo-ExtraBold-Italic.eot', font) format('embedded-opentype'), 
+	asset-url('Exo-ExtraBold-Italic.woff', font) format('woff'), 
+	asset-url('Exo-ExtraBold-Italic.ttf', font) format('truetype'), 
+	asset-url('Exo-ExtraBold-Italic.svg#exoextrabolditalic', font) format('svg');
+}
 /*------------------------- Layout styles ------------------------*/
 body {
 	margin:0;
