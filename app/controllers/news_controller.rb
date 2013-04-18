@@ -193,6 +193,7 @@ class NewsController < ApplicationController
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("OTWP")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
+    @pliki = Plik.all
 
     respond_to do |format|
       format.html # index.html.erb

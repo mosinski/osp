@@ -6,6 +6,13 @@
 </ul>
 </div>
 <ul>
+<center><h4>Materiały Szkoleniowe <a data-toggle="modal" href="#plik">+</a></h4></center>
+<% @pliki.each do |plik| %>
+<%= link_to image_tag("blank.gif", :style => "background-position:215px -286px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.txt\z/) %>
+<%= link_to image_tag("blank.gif", :style => "background-position:159px -510px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.doc\z/)  %>
+<%= link_to image_tag("blank.gif", :style => "background-position:103px -62px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.docx\z/)  %>
+<%= link_to image_tag("blank.gif", :style => "background-position:-121px 274px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.pdf\z/)  %>
+<% end %>
 <% @news.each do |news| %>
 <% @images = Image.find_all_by_przydzial(news.id.to_s) %>
 <% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
@@ -39,3 +46,19 @@
 
 <br />
 </div>
+<div id="plik" class="modal hide fade">
+            <div class="modal-header" style="background:rgb(116, 149, 150)">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Dodawanie nowego pliku</h3>
+            </div>
+            <div class="modal-body">
+<%= form_for Plik.new, :html => {:multipart => true} do |f| %>
+<center>
+<%= file_field_tag "file", "style"=>"height:40px;" %>
+ <%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Nazwa dla pliku na stronie..." %>
+            </div>
+            <div class="modal-footer">
+              <%= submit_tag "Dodaj Plik", "style"=>"width:100px;margin-left:100px;height:40px;cursor:pointer;", :class => "btn btn-success" %></center>
+<% end %>
+            </div>
+</div> 

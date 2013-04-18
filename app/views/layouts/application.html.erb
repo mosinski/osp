@@ -203,7 +203,8 @@ $(".fancybox")
 					</li>
 					<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 					<%= link_to 'Dodaj News', new_news_path %> | 
-					<%= link_to 'Lista Zdjęć', images_path %>
+					<%= link_to 'Lista Zdjęć', images_path %> |
+					<%= link_to 'Lista Plików', images_path %>
 					<% else %>
 					<iframe src="http://www.facebook.com/plugins/like.php?href=http://osp-lesniewo.pl&layout=standard&show_faces=false&
 2.width=250&action=like&colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:70px; height:25px; margin-right:10px;">

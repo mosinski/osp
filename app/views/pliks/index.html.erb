@@ -1,0 +1,21 @@
+<h1>Listing pliks</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pliks.each do |plik| %>
+  <tr>
+    <td><%= link_to 'Show', plik %></td>
+    <td><%= link_to 'Edit', edit_plik_path(plik) %></td>
+    <td><%= link_to 'Destroy', plik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plik', new_plik_path %>
