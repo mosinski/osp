@@ -12,6 +12,8 @@
 <%= link_to image_tag("blank.gif", :style => "background-position:159px -510px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.doc\z/)  %>
 <%= link_to image_tag("blank.gif", :style => "background-position:103px -62px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.docx\z/)  %>
 <%= link_to image_tag("blank.gif", :style => "background-position:-121px 274px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.pdf\z/)  %>
+<%= link_to image_tag("blank.gif", :style => "background-position: 47px -118px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.rar\z/)  %>
+<%= link_to image_tag("blank.gif", :style => "background-position: -9px -342px", :class => "icon_plik")+plik.opis, "http://serwer.osp-lesniewo.pl/pliki/#{plik.nazwa}", :class => "btn btn-large btn-primary" if plik.nazwa.to_s.match(/.*.zip\z/)  %>
 <% end %>
 <% @news.each do |news| %>
 <% @images = Image.find_all_by_przydzial(news.id.to_s) %>

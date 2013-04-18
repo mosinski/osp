@@ -11,37 +11,13 @@ require 'net/ftp'
     end
   end
 
-  # GET /pliks/1
-  # GET /pliks/1.json
-  def show
-    @plik = Plik.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @plik }
-    end
-  end
-
-  # GET /pliks/new
-  # GET /pliks/new.json
-  def new
-    @plik = Plik.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @plik }
-    end
-  end
-
-  # GET /pliks/1/edit
-  def edit
-    @plik = Plik.find(params[:id])
-  end
-
   # POST /pliks
   # POST /pliks.json
   def create
+ if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     file = params[:file]
+    if file != nil
     ftp = Net::FTP.new('s3.masternet.pl')
     ftp.passive = true
     ftp.login(user = "kostek-pliki", passwd = "Startr3k")
@@ -53,33 +29,24 @@ require 'net/ftp'
 
     respond_to do |format|
       if @plik.save
-        format.html { redirect_to "/otwp", notice: 'Plik zostal dodany.' }
+        format.html { redirect_to "/otwp", notice: 'Gratulacje! Plik zosta&#322; dodany.' }
         format.json { render json: @plik, status: :created, location: @plik }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to "/otwp", notice: 'Uwaga! Niepowodznie dodania pliku.' }
         format.json { render json: @plik.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # PUT /pliks/1
-  # PUT /pliks/1.json
-  def update
-    @plik = Plik.find(params[:id])
-
-    respond_to do |format|
-      if @plik.update_attributes(params[:plik])
-        format.html { redirect_to @plik, notice: 'Plik was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @plik.errors, status: :unprocessable_entity }
-      end
+    		else
+		  redirect_to "/otwp", :notice => 'Uwaga! Nie wybrano pliku z komputera!'
+		end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 
-  # DELETE /pliks/1
-  # DELETE /pliks/1.json
   def destroy
     @plik = Plik.find(params[:id])
     @plik.destroy
