@@ -3,11 +3,22 @@ require 'net/ftp'
   # GET /pliks
   # GET /pliks.json
   def index
+ if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @pliks = Plik.all
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
+
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pliks }
+    end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 
@@ -48,12 +59,20 @@ require 'net/ftp'
   end
 
   def destroy
+ if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @plik = Plik.find(params[:id])
     @plik.destroy
 
     respond_to do |format|
       format.html { redirect_to pliks_url }
       format.json { head :no_content }
+    end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 end

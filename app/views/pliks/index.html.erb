@@ -1,4 +1,6 @@
-<h1>Listing pliks</h1>
+<div class="home">
+<h4>Lista Wszystkich Zdjęć</h4>
+<div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;padding: 5px 19px 0px 18px;">
 
 <table>
   <tr>
@@ -9,13 +11,13 @@
 
 <% @pliks.each do |plik| %>
   <tr>
-    <td><%= link_to 'Show', plik %></td>
-    <td><%= link_to 'Edit', edit_plik_path(plik) %></td>
-    <td><%= link_to 'Destroy', plik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= plik.opis %></td>
+    <td><%= plik.nazwa %></td>
+    <td><%= link_to 'Usuń', plik, method: :delete, data: { confirm: "Czy napewno chcesz usunąć plik #{plik.nazwa}?" } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Plik', new_plik_path %>
+</div>
+</div>
