@@ -3,7 +3,7 @@
   <% if @user_session.errors.any? %>
     <div id="error_explanation">
       <h5 style="color: rgb(185, 74, 72);text-shadow: 1px 1px 1px rgb(0, 0, 0);">Logowanie nie powiodło się, popraw błędy i spróbuj ponownie.</h5>
-      <ul>
+      <ul style="height:30px;">
       <% @user_session.errors.full_messages.each do |msg| %>
         <li style="margin-top:-35px;"><div class="alert-error"><%= msg %></div></li>
       <% end %>

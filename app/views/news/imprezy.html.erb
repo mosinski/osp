@@ -36,7 +36,7 @@
 <p>
 <%= news.tresc[0..300]+"..." %>
 </p>
-<%= link_to 'Czytaj więcej »', news %>
+<%= link_to 'Czytaj więcej »', news, :class => "btn btn-small", "style" => "float:right;color:black"%>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <%= link_to 'Edytuj', edit_news_path(news) %>
 <%= link_to 'Usuń', news, confirm: 'Czy napewno chcesz usunąć aktualność?', method: :delete %>
