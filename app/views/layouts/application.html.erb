@@ -57,6 +57,8 @@ $(".fancybox")
 	<div class="page page-home">
 	<% elsif current_page?(:controller => 'users_', :action => 'about') %>
 	<div class="page page-about">
+	<% elsif current_page?(:controller => 'users_', :action => 'czlonkowie') %>
+	<div class="page page-news">
 	<% else %>
 	<div class="page page-contact">
 	<% end %>
