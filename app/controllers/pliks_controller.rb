@@ -31,7 +31,7 @@ require 'net/ftp'
     if file != nil
     ftp = Net::FTP.new('s3.masternet.pl')
     ftp.passive = true
-    ftp.login(user = "kostek-pliki", passwd = "Startr3k")
+    ftp.login(user = ENV['pliki_login'], passwd = ENV['pliki_haslo'])
     ftp.storbinary("STOR " + file.original_filename, StringIO.new(file.read), Net::FTP::DEFAULT_BLOCKSIZE)
     ftp.quit()
     @plik = Plik.new
