@@ -75,49 +75,49 @@ $(".fancybox")
 					<% else %>
 					<li onclick="location.href = '/'">
 					<% end %>
-						<a href="/">Start</a>
+						<%= link_to "Start", "/" %>
 					</li>
 					<% if current_page?("/aktualnosci")||current_page?("/aktualnosci_grupuj")||current_page?("/imprezy")||current_page?("/interwencje")||current_page?("/inne")||current_page?("/szkolenia") %>
 					<li class="selected" onclick="location.href = '/aktualnosci'">
 					<% else %>
 					<li onclick="location.href = '/aktualnosci'">
 					<% end %>
-						<a href="/aktualnosci">Aktualności</a>
+						<%= link_to "Aktualności", "/aktualnosci" %>
 					</li>
 					<% if current_page?("/galeria")||current_page?("/galeria_wszystkie") %>
 					<li class="selected" onclick="location.href = '/galeria'">
 					<% else %>
 					<li onclick="location.href = '/galeria'">
 					<% end %>
-						<a href="/galeria">Galeria</a>
+						<%= link_to "Galeria", "/galeria" %>
 					</li>
 					<% if current_page?(:controller => 'users_', :action => 'czlonkowie') %>
 					<li class="selected" onclick="location.href = '/czlonkowie'">
 					<% else %>
 					<li onclick="location.href = '/czlonkowie'">
 					<% end %>
-						<a href="/czlonkowie">Członkowie</a>
+						<%= link_to "Członkowie", "/czlonkowie" %>
 					</li>
 					<% if current_page?(:controller => 'news', :action => 'otwp') %>
 					<li class="selected" onclick="location.href = '/otwp'">
 					<% else %>
 					<li onclick="location.href = '/otwp'">
 					<% end %>
-						<a href="/otwp">OTWP</a>
+						<%= link_to "OTWP", "/otwp" %>
 					</li>
 					<% if current_page?(:controller => 'users', :action => 'wynajem_sali') %>
 					<li class="selected" onclick="location.href = '/wynajem_sali'">
 					<% else %>
 					<li onclick="location.href = '/wynajem_sali'">
 					<% end %>
-						<a href="/wynajem_sali">Wynajem Sali</a>
+						<%= link_to "Wynajem Sali", "/wynajem_sali" %>
 					</li>
 					<% if current_page?(:controller => 'users_', :action => 'about') %>
 					<li class="selected" onclick="location.href = '/about'">
 					<% else %>
 					<li onclick="location.href = '/about'">
 					<% end %>
-						<a href="/about">O nas</a>
+						<%= link_to "O nas", "/about" %>
 					</li>
 				</ul>
 <% if (current_page?("/"))||(current_page?("/about"))||(current_page?("/czlonkowie"))||(current_page?("/wynajem_sali")) %>
@@ -157,13 +157,15 @@ $(".fancybox")
 							<a href="/alarmy_plus" id="plus">[+]</a><a href="/alarmy_minus" id="plus">[-]</a>
 							<% end %>
 							</font></h3>
-							<a href="/statystyki">zobacz wykres »</a>
+							<%= link_to "zobacz wykres »", "/statystyki" %>
 						</div>
 					</li>
 					</div>
 				</ul>
 				<h4>Przekaż 1%</h4>
-				<a href="http://serwer.osp-lesniewo.pl/1proc.png" target="_blank"><%= image_tag("1_proc_Plakat.jpg", "style"=>"width:100%;") %></a>
+				<%= link_to("http://serwer.osp-lesniewo.pl/1proc.png", "target"=>"_blank") do %>
+				<%= image_tag("1_proc_Plakat.jpg", "style"=>"width:100%;") %>
+				<% end %>
 			</div>
 			<div class="section">
 				<div>
@@ -171,15 +173,19 @@ $(".fancybox")
 					<ul>
 					<% @zdjecia_stopka.each do |zdjecia| %>
 						<li>
-						<a href="/galeria"><img src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" style="height:115px;width:175px;"></a>
+						<%= link_to("/galeria") do %><%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", "style"=>"height:115px;width:175px;") %><% end %>
 						</li>
 					<% end %>
 					</ul>
 				</div>
 				<div class="connect">
 					<h4>Linki</h4>
-					<a href="http://www.kppsp.puck.pl/" target="_blank"><%= image_tag("psp.png") %></a>
-					<a href="http://www.zosprp.pl/" target="_blank"><%= image_tag("zosp.png") %></a>
+					<%= link_to("http://www.kppsp.puck.pl/", "target"=>"_blank") do %>
+					<%= image_tag("psp.png") %>
+					<% end %>
+					<%= link_to("http://www.zosprp.pl/", "target"=>"_blank") do %>
+					<%= image_tag("zosp.png") %>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -187,10 +193,10 @@ $(".fancybox")
 			<div>
 				<ul>
 					<li>
-						<a href="/">Start</a>
+						<%= link_to "Start", "/" %>
 					</li>
 					<li>
-						<a href="/about">O nas</a>
+						<%= link_to "O nas", "/about" %>
 					</li>
 					<li>
 						<% if current_user %>
@@ -201,7 +207,7 @@ $(".fancybox")
 						<% end %>
 					</li>
 					<li>
-						<a data-toggle="modal" href="#kontakt">Kontakt</a>
+						<%= link_to "Kontakt", "#kontakt", "data-toggle"=>"modal" %>
 					</li>
 					<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 					<%= link_to 'Dodaj News', new_news_path %> | 
@@ -219,7 +225,7 @@ $(".fancybox")
 			</div>
 		</div>
 		<div style="margin-top:-50px">
-		<center>Projekt <a href="http://m1l05z.pl">Miłosz Osiński</a> i <a href="http://khallmann.pl">Krystian Hallmann</a></center>
+		<center>Projekt <%= link_to "Miłosz Osiński", "http://m1l05z.pl" %> i <%= link_to "Krystian Hallmann", "http://khallmann.pl" %></center>
 		</div>
 </div>
 <div id="kontakt" class="modal hide fade">
@@ -257,7 +263,7 @@ $(".fancybox")
 </table>
             </div>
             <div class="modal-footer">
-              <center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
+      <center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
             </div>
 </div> 
 </body>

@@ -3,7 +3,7 @@ Osp::Application.routes.draw do
   resources :pliks
 
 
-resources :users, :user_sessions,:news,:images,:statistics,:members,:albums
+resources :users, :user_sessions, :news, :images, :statistics, :members, :albums
 
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout
