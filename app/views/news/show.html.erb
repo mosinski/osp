@@ -6,15 +6,15 @@
 </p>
 <div class="galeria">
     <ul class="section">
-	<% @zdjecia.each do |zdjecia| %>
-	<a class="fancybox-effects-b" href="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>">
-        <img style="width:125px;height:130px;" src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" class="img-polaroid"" />
-	</a>
+      <% @zdjecia.each do |zdjecia| %>
+	<%= link_to("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"fancybox-effects-b", "title"=>"#{zdjecia.opis}") do %>
+        <%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
 	<% end %>
+      <% end %>
     </ul>
 </div>
 <% if @zdjecia.count != 0 && @album != nil %>
-<a href="/albums/<%= @album.id %>" style="float:right;margin-top:16px;color: rgb(0, 85, 128);">przejdź do galeri »</a>
+<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", "style"=>"float:right;margin-top:16px;color: rgb(0, 85, 128);" %>
 <% end %>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <div style="margin-top:40px;">

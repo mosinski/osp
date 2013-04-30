@@ -33,7 +33,7 @@ zdjęć
 <% end %>)
 </div>
 <% @fotki.each do |fotka| %>
-<img src="http://serwer.osp-lesniewo.pl/<%= fotka.nazwa %>" class="img-rounded" style="margin-right:5px"/>
+<%= image_tag("http://serwer.osp-lesniewo.pl/#{fotka.nazwa}", :class=>"img-rounded", "style"=>"margin-right:5px") %>
 <% end %>
 </div>
 </div>

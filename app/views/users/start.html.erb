@@ -19,9 +19,11 @@
          					<%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
 						<% end %>
     						</div>
-						<a href="/news/<%= news.id %>"><%= image_tag("icon-logo.jpg", :class => "start_logo") %></a>
+						<%= link_to("/news/#{news.id}") do %>
+						<%= image_tag("icon-logo.jpg", :class => "start_logo") %><% end %>
 						<% else %>
-						<a href="/news/<%= news.id %>"><img src="http://serwer.osp-lesniewo.pl/<%= @logo.nazwa %>" class="glowna_miniatura"></a>
+						<%= link_to("/news/#{news.id}") do %>
+						<%= image_tag("http://serwer.osp-lesniewo.pl/#{@logo.nazwa}", :class=>"glowna_miniatura") %><% end %>
 						<div style="position:absolute; left:45px; bottom:15px;">
 						<% if news.rodzaj == "Imprezy" %>
 						<%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
