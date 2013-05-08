@@ -102,8 +102,8 @@
 	text-decoration: none;
 }
 .camera_loader {
-    background: #fff url(../images/camera-loader.gif) no-repeat center;
-	background: rgba(255, 255, 255, 0.9) url(../images/camera-loader.gif) no-repeat center;
+    background: #fff url(/assets/camera/camera-loader.gif) no-repeat center;
+	background: rgba(255, 255, 255, 0.9) url(/assets/camera/camera-loader.gif) no-repeat center;
 	border: 1px solid #ffffff;
 	-webkit-border-radius: 18px;
 	-moz-border-radius: 18px;
@@ -816,7 +816,7 @@
 	background-position: -80px -800px;
 }
 .camera_lime_skin .camera_commands > .camera_stop {
-	background-position: -120px -800px	;
+	background-position: -120	px -800px	;
 }
 /*MAGENTA SKIN*/
 .camera_magenta_skin .camera_prevThumbs div {
