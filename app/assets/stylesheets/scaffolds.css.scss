@@ -984,7 +984,8 @@ font-weight:bold;
 text-decoration: underline;
 }
 .images_form_opis{
-width:400px;
+width:200px;
+height:160px;
 }
 .body .home .galeria ul.section {
     background: url("/assets/border.png") repeat-x scroll left top transparent;
@@ -1202,4 +1203,64 @@ padding-top:11px;
 padding-bottom:11px;
 padding-left:0px;
 padding-right:10px;
+}
+.progress{
+    display:none;
+    height:30px;
+}
+.bar {
+    background: green;
+    width: 0%;
+    height: 30px;
+}
+.myfileupload-buttonbar input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    border: solid transparent;
+    border-width: 0 0 100px 200px;
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+    -o-transform: translate(250px, -50px) scale(1);
+    -moz-transform: translate(-300px, 0) scale(4);
+    direction: ltr;
+    cursor: pointer;
+}
+.myui-button{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    overflow: visible;
+    overflow: hidden;
+}
+.pojemnik{
+width:185px;
+display:inline-block;
+}
+#start{
+vertical-align: top;
+}
+#stopka_image_add{
+padding:0px!important;
+}
+.image_add_link{
+    display:inline-block;
+    background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
+    border: 2px solid rgb(51, 51, 51);
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    height: 15.4px;
+    padding: 6px 7px 12px;
+    width: 105px;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+    vertical-align: middle;
+}
+.link_do_galerii{
+float:right;
+margin-top:16px;
+color: rgb(0, 85, 128);
 }

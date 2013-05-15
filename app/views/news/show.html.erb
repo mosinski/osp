@@ -13,29 +13,95 @@
       <% end %>
     </ul>
 </div>
+
 <% if @zdjecia.count != 0 && @album != nil %>
-<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", "style"=>"float:right;margin-top:16px;color: rgb(0, 85, 128);" %>
+	<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
 <% end %>
-<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
-<div style="margin-top:40px;">
-<%= form_tag '/ftp/upload', :method => :post, :multipart => true do %>
-<%= text_field_tag :przydzial, @news.id, "style"=>"display:none"%>
-<center><b><%= label_tag(:q, "Dodaj zdjęcie do aktualności:") %></b>
-<%= file_field_tag "file", "style"=>"height:40px;" %>
-<%= submit_tag "Dodaj Zdjęcie", "style"=>"width:100px;margin-left:100px;height:40px;cursor:pointer;"%><br>
-<div class="field">
-    <%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Krótki opis do zdjęcia..." %>
- </div>
-</center>
-<% end %>
-</div>
-<% end %>
+            
 <br><br>
 </div>
 <form>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
+<%= link_to "Dodaj Zdjęcie", "#image_add", "data-toggle"=>"modal", :class=>"image_add_link" %>
 <input name="commit" style="height:15.4px;width:55px;font-weight:bold;cursor:pointer;" value=" Edytuj" onclick="location.href = '<%= edit_news_path(@news) %>'">
 <% end %>
 <input name="commit" style="height:15.4px;width:100px;font-weight:bold;cursor:pointer;" value=" Wróć do listy" onclick="location.href = '/aktualnosci'">
 </form>
 </div>
+
+<div id="image_add" class="modal hide fade">
+            <div class="modal-header" style="background:rgb(116, 149, 150)">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Dodawanie Zdjęcia do Aktualności</h3>
+            </div>
+            <div class="modal-body">
+<center>
+<%= form_tag '/ftp/upload', :method => :post, :multipart => true do %>
+	<%= image_tag("blank.gif", :class=>"img-polaroid",:id=>"ftk",:width=>"170px;") %>
+	<%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Krótki opis do zdjęcia..." %>
+	<%= text_field_tag :przydzial, @news.id, "style"=>"display:none"%>
+
+	<div class="pojemnik">
+  		<div class="myfileupload-buttonbar">
+     			<label class="myui-button">
+        		  <span class="btn btn-large btn-success">
+			  <i class="icon-plus icon-white"></i>
+			  Wybierz Zdjęcie
+			  </span>
+			  <%= file_field_tag "file", "style"=>"height:40px;", "onchange"=>"readURL(this);" %>
+     			</label>
+  		</div>
+	</div>
+
+  <%= button_tag(type: "button", class: "btn btn-large btn-primary", :id=>"start") do %>
+    <i class="icon-upload icon-white"></i> Dodaj Zdjęcie
+  <% end %>
+<% end %>
+</center>
+            </div>
+            <div class="modal-footer" id="stopka_image_add">
+		<div id="progress" class="progress progress-success progress-striped active">
+    			<div class="bar"></div>
+		</div>
+            </div>
+</div> 
+
+<script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/js/jquery.fileupload.js"></script>
+
+<script>
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#ftk')
+                        .attr('src', e.target.result)
+                        .width(170)
+                        .height(170);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+$(function () {
+	$('#file').fileupload({
+	add: function (e, data) {
+            data.context = $('#start').click(function () {
+		    $('#progress').css('display', 'block');
+                    data.submit();
+                });
+        },
+    	progressall: function (e, data) {
+        	var progress = parseInt(data.loaded / data.total * 100, 10);
+        	$('#progress .bar').css(
+       		     'width',
+        	    progress + '%'
+        	);
+    	},
+        done: function (e, data) {
+            location.reload();
+        }
+	});
+});
+</script>
