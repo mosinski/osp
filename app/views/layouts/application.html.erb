@@ -119,7 +119,10 @@ $(".fancybox")
 <% if (current_page?("/"))||(current_page?("/about"))||(current_page?("/czlonkowie"))||(current_page?("/wynajem_sali")) %>
 				<div class="featured">
 					<h3>TEL. ALARMOWY 998 lub 112</h3>
-					
+					<% if current_page?(:controller => 'users_', :action => 'about') %>
+					<br><br><br><br>
+						<%= link_to "Kontakt >>", "#kontakt", "data-toggle"=>"modal" %>
+					<% end %>
 				</div>
 				<% end %>
 			</div>
