@@ -164,10 +164,20 @@ $(".fancybox")
 					</li>
 					</div>
 				</ul>
-				<h4>Przekaż 1%</h4>
-				<%= link_to("http://serwer.osp-lesniewo.pl/1proc.png", "target"=>"_blank") do %>
-				<%= image_tag("1_proc_Plakat.jpg", "style"=>"width:100%;") %>
-				<% end %>
+				<h4>Pogada</h4>
+				<div id="tp-widget-default" data-widget="default/polska/pomorskie/lesniewo">
+				  <div id="tp-widget-default-beam">
+					<a id="tp-widget-default-flink" href="http://www.twojapogoda.pl/polska/pomorskie/lesniewo" target="_blank" title="Leśniewo - prognoza pogody" data-ga="#utm_source=3days&utm_medium=forecast&utm_campaign=widget-free">Pogoda Leśniewo</a><span> z serwisu</span>
+				  </div>
+				  <script type="text/javascript">
+					(function(d, t, i) {
+						if (d.getElementById(i)) return;
+						var f = d.getElementsByTagName(t)[0], js = d.createElement(t);
+						js.id = i; js.src = 'http://www.twojapogoda.pl/widget/main.js';
+						f.parentNode.appendChild(js);
+					}(document, 'script', 'tp-widget'));
+				  </script>
+				</div>
 			</div>
 			<div class="section">
 				<div>
