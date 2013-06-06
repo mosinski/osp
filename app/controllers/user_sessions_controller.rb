@@ -6,6 +6,8 @@ def new
   if current_user
 	redirect_to users_path, :notice => 'Informacja! Jeste&#347; ju&#380; zalogowany!'
   else
+    	@news_kalendarz = News.all
+    	@date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
 	@user_session = UserSession.new
         @zdjecia_stopka = Image.last(3)
     	@statystyki = Statistic.find_by_rok(Time.now.year)
@@ -21,6 +23,8 @@ end
 # POST /user_sessions.xml
 def create
   @user_session = UserSession.new(params[:user_session])
+  @news_kalendarz = News.all
+  @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
   @zdjecia_stopka = Image.last(3)
   @statystyki = Statistic.find_by_rok(Time.now.year)
  

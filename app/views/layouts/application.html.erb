@@ -164,11 +164,47 @@ $(".fancybox")
 					</li>
 					</div>
 				</ul>
-				<h4>Pogada</h4>
-				<div id="tp-widget-default" data-widget="default/polska/pomorskie/lesniewo">
-				  <div id="tp-widget-default-beam">
-					<a id="tp-widget-default-flink" href="http://www.twojapogoda.pl/polska/pomorskie/lesniewo" target="_blank" title="Leśniewo - prognoza pogody" data-ga="#utm_source=3days&utm_medium=forecast&utm_campaign=widget-free">Pogoda Leśniewo</a><span> z serwisu</span>
+				<h4>Kalendarz Zdarzeń</h4>
+				  <div id="calendar">
+					  <h2 id="month">
+    						<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m") %>
+    						<%=I18n.l @date , :format => "%B %Y" %>
+    						<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m") %>
+  					  </h2>
+				<%= calendar_for @news_kalendarz,:first_day_of_week => 1, :year => @date.year, :month => @date.month do |t| %>
+				     <%= t.head('Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd') %>
+				  	  <%= t.day(:day_method => :created_at) do |date, news| %>
+					   <% licznik = 0 %>
+					    <% for news in @news_kalendarz %>
+						<% if (date.to_s == news.created_at.strftime("%Y-%m-%d").to_s) %>
+						 <% licznik += 1 %>
+						  <% if licznik == 1 %>
+						  <div class="dropdown calendar_pelne">
+				    	     	  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= date.day %></a>
+						  <% end %>
+						<% end %>
+					    <% end %>
+					    <% if licznik == 0 %>
+						<div class="calendar_puste">
+						<%= date.day %>
+					    <% end %>
+						<ul class="dropdown-menu">
+        					    <% for news in @news_kalendarz %>
+							<% if (date.to_s == news.created_at.strftime("%Y-%m-%d").to_s) %>
+          						  <li><%= link_to h(news.tytul), news, :title => news.tytul %></li>
+							<% end %>
+        					    <% end %>
+      						</ul>
+					   </div>
+				  	  <% end %>
+					<% end %>
 				  </div>
+				<h4>Pogada</h4>
+				<div class="pogoda_widget">
+				  <div id="tp-widget-default" data-widget="default/polska/pomorskie/lesniewo">
+				    <div id="tp-widget-default-beam">
+					<a id="tp-widget-default-flink" href="http://www.twojapogoda.pl/polska/pomorskie/lesniewo" target="_blank" title="Leśniewo - prognoza pogody" data-ga="#utm_source=3days&utm_medium=forecast&utm_campaign=widget-free">Pogoda Leśniewo</a><span> z serwisu</span>
+				    </div>
 				  <script type="text/javascript">
 					(function(d, t, i) {
 						if (d.getElementById(i)) return;
@@ -177,6 +213,7 @@ $(".fancybox")
 						f.parentNode.appendChild(js);
 					}(document, 'script', 'tp-widget'));
 				  </script>
+				  </div>
 				</div>
 			</div>
 			<div class="section">

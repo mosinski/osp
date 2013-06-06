@@ -791,14 +791,14 @@ a img {
 	margin: 0 0 12px;
 }
 .body .home form input {
-    background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
-    border: 2px solid;
-    font-family: Arial,Helvetica,sans-serif;
-    font-style: italic;
-    height: 20px;
-    padding: 10px 5px 6px;
-    width: 210px;
-    cursor: text;
+    	background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
+    	border: 2px solid;
+    	font-family: Arial,Helvetica,sans-serif;
+    	font-style: italic;
+    	height: 20px;
+    	padding: 10px 5px 6px;
+    	width: 210px;
+    	cursor: text;
 }
 .body .sidebar ul li div h3 {
 	color:#f9fefe;
@@ -935,72 +935,72 @@ a img {
 	text-decoration:none;
 }
 .logo_herb{
-height:90px;
-margin-left:-95px;
-margin-bottom:-85px;
+	height:90px;
+	margin-left:-95px;
+	margin-bottom:-85px;
 }
 .notice {
-    position: fixed;
-    top: 14px;
-    right: 2%;
+    	position: fixed;
+    	top: 14px;
+    	right: 2%;
 }
 #news_index_tytul{
-line-height:25px;
+	line-height:25px;
 }
 #news_show{
-height:100%;
+	height:100%;
 }
 #news_form_tytul{
-width:99%;
-background:white;
+	width:99%;
+	background:white;
 }
 #statystyki{
-color:red;
-font-size:18px;
-float:right;
+	color:red;
+	font-size:18px;
+	float:right;
 }
 #statystyki1{
-color:orange;
-font-size:15px;
-float:right;
+	color:orange;
+	font-size:15px;
+	float:right;
 }
 textarea {
-    margin-left: 0px;
-    border: 2px solid;
+	margin-left: 0px;
+    	border: 2px solid;
 }
 .body .news div ul a, .body .gallery .gallery_div ul a, .body .news div ul em,.body .news div ul span, .body .gallery .gallery_div ul em, .body .gallery .gallery_div ul span {
-    color: rgb(116, 201, 209);
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 12px;
-    line-height: 42px;
-    margin: 0px;
-    padding: 0px 6px;
-    text-decoration: none;
+    	color: rgb(116, 201, 209);
+    	font-family: Arial,Helvetica,sans-serif;
+    	font-size: 12px;
+    	line-height: 42px;
+    	margin: 0px;
+    	padding: 0px 6px;
+    	text-decoration: none;
 }
 .news div ul em, .body .gallery .gallery_div ul em{
-font-weight:bold;
+	font-weight:bold;
 }
 .body .news div ul a:hover,.body .gallery .gallery_div ul a:hover{
-text-decoration: underline;
+	text-decoration: underline;
 }
 .images_form_opis{
-width:200px;
-height:160px;
+	width:200px;
+	height:160px;
 }
 .body .home .galeria ul.section {
-    background: url("/assets/border.png") repeat-x scroll left top transparent;
-    border: 0px none;
-    clear: none;
-    margin: 0px 10px;
-    padding: 25px 0px 30px;
-    margin-bottom: -50px;
+    	background: url("/assets/border.png") repeat-x scroll left top transparent;
+    	border: 0px none;
+    	clear: none;
+    	margin: 0px 10px;
+    	padding: 25px 0px 30px;
+    	margin-bottom: -50px;
 }
 .body .home .galeria ul li {
-    float: left;	
-    width: 180px;
+    	float: left;	
+    	width: 180px;
 }
 .body .home .galeria ul {
-    list-style: none outside none;
+    	list-style: none outside none;
 }
 .body .home .galeria ul li a img {
     border: 2px solid rgb(47, 84, 85);
@@ -1041,9 +1041,9 @@ height:90px;
     width:280px !important;
 }
 #plus{
-font-size:15px;
-font-weight:bold;
-margin-top:-2px;
+    font-size:15px;
+    font-weight:bold;
+    margin-top:-2px;
 }
 #czlonkowie_lista {
     color: black;
@@ -1056,20 +1056,19 @@ margin-top:-2px;
     margin: 0px 0px 12px;
 }
 .album_list{
-height:165px;
-width:500px !important;
-background: url("/assets/bg-body.jpg") repeat scroll 0% 25% transparent;
-color:Dark_gray;
-margin-top:20px;
-margin-bottom:20px;
-margin-left:56px;
--webkit-box-shadow: 0 0  13px #000 inset;
--moz-box-shadow: 0 0  13px #000 inset;
-box-shadow: 0 0  13px #000 inset;
-padding: 6px 8px 0px;
-overflow: hidden;
-cursor: pointer;
-
+    height:165px;
+    width:500px !important;
+    background: url("/assets/bg-body.jpg") repeat scroll 0% 25% transparent;
+    color:Dark_gray;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:56px;
+    -webkit-box-shadow: 0 0  13px #000 inset;
+    -moz-box-shadow: 0 0  13px #000 inset;
+    box-shadow: 0 0  13px #000 inset;
+    padding: 6px 8px 0px;
+    overflow: hidden;
+    cursor: pointer;
 }
 .album_inside {
     background-color: rgba(0, 0, 0, 0.5);
@@ -1095,25 +1094,25 @@ cursor: pointer;
     width:65px !important;
 }
 .his_img{
-padding: 6px 6px 6px;
-margin-left: -5px;
-width:100%;
--webkit-box-shadow: 0 0  13px #000 inset;
--moz-box-shadow: 0 0  13px #000 inset;
-box-shadow: 0 0  13px #000 inset;
+    padding: 6px 6px 6px;
+    margin-left: -5px;
+    width:100%;
+    -webkit-box-shadow: 0 0  13px #000 inset;
+    -moz-box-shadow: 0 0  13px #000 inset;
+    box-shadow: 0 0  13px #000 inset;
 }
 .zakladki_male{
-background: none repeat scroll 0% 0% rgb(116, 149, 150); 
-padding: -8px 5px 5px 5px;
-border-radius: 5px 5px 5px 5px;
-border:1px solid;
-color:black !important;
-display: inline-block;
+    background: none repeat scroll 0% 0% rgb(116, 149, 150); 
+    padding: -8px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    border:1px solid;
+    color:black !important;
+    display: inline-block;
 }
 .glowna_miniatura{
-width:70px !important;
-height:69px !important;
-box-shadow: 0px 0px 3px rgb(0, 0, 0);
+    width:70px !important;
+    height:69px !important;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 .watermark {
     position: absolute;
@@ -1141,68 +1140,68 @@ box-shadow: 0px 0px 3px rgb(0, 0, 0);
     box-shadow: 0px 1px 0px rgba(2, 2, 2, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
 .start_logo{
-width:70px !important;
-height:69px !important;
-box-shadow: 0px 0px 3px rgb(0, 0, 0);
+    width:70px !important;
+    height:69px !important;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 .bookmars{
-margin-left:-50px;
-z-index:2;
-width:80px;
-height:40px;
+    margin-left:-50px;
+    z-index:2;
+    width:80px;
+    height:40px;
 }
 #start_a{
-position:absolute;
-bottom:15px;
-right:15px;
-color:white !important;
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    color:white !important;
 }
 #start_a:hover{
-text-decoration:underline;
+    text-decoration:underline;
 }
 #osoba {
-font-weight:bold;
-font-size:25px;
-line-height:35px;
+    font-weight:bold;
+    font-size:25px;
+    line-height:35px;
 }
 .galeriaplus{
-margin-top:-7px;
-cursor: pointer;
+    margin-top:-7px;
+    cursor: pointer;
 }
 .przycisk_rss{
-margin:2px;
-float:right;
-cursor:pointer;
+    margin:2px;
+    float:right;
+    cursor:pointer;
 }
 .licznik_zdarzen{
-border:1px solid rgb(220, 247, 221);
-border-radius: 5px 5px 5px 5px;
-padding: 10px 10px 10px 15px;
-box-shadow: 0px 0px 15px rgb(65, 131, 196);
-background:url(/assets/kropka.png);
+    border:1px solid rgb(220, 247, 221);
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 15px;
+    box-shadow: 0px 0px 15px rgb(65, 131, 196);
+    background:url(/assets/kropka.png);
 }
 .icon_plik{
-display:inline-block;
-width:40px;
-height:44px;
-background:url("/assets/icons.png");
-margin-left:0px;
-margin-top:-10px;
-margin-bottom:-11px;
-float:left;
+    display:inline-block;
+    width:40px;
+    height:44px;
+    background:url("/assets/icons.png");
+    margin-left:0px;
+    margin-top:-10px;
+    margin-bottom:-11px;
+    float:left;
 }
 .dodaj_plik{
-width:50px;
-height:50px;
-display:inline;
-margin-top:-5px;
+    width:50px;
+    height:50px;
+    display:inline;
+    margin-top:-5px;
 }
 #otwp_ico{
-height:23px;
-padding-top:11px;
-padding-bottom:11px;
-padding-left:0px;
-padding-right:10px;
+    height:23px;
+    padding-top:11px;
+    padding-bottom:11px;
+    padding-left:0px;
+    padding-right:10px;
 }
 .progress{
     display:none;
@@ -1235,14 +1234,14 @@ padding-right:10px;
     overflow: hidden;
 }
 .pojemnik{
-width:185px;
-display:inline-block;
+    width:185px;
+    display:inline-block;
 }
 #start{
-vertical-align: top;
+    vertical-align: top;
 }
 #stopka_image_add{
-padding:0px!important;
+    padding:0px!important;
 }
 .image_add_link{
     display:inline-block;
@@ -1259,8 +1258,131 @@ padding:0px!important;
     color: rgb(51, 51, 51);
     vertical-align: middle;
 }
-.link_do_galerii{
-float:right;
-margin-top:16px;
-color: rgb(0, 85, 128);
+.link_do_galerii {
+    float:right;
+    margin-top:16px;
+    color: rgb(0, 85, 128);
+}
+
+#calendar table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left:15px;
+    margin-bottom:15px;
+    border: 1px solid rgb(14, 16, 19);
+    border-collapse: collapse;
+    border-radius: 4px 4px 3px 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#calendar th {
+    border-left: 0px none!important;
+    line-height: 8px;
+    font-size: 10px;
+    color: rgb(105, 105, 105);
+    text-transform: uppercase;
+    background: none repeat scroll 0% 0% rgb(243, 243, 243);
+    text-align: center;
+    width: 14.2857142857143%;
+    padding: 6px;
+    font-family: "Lucida Grande",arial,helvetica,sans-serif;
+}
+
+#calendar td {
+    font-family: "Lucida Grande",arial,helvetica,sans-serif;
+    color: #777;
+    height: 20px;
+    vertical-align: top;
+    font-size: 16px;
+    font-weight:bold;
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.8);
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgb(234, 234, 234), rgb(229, 229, 229) 60%, rgb(217, 217, 217));
+    background-color: rgb(229, 229, 229);
+    border: 1px solid #999;
+    padding:0px;
+}
+
+#calendar .notmonth {
+    color: #CCC;
+    background: none repeat scroll 0% 0% rgb(243, 243, 243);
+}
+
+#calendar #month {
+    display: block;
+    line-height: 32px;
+    font-weight: bold;
+    font-size:15px;
+    width: 90%;
+    margin-left: 15px;
+    margin-bottom:-2px;
+    color: rgb(226, 226, 226);
+    text-align: center;
+    text-shadow: 0px -1px black;
+    background: none repeat scroll 0% 0% rgba(10, 15, 15, 0.35);
+    border-top: 1px solid rgb(51, 51, 51);
+    border-bottom: 1px solid rgb(49, 49, 49);
+    box-shadow: 0px 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+#calendar #month a, #calendar #month a:hover {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #999;
+}
+
+#calendar .today {
+    margin: -1px;
+    color: rgb(243, 243, 243);
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+    background: none repeat scroll 0% 0% rgb(109, 175, 191);
+    border: 1px solid rgb(89, 139, 148);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05) inset;
+}
+
+#calendar ul {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+}
+
+#calendar li {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    text-align: center;	
+}
+#calendar li > a {
+    color:black!important;
+    margin-left:0;
+    margin-right:0px;
+}
+#calendar li > a:hover {
+    color:white!important;
+    margin-left:0;
+    margin-right:0px;
+}
+
+.calendar_puste {
+    padding: 6px;
+}
+
+.calendar_pelne {
+    padding: 6px;
+    background: linear-gradient(to bottom, rgb(229, 102, 102) 0%, rgb(215, 93, 93) 100%) repeat scroll 0% 0% transparent;
+    background-color: rgb(215, 93, 93);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.125) inset;
+}
+
+.calendar_pelne a {
+    color: rgb(243, 243, 243)!important;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+.pogoda_widget {
+    height:220px;
+    overflow:hidden;
+    margin-top:-20px;
+    margin-left:5px;
 }

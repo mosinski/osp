@@ -2,6 +2,8 @@ class StatisticsController < ApplicationController
   # GET /statistics
   # GET /statistics.json
   def index
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @statistics = Statistic.all
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -17,6 +19,8 @@ class StatisticsController < ApplicationController
   def new
    if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @statistic = Statistic.new
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)

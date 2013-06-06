@@ -3,6 +3,8 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @aktualnosci_atom =  News.all
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -18,6 +20,8 @@ class NewsController < ApplicationController
   # GET /news/1
   # GET /news/1.json
   def show
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.find(params[:id])
     @album = Album.find_by_nr_newsa(@news.id)
     @zdjecia = Image.find_all_by_przydzial(params[:id]).last(4)
@@ -36,6 +40,8 @@ class NewsController < ApplicationController
    if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @news = News.new
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -55,6 +61,8 @@ class NewsController < ApplicationController
   def edit
    if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.find(params[:id])
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -135,6 +143,8 @@ class NewsController < ApplicationController
   end
 
   def group
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.uniq.pluck(:rodzaj).reverse
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -146,6 +156,8 @@ class NewsController < ApplicationController
   end
 
   def imprezy
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Imprezy")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -157,6 +169,8 @@ class NewsController < ApplicationController
   end
 
   def interwencje
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Interwencje")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -168,6 +182,8 @@ class NewsController < ApplicationController
   end
 
   def szkolenia
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Szkolenia")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -179,6 +195,8 @@ class NewsController < ApplicationController
   end
 
   def inne
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Inne")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
@@ -190,6 +208,8 @@ class NewsController < ApplicationController
   end
 
   def otwp
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("OTWP")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)

@@ -7,6 +7,8 @@ class AlbumsController < ApplicationController
     if News.find_all_by_id(@album.nr_newsa).count != 0
     @news = News.find(@album.nr_newsa)
     end
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @zdjecia = Image.find_all_by_przydzial(@album.nr_newsa.to_s).sort_by(&:created_at).reverse
     @zdjecia_page = Image.page(params[:page]).per_page(12).order("created_at DESC").find_all_by_przydzial(@album.nr_newsa.to_s)
     @zdjecia_stopka = Image.last(3)
@@ -61,6 +63,8 @@ class AlbumsController < ApplicationController
   end
 
   def galeria_wszystkie
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @albums = Album.all.reverse
     @zdjecia = Image.all.sort_by(&:created_at).reverse
     @zdjecia_page = Image.page(params[:page]).per_page(9).order("created_at DESC")
