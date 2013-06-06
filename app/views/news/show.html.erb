@@ -7,7 +7,7 @@
 <div class="galeria">
     <ul class="section">
       <% @zdjecia.each do |zdjecia| %>
-	<%= link_to("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"fancybox-effects-b", "title"=>"#{zdjecia.opis}") do %>
+	<%= link_to("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"fancybox", "title"=>"#{zdjecia.opis}") do %>
         <%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
 	<% end %>
       <% end %>

@@ -9,16 +9,6 @@
   <%= csrf_meta_tags %>
 <script type="text/javascript">
  $(document).ready(function() {
-	$(".fancybox-effects-b").fancybox({
-		openEffect  : 'none',
-		closeEffect	: 'none',
-
-		helpers : {
-			title : {
-			type : 'over'
-				}
-			}
-	});
 $(".fancybox")
     .attr('rel', 'gallery')
     .fancybox({
@@ -35,7 +25,7 @@ $(".fancybox")
 </script>
 </head>
 <body>
-<% if notice %>
+				<% if notice %>
 				<div class="notice">
 				<% if notice.match(/Uwaga!/) %>
 				<div class="alert alert-error">
