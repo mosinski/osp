@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @aktualnosci_atom =  News.all
@@ -158,7 +158,7 @@ class NewsController < ApplicationController
   def imprezy
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Imprezy")
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Imprezy")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -171,7 +171,7 @@ class NewsController < ApplicationController
   def interwencje
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Interwencje")
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Interwencje")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -184,7 +184,7 @@ class NewsController < ApplicationController
   def szkolenia
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Szkolenia")
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Szkolenia")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -197,7 +197,7 @@ class NewsController < ApplicationController
   def inne
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("Inne")
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Inne")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -210,7 +210,7 @@ class NewsController < ApplicationController
   def otwp
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(5).order("created_at DESC").find_all_by_rodzaj("OTWP")
+    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("OTWP")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
     @pliki = Plik.all
