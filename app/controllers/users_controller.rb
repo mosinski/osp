@@ -144,7 +144,7 @@ end
  def galeria
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @albums = Album.page(params[:page]).per_page(7).reverse
+    @albums = Album.page(params[:page]).per_page(7).order("created_at DESC")
     @zdjecia = Image.all.sort_by(&:created_at).reverse
     @zdjecia_page = Image.page(params[:page]).per_page(9).order("created_at DESC")
     @zdjecia_stopka = Image.last(3)
