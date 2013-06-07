@@ -67,7 +67,7 @@ class AlbumsController < ApplicationController
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @albums = Album.all.reverse
     @zdjecia = Image.all.sort_by(&:created_at).reverse
-    @zdjecia_page = Image.page(params[:page]).per_page(9).order("created_at DESC")
+    @zdjecia_page = Image.page(params[:page]).per_page(12).order("created_at DESC")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
