@@ -7,7 +7,7 @@
 <%= image_tag("/assets/gplus.png", :height => '47', :width => '42', :class =>"galeriaplus", :onclick => "window.open('https://plus.google.com/101678126146835185818/posts','external');return false;", :title => "Galeria na Picasa Web") %>
 </ul>
 					<ul>
-					<%= will_paginate @zdjecia_page, :container => false %>
+					<%= will_paginate @albums, :container => false %>
 					</ul>
 				</div>
 					<% @albums.each do |album| %>
