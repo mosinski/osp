@@ -35,7 +35,7 @@
 </center>
 </a>
 <div>
-<h3 id="news_index_tytul"><%= news.tytul.capitalize %></h3>
+<h3 id="news_index_tytul"><%= news.tytul.gsub(/^([a-z])/) { $1.capitalize } %></h3>
 <% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
   <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
 <% else %>
