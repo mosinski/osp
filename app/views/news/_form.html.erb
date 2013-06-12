@@ -19,9 +19,13 @@
     <%= f.label :tresc_aktualności %>
     <%= f.text_area :tresc , "style" => "width:99%;"%>
   </div>
-  <div class="kategoria_box">
+  <div class="kategoria_box"  style="display:inline-block;">
     <%= f.label :Rodzaj_grupy %>
     <%= f.select(:rodzaj, options_for_select([['Interwencje', 'Interwencje'], ['Szkolenia', 'Szkolenia'], ['Imprezy', 'Imprezy'], ['Inne', 'Inne'], ['OTWP', 'OTWP']],@news.rodzaj), {}, {:class => "kategoria"}) %>
+  </div>
+  <div class="termin_box" style="display:inline-block; margin-left:50px;">
+    <%= f.label :Termin_aktualności %>
+    <%= f.date_select :termin, :order => [:day, :month, :year] %><br />
   </div>
   <div class="actions">
     <%= f.submit :value => 'Dodaj', "style" => "height:35px;width:100px;font-weight:bold;cursor:pointer;" %>

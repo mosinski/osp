@@ -3,26 +3,27 @@
 <head>
 	<title>OSP Leśniewo</title>
 	<link href="/logo.png" rel="icon" type="image/x-icon">
-  <%= auto_discovery_link_tag(:atom, news_path(:atom)) %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-<script type="text/javascript">
- $(document).ready(function() {
-$(".fancybox")
-    .attr('rel', 'gallery')
-    .fancybox({
-        beforeShow: function () {
-            /* Add watermark */
-            $('<div class="watermark"></div>')
-                .bind("contextmenu", function (e) {
-                    return false; /* Disables right click */
-                })
-                .prependTo( $.fancybox.inner );   
-        }
-    });
-});
-</script>
+  	<%= auto_discovery_link_tag(:atom, news_path(:atom)) %>
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag "application" %>
+  	<%= csrf_meta_tags %>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".fancybox")
+			    .attr('rel', 'gallery')
+			    .fancybox({
+			        beforeShow: function () {
+			            /* Add watermark */
+			            $('<div class="watermark"></div>')
+			                .bind("contextmenu", function (e) {
+			                    return false; /* Disables right click */
+			                })
+			                .prependTo( $.fancybox.inner );   
+			        }
+			    });
+		});
+	</script>
 </head>
 <body>
 				<% if notice %>
@@ -163,14 +164,14 @@ $(".fancybox")
   					  </h2>
 				<%= calendar_for @news_kalendarz,:first_day_of_week => 1, :year => @date.year, :month => @date.month do |t| %>
 				     <%= t.head('Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd') %>
-				  	  <%= t.day(:day_method => :created_at) do |date, news| %>
+				  	  <%= t.day(:day_method => :termin) do |date, news| %>
 					   <% licznik = 0 %>
 					    <% for news in @news_kalendarz %>
-						<% if (date.to_s == news.created_at.strftime("%Y-%m-%d").to_s) %>
+						<% if (date.to_s == news.termin.strftime("%Y-%m-%d").to_s) %>
 						 <% licznik += 1 %>
 						  <% if licznik == 1 %>
 						  <div class="dropdown calendar_pelne">
-				    	     	  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= date.day %></a>
+				    	     	  	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= date.day %></a>
 						  <% end %>
 						<% end %>
 					    <% end %>
@@ -180,7 +181,7 @@ $(".fancybox")
 					    <% end %>
 						<ul class="dropdown-menu">
         					    <% for news in @news_kalendarz %>
-							<% if (date.to_s == news.created_at.strftime("%Y-%m-%d").to_s) %>
+							<% if (date.to_s == news.termin.strftime("%Y-%m-%d").to_s) %>
           						  <li><%= link_to h(news.tytul), news, :title => news.tytul %></li>
 							<% end %>
         					    <% end %>
@@ -302,7 +303,7 @@ $(".fancybox")
 </table>
             </div>
             <div class="modal-footer">
-      <center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
+      		<center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
             </div>
 </div> 
 </body>
