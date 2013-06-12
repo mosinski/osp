@@ -167,7 +167,7 @@
 				  	  <%= t.day(:day_method => :termin) do |date, news| %>
 					   <% licznik = 0 %>
 					    <% for news in @news_kalendarz %>
-						<% if (date.to_s == news.termin.strftime("%Y-%m-%d").to_s) %>
+						<% if (date.to_s == news.termin.to_s) %>
 						 <% licznik += 1 %>
 						  <% if licznik == 1 %>
 						  <div class="dropdown calendar_pelne">
@@ -181,7 +181,7 @@
 					    <% end %>
 						<ul class="dropdown-menu">
         					    <% for news in @news_kalendarz %>
-							<% if (date.to_s == news.termin.strftime("%Y-%m-%d").to_s) %>
+							<% if (date.to_s == news.termin.to_s) %>
           						  <li><%= link_to h(news.tytul), news, :title => news.tytul %></li>
 							<% end %>
         					    <% end %>
