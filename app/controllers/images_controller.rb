@@ -54,9 +54,10 @@ require 'net/ftp'
 		else
 		@albums = Album.find_all_by_nr_newsa(params[:przydzial])
 		end
-		if file != nil
+		if file != nil && file.original_filename.end_with?('.jpg','.png','.gif')
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
+		  file.original_filename.gsub(/\s+/, "")
     		  ftp = Net::FTP.new('s3.masternet.pl')
         	  ftp.passive = true
     		  ftp.login(user = ENV['ftp_login'], passwd = ENV['ftp_haslo'])
@@ -86,7 +87,7 @@ require 'net/ftp'
 		  redirect_to @news, :notice => 'Uwaga! Zdj&#281;cie o takiej nazwie ju&#380; jest w bazie!'
 		end
 		else
-		  redirect_to @news, :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera!'
+		  redirect_to @news, :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera lub rozszerzenie jest nieprawid&#322owe!'
 		end
 	else
   	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
