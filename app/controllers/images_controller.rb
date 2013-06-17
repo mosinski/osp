@@ -54,7 +54,7 @@ require 'net/ftp'
 		else
 		@albums = Album.find_all_by_nr_newsa(params[:przydzial])
 		end
-		if file != nil && file.original_filename.end_with?('.jpg','.png','.gif')
+		if file != nil && file.original_filename.end_with?('.jpg','.JPG','.png','.PNG','.gif','.GIF')
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
 		  file.original_filename.gsub(/\s+/, "")
