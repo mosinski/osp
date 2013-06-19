@@ -90,7 +90,7 @@ require 'net/ftp'
 		  redirect_to @news, :notice => 'Uwaga! Nie wybrano zdj&#281cia z komputera lub rozszerzenie jest nieprawid&#322owe!'
 		end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
@@ -114,7 +114,7 @@ if current_user
       end
     end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
@@ -134,7 +134,7 @@ if current_user
       format.json { head :no_content }
     end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'

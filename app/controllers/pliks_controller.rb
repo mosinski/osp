@@ -17,7 +17,7 @@ require 'net/ftp'
       format.json { render json: @pliks }
     end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
@@ -53,7 +53,7 @@ require 'net/ftp'
 		  redirect_to "/otwp", :notice => 'Uwaga! Nie wybrano pliku z komputera!'
 		end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
@@ -71,7 +71,7 @@ require 'net/ftp'
       format.json { head :no_content }
     end
 	else
-  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
   	end
     else
         redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
