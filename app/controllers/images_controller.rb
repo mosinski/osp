@@ -57,7 +57,7 @@ require 'net/ftp'
 		if file != nil && file.original_filename.end_with?('.jpg','.JPG','.png','.PNG','.gif','.GIF')
 		@zdjecia = Image.find_all_by_nazwa(file.original_filename).count
 		if (@zdjecia == 0)
-		  file.original_filename.gsub(/\s+/, "")
+		  file.original_filename = file.original_filename.gsub(/\s+/, "")
     		  ftp = Net::FTP.new('s3.masternet.pl')
         	  ftp.passive = true
     		  ftp.login(user = ENV['ftp_login'], passwd = ENV['ftp_haslo'])
