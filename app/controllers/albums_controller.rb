@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @zdjecia = Image.find_all_by_przydzial(@album.nr_newsa.to_s).sort_by(&:created_at).reverse
-    @zdjecia_page = Image.page(params[:page]).per_page(12).order("created_at DESC").find_all_by_przydzial(@album.nr_newsa.to_s)
+    @zdjecia_page = Image.page(params[:page]).per_page(28).order("created_at DESC").find_all_by_przydzial(@album.nr_newsa.to_s)
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 

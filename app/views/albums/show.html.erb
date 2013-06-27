@@ -53,9 +53,12 @@
 				<ul class="section">
 					<% @zdjecia_page.each do |zdjecia| %>
 <a class="fancybox" href="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" title="<%= zdjecia.opis %>" target="_blank">
-        <img style="width:185px;height:190px;" src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" class="img-polaroid"" />
+        <img style="width:139px;height:134px;" src="http://serwer.osp-lesniewo.pl/<%= zdjecia.nazwa %>" class="img-polaroid"" />
 </a>
 					<% end %>
+				</ul>
+				<ul align="center">
+					<%= will_paginate @zdjecia_page, :container => false %>
 				</ul>
 <% if current_user && current_user.username == "Administrator" %>
 <div style="margin-top:40px;">
