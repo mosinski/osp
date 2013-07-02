@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612105913) do
+ActiveRecord::Schema.define(:version => 20130702104624) do
 
   create_table "albums", :force => true do |t|
     t.string   "tytul"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20130612105913) do
     t.string   "persistence_token"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "nazwa"
+    t.text     "opis"
+    t.string   "przydzial"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

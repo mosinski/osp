@@ -25,6 +25,8 @@ class NewsController < ApplicationController
     @news = News.find(params[:id])
     @album = Album.find_by_nr_newsa(@news.id)
     @zdjecia = Image.find_all_by_przydzial(params[:id]).last(4)
+    @filmiki = Video.find_all_by_przydzial(params[:id]).last(4)
+    @calosc = @zdjecia+@filmiki
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 

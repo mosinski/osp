@@ -6,9 +6,20 @@
 </p>
 <div class="galeria">
     <ul class="section">
-      <% @zdjecia.each do |zdjecia| %>
-	<%= link_to("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"fancybox", "title"=>"#{zdjecia.opis}") do %>
-        <%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
+      <% @calosc.each do |calosc| %>
+	<% if calosc.nazwa.end_with?('.webm','.WEBM') %>
+	  <%= link_to("#div#{calosc.id}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
+	  	<%= image_tag("video.png", :class=>"img-polaroid", "style"=>"width:135px;height:140px;border:0px;padding:0px;") %>
+	  <% end %>
+
+	  <div id="div<%= calosc.id %>" style="display:none" class="fancybox_video">
+    		<%= video_tag("http://serwer.osp-lesniewo.pl/video/#{calosc.nazwa}", :size => "640x480", :controls => true, :autobuffer => true) %>
+	  </div>
+
+	<% else %>
+	    <%= link_to("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
+             <%= image_tag("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
+	    <% end %>
 	<% end %>
       <% end %>
     </ul>
@@ -16,13 +27,13 @@
 
 <% if @zdjecia.count != 0 && @album != nil %>
 	<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
-<% end %>
-            
+<% end %>           
 <br><br>
 </div>
 <form>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
 <%= link_to "Dodaj Zdjęcie", "#image_add", "data-toggle"=>"modal", :class=>"image_add_link" %>
+<%= link_to "Dodaj Film", "#video_add", "data-toggle"=>"modal", :class=>"image_add_link" %>
 <input name="commit" style="height:15.4px;width:55px;font-weight:bold;cursor:pointer;" value=" Edytuj" onclick="location.href = '<%= edit_news_path(@news) %>'">
 <% end %>
 <input name="commit" style="height:15.4px;width:100px;font-weight:bold;cursor:pointer;" value=" Wróć do listy" onclick="location.href = '/aktualnosci'">
@@ -66,6 +77,43 @@
             </div>
 </div> 
 
+<div id="video_add" class="modal hide fade">
+            <div class="modal-header" style="background:rgb(116, 149, 150)">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Dodawanie Filmu do Aktualności</h3>
+            </div>
+            <div class="modal-body">
+<center>
+<%= form_tag Video.new, :html => {:multipart => true} do |f| %>
+	<%= image_tag("blank.gif", :class=>"img-polaroid", :id=>"ftkv", :width=>"170px;") %>
+	<%= text_area_tag :opis,nil, :class => "images_form_opis", :placeholder => "Krótki opis do filmu..." %>
+	<%= text_field_tag :przydzial, @news.id, "style" => "display:none" %>
+
+	<div class="pojemnik">
+  		<div class="myfileupload-buttonbar">
+     			<label class="myui-button">
+        		  <span class="btn btn-large btn-success">
+			  <i class="icon-plus icon-white"></i>
+			  Wybierz Film
+			  </span>
+			  <%= file_field_tag "videof", "style"=>"height:40px;", "onchange"=>"readURLv(this);" %>
+     			</label>
+  		</div>
+	</div>
+
+  <%= button_tag(type: "button", class: "btn btn-large btn-primary", :id=>"startvideo") do %>
+    <i class="icon-upload icon-white"></i> Dodaj Film
+  <% end %>
+<% end %>
+</center>
+            </div>
+            <div class="modal-footer" id="stopka_image_add">
+		<div id="progressvideo" class="progress progress-success progress-striped active">
+    			<div class="bar"></div>
+		</div>
+            </div>
+</div> 
+
 <script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="/js/jquery.fileupload.js"></script>
 
@@ -75,15 +123,22 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#ftk')
-                        .attr('src', e.target.result)
-                        .width(170)
-                        .height(170);
+                    $('#ftk').attr('src', e.target.result).width(170).height(170);
                 };
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
+     function readURLv(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#ftkv').attr('src', 'http://osp-eu.herokuapp.com/assets/video.png').width(170).height(170);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+	
 $(function () {
 	$('#file').fileupload({
 	add: function (e, data) {
@@ -95,6 +150,25 @@ $(function () {
     	progressall: function (e, data) {
         	var progress = parseInt(data.loaded / data.total * 100, 10);
         	$('#progress .bar').css(
+       		     'width',
+        	    progress + '%'
+        	);
+    	},
+        done: function (e, data) {
+            location.reload();
+        }
+	});
+
+	$('#videof').fileupload({
+	add: function (e, data) {
+            data.context = $('#startvideo').click(function () {
+		    $('#progressvideo').css('display', 'block');
+                    data.submit();
+                });
+        },
+    	progressall: function (e, data) {
+        	var progress = parseInt(data.loaded / data.total * 100, 10);
+        	$('#progressvideo .bar').css(
        		     'width',
         	    progress + '%'
         	);
