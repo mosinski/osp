@@ -1,14 +1,16 @@
-<h1>Listing videos</h1>
+<h1>Lista Filmików</h1>
 
-<table>
+<table  class="table table-hover">
+<thead>
   <tr>
-    <th>Nazwa</th>
-    <th>Opis</th>
-    <th>Przydzial</th>
+    <th>Nazwa na serwerze</th>
+    <th>Opis do Filmiku</th>
+    <th>Nr newsa</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+</thead>
 
 <% @videos.each do |video| %>
   <tr>

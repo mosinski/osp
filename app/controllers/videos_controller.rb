@@ -2,22 +2,38 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
+  if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @videos = Video.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @videos }
     end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+    end
   end
 
   # GET /videos/new
   # GET /videos/new.json
   def new
+  if current_user
+       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @video = Video.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @video }
+    end
+	else
+  	redirect_to websites_path, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+  	end
+    else
+        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
     end
   end
 
