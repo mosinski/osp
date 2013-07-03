@@ -5,6 +5,10 @@ class VideosController < ApplicationController
   if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
     @videos = Video.all
+    @news_kalendarz = News.all
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
+    @zdjecia_stopka = Image.last(3)
+    @statystyki = Statistic.find_by_rok(Time.now.year)
 
     respond_to do |format|
       format.html # index.html.erb
