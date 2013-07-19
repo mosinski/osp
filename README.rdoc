@@ -1,1 +1,10 @@
-== w budowie.
+== Ochotnicza Straż Pożarna w Leśniewie
+
+Możliwości strony :
+ > dodawanie/usuwanie/edycja nowych newsów 
+ > dodawanie/usuwanie/edycja zdjęć i filmików do newsów
+ > dodawanie/usuwanie/edycja członków jednostki oraz członków zarządu
+ > dodawanie/usuwanie/edycja plików z materiałami do szkolenia
+ > tworzenie się automatycznych statystyk interwencji
+ > subskrypcja newsów
+ 
