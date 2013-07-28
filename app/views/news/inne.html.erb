@@ -34,7 +34,7 @@
   <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
 <% end %>
 <p>
-<%= news.tresc[0..300]+"..." %>
+<%= strip_tags(news.tresc[0..300])+"..." %>
 </p>
 <%= link_to 'Czytaj więcej »', news, :class => "btn btn-small", "style" => "float:right;color:black"%>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>

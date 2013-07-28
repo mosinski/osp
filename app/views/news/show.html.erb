@@ -2,7 +2,7 @@
 <h4 id="news_show"><%= @news.tytul %></h4>
 <div style="background: none repeat scroll 0% 0% rgb(116, 149, 150);color:black;padding: 5px 19px 0px 18px;">
 <p>
-  <%= simple_format(@news.tresc) %>
+  <%= @news.tresc.html_safe %>
 </p>
 <div class="galeria">
     <ul class="section">
