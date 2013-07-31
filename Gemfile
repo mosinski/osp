@@ -42,6 +42,3 @@ gem 'twitter-bootstrap-rails'
 gem 'authlogic'
 gem 'will_paginate', '~> 3.0'
 gem "watu_table_builder", :require => "table_builder"
-gem 'redactor-rails'
-gem "carrierwave"
-gem "mini_magick"
