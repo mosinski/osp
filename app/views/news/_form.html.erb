@@ -1,3 +1,5 @@
+<%= tinymce_assets %>
+
 <%= form_for(@news) do |f| %>
   <% if @news.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +19,7 @@
   </div>
   <div class="field">
     <%= f.label :tresc_aktualności %>
-    <%= f.text_area :tresc , "style" => "width:99%;" %>
+    <%= f.text_area :tresc , :class => "tinymce", "style" => "width:99%;" %>
   </div>
   <div class="kategoria_box"  style="display:inline-block;">
     <%= f.label :Rodzaj_grupy %>
@@ -33,3 +35,5 @@
   </div>
 <br>
 <% end %>
+
+<%= tinymce :language => "pl", :entity_encoding => "raw" %>

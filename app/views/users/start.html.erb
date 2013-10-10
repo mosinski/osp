@@ -46,7 +46,7 @@
   							<span style="margin-top:-5px;color: rgb(109, 242, 252);">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
 							<% end %>
 							<p>
-								<%= news.tresc[0..230]+"..." %>
+								<%= (strip_tags(news.tresc))[0..230]+"..." %>
 							</p>
 							<%= link_to 'Czytaj więcej »', news,:class=>"label label-important",:id => "start_a" %>
 						</div>
