@@ -1426,9 +1426,12 @@ textarea {
 .news_show_tresc ul {
 	padding:0px!important;
 	list-style: disc!important;
+	overflow: visible!important;
+	margin:0px 0px 0px 20px!important;
 }
 
 .news_show_tresc li {
 	width:100%!important;
-	height:0!important;
+	height:100%!important;
+	margin: 0px 5.5px 8px!important;
 }
