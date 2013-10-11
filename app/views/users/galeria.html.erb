@@ -15,7 +15,7 @@
 <% @fotki = Image.find_all_by_przydzial(album.nr_newsa.to_s).first(5) %>
 <% @numer = Image.find_all_by_przydzial(album.nr_newsa.to_s).count %>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
-<%= link_to album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:40px;display:block;", :class=>"btn btn-small" do %>
+<%= link_to album, method: :delete, data: { confirm: 'Czy napewno chcesz usunąć ten album?' }, "style"=>"float:right;margin-right:25px;display:block;margin-top: 20px;", :class=>"btn btn-mini" do %>
 <i class="icon-trash"></i>
 <% end %>
 <% end %>
