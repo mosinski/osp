@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
+ruby '1.9.3'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -43,3 +45,4 @@ gem 'authlogic'
 gem 'will_paginate', '~> 3.0'
 gem "watu_table_builder", :require => "table_builder"
 gem "tinymce-rails"
+gem "rails_12factor"
