@@ -1,56 +1,58 @@
-			<div class="home">
-			<h4>Ostatnio Dodane Aktualności <%= image_tag("rss.png","title" => "Subskrypcja Aktualności", :class => "przycisk_rss", :onclick => "window.open('/news.atom','external');return false;") %></h4>
-				<ul>
-					<% @news.each do |news| %>
-					<% @images = Image.find_all_by_przydzial(news.id.to_s) %>
-					<% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
-					<li class="news_start">
-						<% if @images.count == 0 %>
-						<div style="position:absolute; left:45px; bottom:15px;">
-						<% if news.rodzaj == "Imprezy" %>
-						<%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
-						<% elsif news.rodzaj == "Interwencje" %>
-         					<%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
-						<% elsif news.rodzaj == "Szkolenia" %>
-         					<%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
-						<% elsif news.rodzaj == "Inne" %>
-         					<%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
-						<% elsif news.rodzaj == "OTWP" %>
-         					<%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
-						<% end %>
-    						</div>
-						<%= link_to("/news/#{news.id}") do %>
-						<%= image_tag("icon-logo.jpg", :class => "start_logo") %><% end %>
-						<% else %>
-						<%= link_to("/news/#{news.id}") do %>
-						<%= image_tag("http://serwer.osp-lesniewo.pl/#{@logo.nazwa}", :class=>"glowna_miniatura") %><% end %>
-						<div style="position:absolute; left:45px; bottom:15px;">
-						<% if news.rodzaj == "Imprezy" %>
-						<%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
-						<% elsif news.rodzaj == "Interwencje" %>
-         					<%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
-						<% elsif news.rodzaj == "Szkolenia" %>
-         					<%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
-						<% elsif news.rodzaj == "Inne" %>
-         					<%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
-						<% elsif news.rodzaj == "OTWP" %>
-         					<%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
-						<% end %>
-    						</div>
-						<% end %>
-						<div>
-							<h3><%= news.tytul.gsub(/^([a-z])/) { $1.capitalize }[0..22]+' ...' %></h3>
-							<% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
-  							<span style="margin-top:-5px;color: rgb(230, 230, 230);">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
-							<% else %>
-  							<span style="margin-top:-5px;color: rgb(109, 242, 252);">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
-							<% end %>
-							<p>
-								<%= (strip_tags(news.tresc))[0..230]+"..." %>
-							</p>
-							<%= link_to 'Czytaj więcej »', news,:class=>"label label-important",:id => "start_a" %>
-						</div>
-					</li>
-					<% end %>
-				</ul>
-			</div>
+<div class="home">
+<h4>Ostatnio Dodane Aktualności <%= image_tag("rss.png","title" => "Subskrypcja Aktualności", :class => "przycisk_rss", :onclick => "window.open('/news.atom','external');return false;") %></h4>
+  <ul>
+    <% @news.each do |news| %>
+    <% @images = Image.find_all_by_przydzial(news.id.to_s) %>
+    <% @logo = Image.find_all_by_przydzial(news.id.to_s).first %>
+    <li class="news_start">
+      <% if @images.count == 0 %>
+      <div style="position:absolute; left:45px; bottom:15px;">
+      <% if news.rodzaj == "Imprezy" %>
+      <%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
+      <% elsif news.rodzaj == "Interwencje" %>
+            <%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
+      <% elsif news.rodzaj == "Szkolenia" %>
+            <%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
+      <% elsif news.rodzaj == "Inne" %>
+            <%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
+      <% elsif news.rodzaj == "OTWP" %>
+            <%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
+      <% end %>
+      </div>
+      <%= link_to("/news/#{news.id}") do %>
+      <%= image_tag("icon-logo.jpg", :class => "start_logo") %><% end %>
+      <% else %>
+      <%= link_to("/news/#{news.id}") do %>
+      <%= image_tag("http://serwer.osp-lesniewo.pl/#{@logo.nazwa}", :class=>"glowna_miniatura") %><% end %>
+      <div style="position:absolute; left:45px; bottom:15px;">
+      <% if news.rodzaj == "Imprezy" %>
+      <%= image_tag("bookmars_blue.png", :class => "bookmars", "title" => "Kategoria: Impreza") %>
+      <% elsif news.rodzaj == "Interwencje" %>
+            <%= image_tag("bookmars_red.png", :class => "bookmars", "title" => "Kategoria: Interwencja") %>
+      <% elsif news.rodzaj == "Szkolenia" %>
+            <%= image_tag("bookmars_green.png", :class => "bookmars", "title" => "Kategoria: Szkolenie") %>
+      <% elsif news.rodzaj == "Inne" %>
+            <%= image_tag("bookmars_black.png", :class => "bookmars", "title" => "Kategoria: Inne") %>
+      <% elsif news.rodzaj == "OTWP" %>
+            <%= image_tag("bookmars_orange.png", :class => "bookmars", "title" => "Kategoria: OTWP") %>
+      <% end %>
+      </div>
+      <% end %>
+      <div>
+        <h3><%= news.tytul.gsub(/^([a-z])/) { $1.capitalize }[0..22]+' ...' %></h3>
+        <% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
+          <span style="margin-top:-5px;color: rgb(230, 230, 230);">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+        <% else %>
+          <span style="margin-top:-5px;color: rgb(109, 242, 252);">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+        <% end %>
+        <p>
+          <%= (strip_tags(news.tresc))[0..230]+"..." %>
+        </p>
+        <%= button_to news, class: "btn btn-danger", id: "start_a" do %>
+          Czytaj więcej »
+        <% end %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
