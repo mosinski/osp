@@ -48,9 +48,7 @@
         <p>
           <%= (strip_tags(news.tresc))[0..230]+"..." %>
         </p>
-        <%= button_to news, class: "btn btn-danger", id: "start_a" do %>
-          Czytaj więcej »
-        <% end %>
+        <%= link_to 'Czytaj więcej »', news, class: "label label-important", id: "start_a" %>
       </div>
     </li>
     <% end %>

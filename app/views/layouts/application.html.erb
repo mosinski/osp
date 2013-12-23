@@ -171,11 +171,11 @@
 				  <div id="calendar">
 					  <h2 id="month">
     						<%= link_to month: (@date.beginning_of_month-1).strftime("%Y-%m") do %>
-                  <i class="icon-chevron-circle-left"></i>
+                  <i class="icon-circle-arrow-left"></i>
                 <% end %>
     						<%=I18n.l @date , :format => "%B %Y" %>
     						<%= link_to month: (@date.end_of_month+1).strftime("%Y-%m") do %>
-                  <i class="icon-chevron-circle-right"></i>
+                  <i class="icon-circle-arrow-right"></i>
                 <% end %>
   					  </h2>
 				<%= calendar_for @news_kalendarz,:first_day_of_week => 1, :year => @date.year, :month => @date.month do |t| %>
