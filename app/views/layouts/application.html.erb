@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>OSP Leśniewo</title>
-	<link href="/logo.png" rel="icon" type="image/x-icon">
-  	<%= auto_discovery_link_tag(:atom, news_path(:atom)) %>
-  	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<%= javascript_include_tag "application" %>
-  	<%= csrf_meta_tags %>
+<title>OSP Leśniewo</title>
+<link href="/logo.png" rel="icon" type="image/x-icon">
+<%= auto_discovery_link_tag(:atom, news_path(:atom)) %>
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".fancybox")
-			    .attr('rel', 'gallery')
-			    .fancybox({
-			        beforeShow: function () {
-			            /* Add watermark */
-			            $('<div class="watermark"></div>')
-			                .bind("contextmenu", function (e) {
-			                    return false; /* Disables right click */
-			                })
-			                .prependTo( $.fancybox.inner );   
-			        }
-			    });
-		});
-	</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox")
+      .attr('rel', 'gallery')
+      .fancybox({
+        beforeShow: function () {
+          /* Add watermark */
+          $('<div class="watermark"></div>')
+            .bind("contextmenu", function (e) {
+              return false; /* Disables right click */
+            })
+            .prependTo( $.fancybox.inner );   
+        }
+      });
+  });
+</script>
 </head>
 <body>
 				<% if notice %>
@@ -170,9 +170,13 @@
 				<h4>Kalendarz Zdarzeń</h4>
 				  <div id="calendar">
 					  <h2 id="month">
-    						<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m") %>
+    						<%= link_to month: (@date.beginning_of_month-1).strftime("%Y-%m") do %>
+                  <i class="icon-chevron-circle-left"></i>
+                <% end %>
     						<%=I18n.l @date , :format => "%B %Y" %>
-    						<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m") %>
+    						<%= link_to month: (@date.end_of_month+1).strftime("%Y-%m") do %>
+                  <i class="icon-chevron-circle-right"></i>
+                <% end %>
   					  </h2>
 				<%= calendar_for @news_kalendarz,:first_day_of_week => 1, :year => @date.year, :month => @date.month do |t| %>
 				     <%= t.head('Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd') %>

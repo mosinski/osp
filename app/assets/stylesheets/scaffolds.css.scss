@@ -1,106 +1,106 @@
 /* Website template by freewebsitetemplates.com */
 /*------------------------- Fonts ---------------------------*/
 @font-face {
-	font: {
-       	family: 'exoregular';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-regular-webfont.eot', font);
-	src: asset-url('exo-regular-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-regular-webfont.woff', font) format('woff'), 
-	asset-url('exo-regular-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-regular-webfont.svg#exoregular', font) format('svg');
+  font: {
+    family: 'exoregular';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-regular-webfont.eot', font);
+  src: asset-url('exo-regular-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-regular-webfont.woff', font) format('woff'), 
+  asset-url('exo-regular-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-regular-webfont.svg#exoregular', font) format('svg');
 }
 @font-face {
-	font: {
-       	family: 'Conv_OpenSans-Regular';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('OpenSans-Regular.eot', font);
-	src: asset-url('OpenSans-Regular.eot', font) format('embedded-opentype'), 
-	asset-url('OpenSans-Regular.woff', font) format('woff'), 
-	asset-url('OpenSans-Regular.ttf', font) format('truetype'), 
-	asset-url('OpenSans-Regular.svg#OpenSans-Regular', font) format('svg');
+  font: {
+    family: 'Conv_OpenSans-Regular';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('OpenSans-Regular.eot', font);
+  src: asset-url('OpenSans-Regular.eot', font) format('embedded-opentype'), 
+  asset-url('OpenSans-Regular.woff', font) format('woff'), 
+  asset-url('OpenSans-Regular.ttf', font) format('truetype'), 
+  asset-url('OpenSans-Regular.svg#OpenSans-Regular', font) format('svg');
 }
 @font-face {
-	font: {
-       	family: 'exoextralight';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-extralight-webfont.eot', font);
-	src: asset-url('exo-extralight-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-extralight-webfont.woff', font) format('woff'), 
-	asset-url('exo-extralight-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-extralight-webfont.svg#exoextralight', font) format('svg');
+  font: {
+    family: 'exoextralight';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-extralight-webfont.eot', font);
+  src: asset-url('exo-extralight-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-extralight-webfont.woff', font) format('woff'), 
+  asset-url('exo-extralight-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-extralight-webfont.svg#exoextralight', font) format('svg');
 }
 @font-face {
-	font: {
-       	family: 'exolightitalic';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-lightitalic-webfont.eot', font);
-	src: asset-url('exo-lightitalic-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-lightitalic-webfont.woff', font) format('woff'), 
-	asset-url('exo-lightitalic-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-lightitalic-webfont.svg#exolightitalic', font) format('svg');
+  font: {
+    family: 'exolightitalic';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-lightitalic-webfont.eot', font);
+  src: asset-url('exo-lightitalic-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-lightitalic-webfont.woff', font) format('woff'), 
+  asset-url('exo-lightitalic-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-lightitalic-webfont.svg#exolightitalic', font) format('svg');
 }
 @font-face {
-	font: {
-       	family: 'exobolditalic';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-bolditalic-webfont.eot', font);
-	src: asset-url('exo-bolditalic-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-bolditalic-webfont.woff', font) format('woff'), 
-	asset-url('exo-bolditalic-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-bolditalic-webfont.svg#exobolditalic', font) format('svg');
+  font: {
+    family: 'exobolditalic';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-bolditalic-webfont.eot', font);
+  src: asset-url('exo-bolditalic-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-bolditalic-webfont.woff', font) format('woff'), 
+  asset-url('exo-bolditalic-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-bolditalic-webfont.svg#exobolditalic', font) format('svg');
 }
 @font-face {
-	font: {
-       	family: 'exoextralightitalic';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-extralightitalic-webfont.eot', font);
-	src: asset-url('exo-extralightitalic-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-extralightitalic-webfont.woff', font) format('woff'), 
-	asset-url('exo-extralightitalic-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-extralightitalic-webfont.svg#exoextralightitalic', font) format('svg')
+  font: {
+    family: 'exoextralightitalic';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-extralightitalic-webfont.eot', font);
+  src: asset-url('exo-extralightitalic-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-extralightitalic-webfont.woff', font) format('woff'), 
+  asset-url('exo-extralightitalic-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-extralightitalic-webfont.svg#exoextralightitalic', font) format('svg')
 }
 @font-face {
-	font: {
-       	family: 'exobold';
-       	weight: 'normal';
-       	style: 'normal';
-    	}
-	src: asset-url('exo-bold-webfont.eot', font);
-	src: asset-url('exo-bold-webfont.eot', font) format('embedded-opentype'), 
-	asset-url('exo-bold-webfont.woff', font) format('woff'), 
-	asset-url('exo-bold-webfont.ttf', font) format('truetype'), 
-	asset-url('exo-bold-webfont.svg#exobold', font) format('svg');
+  font: {
+    family: 'exobold';
+    weight: 'normal';
+    style: 'normal';
+  }
+  src: asset-url('exo-bold-webfont.eot', font);
+  src: asset-url('exo-bold-webfont.eot', font) format('embedded-opentype'), 
+  asset-url('exo-bold-webfont.woff', font) format('woff'), 
+  asset-url('exo-bold-webfont.ttf', font) format('truetype'), 
+  asset-url('exo-bold-webfont.svg#exobold', font) format('svg');
 }
 @font-face {
-	font: {
-  	family: 'Exo';
-  	weight: 800;
-  	style: 'italic';
-	}
-	src: asset-url('Exo-ExtraBold-Italic.eot', font);
-	src: asset-url('Exo-ExtraBold-Italic.eot', font) format('embedded-opentype'), 
-	asset-url('Exo-ExtraBold-Italic.woff', font) format('woff'), 
-	asset-url('Exo-ExtraBold-Italic.ttf', font) format('truetype'), 
-	asset-url('Exo-ExtraBold-Italic.svg#exoextrabolditalic', font) format('svg');
+  font: {
+    family: 'Exo';
+    weight: 800;
+    style: 'italic';
+  }
+  src: asset-url('Exo-ExtraBold-Italic.eot', font);
+  src: asset-url('Exo-ExtraBold-Italic.eot', font) format('embedded-opentype'), 
+  asset-url('Exo-ExtraBold-Italic.woff', font) format('woff'), 
+  asset-url('Exo-ExtraBold-Italic.ttf', font) format('truetype'), 
+  asset-url('Exo-ExtraBold-Italic.svg#exoextrabolditalic', font) format('svg');
 }
 /*------------------------- Layout styles ------------------------*/
 body {
-	margin:0;
-	font-family: 'exoregular';
-	background:url(/assets/bg-body.jpg) repeat-x #060606;
+  margin:0;
+  font-family: 'exoregular';
+  background:url(/assets/bg-body.jpg) repeat-x #060606;
 }
 a {
 	outline:none;
@@ -475,16 +475,16 @@ a img {
 	text-transform:uppercase;
 }
 .body .about h4 {
-    background: none repeat scroll 0% 0% rgb(16, 34, 35);
-    color: rgb(254, 250, 250);
-    font-family: exobolditalic;
-    font-size: 18px;
-    font-weight: 400;
-    height: 36px;
-    letter-spacing: 0.05em;
-    line-height: 35px;
-    margin: 0px;
-    text-indent: 25px;
+  background: none repeat scroll 0% 0% rgb(16, 34, 35);
+  color: rgb(254, 250, 250);
+  font-family: exobolditalic;
+  font-size: 18px;
+  font-weight: 400;
+  height: 36px;
+  letter-spacing: 0.05em;
+  line-height: 35px;
+  margin: 0px;
+  text-indent: 25px;
 }
 
 .body .about p {
@@ -791,14 +791,14 @@ a img {
 	margin: 0 0 12px;
 }
 .body .home form input {
-    	background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
-    	border: 2px solid;
-    	font-family: Arial,Helvetica,sans-serif;
-    	font-style: italic;
-    	height: 20px;
-    	padding: 10px 5px 6px;
-    	width: 210px;
-    	cursor: text;
+  background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
+  border: 2px solid;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  height: 20px;
+  padding: 10px 5px 6px;
+  width: 210px;
+  cursor: text;
 }
 .body .sidebar ul li div h3 {
 	color:#f9fefe;
@@ -940,9 +940,9 @@ a img {
 	margin-bottom:-85px;
 }
 .notice {
-    	position: fixed;
-    	top: 14px;
-    	right: 2%;
+  position: fixed;
+  top: 14px;
+  right: 2%;
 }
 #news_index_tytul{
 	line-height:25px;
@@ -965,17 +965,17 @@ a img {
 	float:right;
 }
 textarea {
-	margin-left: 0px;
-    	border: 2px solid;
+  margin-left: 0px;
+  border: 2px solid;
 }
 .body .news div ul a, .body .gallery .gallery_div ul a, .body .news div ul em,.body .news div ul span, .body .gallery .gallery_div ul em, .body .gallery .gallery_div ul span {
-    	color: rgb(116, 201, 209);
-    	font-family: Arial,Helvetica,sans-serif;
-    	font-size: 12px;
-    	line-height: 42px;
-    	margin: 0px;
-    	padding: 0px 6px;
-    	text-decoration: none;
+  color: rgb(116, 201, 209);
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  line-height: 42px;
+  margin: 0px;
+  padding: 0px 6px;
+  text-decoration: none;
 }
 .news div ul em, .body .gallery .gallery_div ul em{
 	font-weight:bold;
@@ -988,24 +988,24 @@ textarea {
 	height:160px;
 }
 .body .home .galeria ul.section {
-    	background: url("/assets/border.png") repeat-x scroll left top transparent;
-    	border: 0px none;
-    	clear: none;
-    	margin: 0px 10px;
-    	padding: 25px 0px 30px;
-    	margin-bottom: -50px;
+  background: url("/assets/border.png") repeat-x scroll left top transparent;
+  border: 0px none;
+  clear: none;
+  margin: 0px 10px;
+  padding: 25px 0px 30px;
+  margin-bottom: -50px;
 }
 .body .home .galeria ul li {
-    	float: left;	
-    	width: 180px;
+  float: left;	
+  width: 180px;
 }
 .body .home .galeria ul {
-    	list-style: none outside none;
+  list-style: none outside none;
 }
 .body .home .galeria ul li a img {
-    	border: 2px solid rgb(47, 84, 85);
-    	margin: 0px;
-    	display:inline;
+  border: 2px solid rgb(47, 84, 85);
+  margin: 0px;
+  display:inline;
 }
 .img-polaroid{
 	margin-bottom:3px;
@@ -1030,408 +1030,406 @@ textarea {
     	line-height: 38px;
 }
 .alert-error {
-    	color: black;
-    	padding: 6px 35px 6px 14px;
-    	margin-bottom: 5px;
-    	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
-    	background-color: rgb(252, 248, 227);
-    	border: 1px solid rgb(185, 74, 72);
-    	border-radius: 4px 4px 4px 4px;
-    	font-weight: bold;
-    	width:280px !important;
+  color: black;
+  padding: 6px 35px 6px 14px;
+  margin-bottom: 5px;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  background-color: rgb(252, 248, 227);
+  border: 1px solid rgb(185, 74, 72);
+  border-radius: 4px 4px 4px 4px;
+  font-weight: bold;
+  width:280px !important;
 }
 #plus{
-    	font-size:15px;
-    	font-weight:bold;
-    	margin-top:-2px;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:-2px;
 }
 #czlonkowie_lista {
-    	color: black;
-    	float: none;
-    	font-family: exobold;
-    	font-size: 17px;
-    	font-weight: 400;
-    	letter-spacing: 0.05em;
-    	line-height: 30px;
-    	margin: 0px 0px 12px;
+  color: black;
+  float: none;
+  font-family: exobold;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 30px;
+  margin: 0px 0px 12px;
 }
 .album_list{
-    	height:165px;
-    	width:500px !important;
-    	background: url("/assets/bg-body.jpg") repeat scroll 0% 25% transparent;
-    	color:Dark_gray;
-    	margin-top:20px;
-    	margin-bottom:20px;
-    	margin-left:56px;
-    	-webkit-box-shadow: 0 0  13px #000 inset;
-    	-moz-box-shadow: 0 0  13px #000 inset;
-    	box-shadow: 0 0  13px #000 inset;
-    	padding: 6px 8px 0px;
-    	overflow: hidden;
-    	cursor: pointer;
+  height:165px;
+  width:500px !important;
+  background: url("/assets/bg-body.jpg") repeat scroll 0% 25% transparent;
+  color:Dark_gray;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:56px;
+  -webkit-box-shadow: 0 0  13px #000 inset;
+  -moz-box-shadow: 0 0  13px #000 inset;
+  box-shadow: 0 0  13px #000 inset;
+  padding: 6px 8px 0px;
+  overflow: hidden;
+  cursor: pointer;
 }
 .album_inside {
-    	background-color: rgba(0, 0, 0, 0.5);
-    	border-radius: 4px 4px 4px 4px;
-    	transition: max-height 0.5s ease 0.2s;
-    	color: rgb(255, 255, 255);
-    	margin-left: 40px;
-    	margin-top:105px;
-    	line-height: 1.4;
-    	max-height: 180px;
-    	width:410px;
-    	height:150px;
-    	padding: 15px 15px 0px;
-    	transition: all 0.4s ease 0s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px 4px 4px 4px;
+  transition: max-height 0.5s ease 0.2s;
+  color: rgb(255, 255, 255);
+  margin-left: 40px;
+  margin-top:105px;
+  line-height: 1.4;
+  max-height: 180px;
+  width:410px;
+  height:150px;
+  padding: 15px 15px 0px;
+  transition: all 0.4s ease 0s;
 }
 .album_inside:hover{
-    	margin-top:30px;
-    	transition: all 0.4s ease 0s;
+  margin-top:30px;
+  transition: all 0.4s ease 0s;
 }
 .album_inside img{
-    	margin-top:5px;
-    	height:65px !important;
-    	width:65px !important;
+  margin-top:5px;
+  height:65px !important;
+  width:65px !important;
 }
 .his_img{
-    	padding: 6px 6px 6px;
-    	margin-left: -5px;
-    	width:100%;
-    	-webkit-box-shadow: 0 0  13px #000 inset;
-    	-moz-box-shadow: 0 0  13px #000 inset;
-    	box-shadow: 0 0  13px #000 inset;
+  padding: 6px 6px 6px;
+  margin-left: -5px;
+  width:100%;
+  -webkit-box-shadow: 0 0  13px #000 inset;
+  -moz-box-shadow: 0 0  13px #000 inset;
+  box-shadow: 0 0  13px #000 inset;
 }
 .zakladki_male{
-    	background: none repeat scroll 0% 0% rgb(116, 149, 150); 
-    	padding: -8px 5px 5px 5px;
-    	border-radius: 5px 5px 5px 5px;
-    	border:1px solid;
-    	color:black !important;
-    	display: inline-block;
+  background: none repeat scroll 0% 0% rgb(116, 149, 150); 
+  padding: -8px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border:1px solid;
+  color:black !important;
+  display: inline-block;
 }
 .glowna_miniatura{
-    	width:70px !important;
-    	height:69px !important;
-    	box-shadow: 0px 0px 3px rgb(0, 0, 0);
+  width:70px !important;
+  height:69px !important;
+  box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 .watermark {
-    	position: absolute;
-    	bottom: 30px;
-    	right: 5px;
-    	width: 100%;
-    	height: 40px;
-    	background: transparent url(/assets/znak_wodny.png) bottom right no-repeat;
-    	z-index: 1100;
+  position: absolute;
+  bottom: 30px;
+  right: 5px;
+  width: 100%;
+  height: 40px;
+  background: transparent url(/assets/znak_wodny.png) bottom right no-repeat;
+  z-index: 1100;
 }
 .news_start {
-    	margin-right:4px;
-    	background-color: rgb(116, 149, 150);
-    	background-image: linear-gradient(to top,  rgb(80, 100, 104), rgb(116, 149, 150));
-    	background-repeat: repeat-x;
-    	border-width: 1px;
-    	border-style: solid;
-    	-moz-border-top-colors: none;
-    	-moz-border-right-colors: none;
-    	-moz-border-bottom-colors: none;
-    	-moz-border-left-colors: none;
-    	border-image: none;
-    	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgb(1, 1, 1);
-    	border-radius: 4px 4px 4px 4px;
-    	box-shadow: 0px 1px 0px rgba(2, 2, 2, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+  margin-right:4px;
+  background-color: rgb(116, 149, 150);
+  background-image: linear-gradient(to top,  rgb(80, 100, 104), rgb(116, 149, 150));
+  background-repeat: repeat-x;
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgb(1, 1, 1);
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0px 1px 0px rgba(2, 2, 2, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
 }	
 .start_logo{
-    	width:70px !important;
-    	height:69px !important;
-    	box-shadow: 0px 0px 3px rgb(0, 0, 0);
+  width:70px !important;
+  height:69px !important;
+  box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 .bookmars{
-    	margin-left:-50px;
-    	z-index:2;
-    	width:80px;
-    	height:40px;
+  margin-left:-50px;
+  z-index:2;
+  width:80px;
+  height:40px;
 }
 #start_a{
-    	position:absolute;
-    	bottom:15px;
-    	right:15px;
-    	color:white !important;
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  color:white !important;
 }
 #start_a:hover{
-    	text-decoration:underline;
+  text-decoration:underline;
 }
 #osoba {
-    	font-weight:bold;
-    	font-size:25px;
-    	line-height:35px;
+  font-weight:bold;
+  font-size:25px;
+  line-height:35px;
 }
 .galeriaplus{
-    	margin-top:-7px;
-    	cursor: pointer;
+  margin-top:-7px;
+  cursor: pointer;
 }
 .przycisk_rss{
-    	margin:2px;
-    	float:right;
-    	cursor:pointer;
+  margin:2px;
+  float:right;
+  cursor:pointer;
 }
 .licznik_zdarzen{
-    	border:1px solid rgb(220, 247, 221);
-    	border-radius: 5px 5px 5px 5px;
-    	padding: 10px 10px 10px 15px;
-    	box-shadow: 0px 0px 15px rgb(65, 131, 196);
-    	background:url(/assets/kropka.png);
+  border:1px solid rgb(220, 247, 221);
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px 10px 10px 15px;
+  box-shadow: 0px 0px 15px rgb(65, 131, 196);
+  background:url(/assets/kropka.png);
 }
 .icon_plik{
-    	display:inline-block;
-    	width:40px;
-    	height:44px;
-    	background:url("/assets/icons.png");
-    	margin-left:0px;
-    	margin-top:-10px;
-    	margin-bottom:-11px;
-    	float:left;
+  display:inline-block;
+  width:40px;
+  height:44px;
+  background:url("/assets/icons.png");
+  margin-left:0px;
+  margin-top:-10px;
+  margin-bottom:-11px;
+  float:left;
 }
 .dodaj_plik{
-    	width:50px;
-    	height:50px;
-    	display:inline;
-    	margin-top:-5px;
+  width:50px;
+  height:50px;
+  display:inline;
+  margin-top:-5px;
 }
 #otwp_ico{
-    	height:23px;
-    	padding-top:11px;
-    	padding-bottom:11px;
-    	padding-left:0px;
-    	padding-right:10px;
+  height:23px;
+  padding-top:11px;
+  padding-bottom:11px;
+  padding-left:0px;
+  padding-right:10px;
 }
 .progress{
-    	display:none;
-    	height:30px;
+  display:none;
+  height:30px;
 }
 .bar {
-    	background: green;
-    	width: 0%;
-    	height: 30px;
+  background: green;
+  width: 0%;
+  height: 30px;
 }
 .myfileupload-buttonbar input {
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	margin: 0;
-    	border: solid transparent;
-    	border-width: 0 0 100px 200px;
-    	opacity: 0.0;
-    	filter: alpha(opacity=0);
-    	-o-transform: translate(250px, -50px) scale(1);
-    	-moz-transform: translate(-300px, 0) scale(4);
-    	direction: ltr;
-    	cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0.0;
+  filter: alpha(opacity=0);
+  -o-transform: translate(250px, -50px) scale(1);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
+  cursor: pointer;
 }
 .myui-button {
-    	position: relative;
-    	cursor: pointer;
-    	text-align: center;
-    	overflow: visible;
-    	overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  overflow: visible;
+  overflow: hidden;
 }
 .pojemnik {
-    	width:185px;
-    	display:inline-block;
+  width:185px;
+  display:inline-block;
 }
 #start, #startvideo {
-    	vertical-align: top;
+  vertical-align: top;
 }
 #stopka_image_add {
-    	padding:0px!important;
+  padding:0px!important;
 }
 .image_add_link {
-    	display:inline-block;
-    	background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
-    	border: 2px solid rgb(51, 51, 51);
-    	font-family: Arial,Helvetica,sans-serif;
-    	font-style: italic;
-    	font-weight: bold;
-    	font-size: 15px;
-    	height: 15.4px;
-    	padding: 6px 7px 12px;
-    	width: 105px;
-    	cursor: pointer;
-    	color: rgb(51, 51, 51);
-    	vertical-align: middle;
+  display:inline-block;
+  background: url("/assets/interface.png") no-repeat scroll 0px -49px transparent;
+  border: 2px solid rgb(51, 51, 51);
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 15px;
+  height: 15.4px;
+  padding: 6px 7px 12px;
+  width: 105px;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  vertical-align: middle;
 }
 .link_do_galerii {
-    	float:right;
-    	margin-top:16px;
-    	color: rgb(0, 85, 128);
+  float:right;
+  margin-top:16px;
+  color: rgb(0, 85, 128);
 }
 
 #calendar table {
-    	border-collapse: collapse;
-    	width: 90%;
-    	margin-left:15px;
-    	margin-bottom:15px;
-    	border: 1px solid rgb(14, 16, 19);
-    	border-collapse: collapse;
-    	border-radius: 4px 4px 3px 3px;
-    	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom:15px;
+  border: 1px solid rgb(14, 16, 19);
+  border-collapse: collapse;
+  border-radius: 4px 4px 3px 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 #calendar th {
-    	border-left: 0px none!important;
-    	line-height: 8px;
-    	font-size: 10px;
-    	color: rgb(105, 105, 105);
-    	text-transform: uppercase;
-    	background: none repeat scroll 0% 0% rgb(243, 243, 243);
-    	text-align: center;
-    	width: 14.2857142857143%;
-    	padding: 6px;
-    	font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  border-left: 0px none!important;
+  line-height: 8px;
+  font-size: 10px;
+  color: rgb(105, 105, 105);
+  text-transform: uppercase;
+  background: none repeat scroll 0% 0% rgb(243, 243, 243);
+  text-align: center;
+  width: 14.2857142857143%;
+  padding: 6px;
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
 }
 
 #calendar td {
-    	font-family: "Lucida Grande",arial,helvetica,sans-serif;
-    	color: #777;
-    	height: 20px;
-    	vertical-align: top;
-    	font-size: 16px;
-    	font-weight:bold;
-    	text-shadow: 0px 1px rgba(255, 255, 255, 0.8);
-    	text-align: center;
-    	background-image: linear-gradient(to bottom, rgb(234, 234, 234), rgb(229, 229, 229) 60%, rgb(217, 217, 217));
-    	background-color: rgb(229, 229, 229);
-    	border: 1px solid #999;
-    	padding:0px;
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  color: #777;
+  height: 20px;
+  vertical-align: top;
+  font-size: 16px;
+  font-weight:bold;
+  text-shadow: 0px 1px rgba(255, 255, 255, 0.8);
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgb(234, 234, 234), rgb(229, 229, 229) 60%, rgb(217, 217, 217));
+  background-color: rgb(229, 229, 229);
+  border: 1px solid #999;
+  padding:0px;
 }
 
 #calendar .notmonth {
-    	color: #CCC;
-    	background: none repeat scroll 0% 0% rgb(243, 243, 243);
+  color: #CCC;
+  background: none repeat scroll 0% 0% rgb(243, 243, 243);
 }
 
 #calendar #month {
-    	display: block;
-    	line-height: 32px;
-    	font-weight: bold;
-    	font-size:15px;
-    	width: 90%;
-    	margin-left: 15px;
-    	margin-bottom:-2px;
-   	color: rgb(226, 226, 226);
-    	text-align: center;
-    	text-shadow: 0px -1px black;
-    	background: none repeat scroll 0% 0% rgba(10, 15, 15, 0.35);
-    	border-top: 1px solid rgb(51, 51, 51);
-    	border-bottom: 1px solid rgb(49, 49, 49);
-    	box-shadow: 0px 1px rgba(255, 255, 255, 0.04) inset;
+  display: block;
+  line-height: 32px;
+  font-weight: bold;
+  font-size:17px;
+  width: 100%;
+  margin: 0;
+  color: rgb(226, 226, 226);
+  text-align: center;
+  text-shadow: 0px -1px black;
+  background: none repeat scroll 0% 0% rgba(10, 15, 15, 0.35);
+  border-top: 1px solid rgb(51, 51, 51);
+  border-bottom: 1px solid rgb(49, 49, 49);
+  box-shadow: 0px 1px rgba(255, 255, 255, 0.04) inset;
 }
 
 #calendar #month a, #calendar #month a:hover {
-    	text-decoration: none;
-    	padding: 0 10px;
-    	color: #999;
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
 }
 
 #calendar .today {
-    	margin: -1px;
-    	color: rgb(243, 243, 243);
-    	text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
-    	background: none repeat scroll 0% 0% rgb(109, 175, 191);
-    	border: 1px solid rgb(89, 139, 148);
-    	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05) inset;
+  margin: -1px;
+  color: rgb(243, 243, 243);
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  background: none repeat scroll 0% 0% rgb(109, 175, 191);
+  border: 1px solid rgb(89, 139, 148);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05) inset;
 }
 
 #calendar .future > .calendar_pelne {
-  	background-image: linear-gradient(to bottom, rgb(98, 196, 98), rgb(81, 163, 81))!important;
+  background-image: linear-gradient(to bottom, rgb(98, 196, 98), rgb(81, 163, 81))!important;
 }
 
 #calendar ul {
-    	margin: 0;
-    	margin-top: 5px;
-    	padding: 0;
-    	list-style: none;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
 }
 
 #calendar li {
-    	margin: 0;
-    	padding: 0;
-    	font-size: 11px;
-    	text-align: center;	
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center;	
 }
 
 #calendar li > a {
-    	color:black!important;
-    	margin-left:0;
-    	margin-right:0px;
+  color:black!important;
+  margin-left:0;
+  margin-right:0px;
 }
 
 #calendar li > a:hover {
-    	color:white!important;
-    	margin-left:0;
-    	margin-right:0px;
+  color:white!important;
+  margin-left:0;
+  margin-right:0px;
 }
 
 .calendar_puste {
-    	padding: 6px;
+  padding: 6px;
 }
 
 .calendar_pelne {
-    	padding: 6px;
-    	background: linear-gradient(to bottom, rgb(229, 102, 102) 0%, rgb(215, 93, 93) 100%) repeat scroll 0% 0% transparent;
-    	background-color: rgb(215, 93, 93);
-    	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.125) inset;
+  padding: 6px;
+  background: linear-gradient(to bottom, rgb(229, 102, 102) 0%, rgb(215, 93, 93) 100%) repeat scroll 0% 0% transparent;
+  background-color: rgb(215, 93, 93);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.125) inset;
 }
 
 .calendar_pelne a {
-    	color: rgb(243, 243, 243)!important;
-    	text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  color: rgb(243, 243, 243)!important;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
 
 .pogoda_widget {
-    	height:220px;
-    	overflow:hidden;
-    	margin-top:-20px;
-    	margin-left:5px;
+  height:220px;
+  overflow:hidden;
+  margin-top:-20px;
+  margin-left:5px;
 }
 
 #news_rodzaj {
-	border: 2px solid;
-	brder-color:rgba(82, 168, 236, 0.8);
+  border: 2px solid;
+  brder-color:rgba(82, 168, 236, 0.8);
 }
 
 #news_termin_3i {
-	width:60px;
-	border: 2px solid;
-	brder-color:rgba(82, 168, 236, 0.8);
+  width:60px;
+  border: 2px solid;
+  brder-color:rgba(82, 168, 236, 0.8);
 }
 
 #news_termin_2i {
-	width:120px;
-	border: 2px solid;
-	brder-color:rgba(82, 168, 236, 0.8);
+  width:120px;
+  border: 2px solid;
+  brder-color:rgba(82, 168, 236, 0.8);
 }
 
 #news_termin_1i {
-	width:70px;
-	border: 2px solid;
-	brder-color:rgba(82, 168, 236, 0.8);
+  width:70px;
+  border: 2px solid;
+  brder-color:rgba(82, 168, 236, 0.8);
 }
 
 #news_rodzaj:focus,#news_termin_3i:focus,#news_termin_2i:focus,#news_termin_1i:focus,#news_form_tytul:focus {
-	outline: 0px none;
-	border-color: rgba(82, 168, 236, 0.8);
-	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
-	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  outline: 0px none;
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }
 
 .news_show_tresc ul {
-	padding:0px!important;
-	list-style: disc!important;
-	overflow: visible!important;
-	margin:0px 0px 0px 20px!important;
+  padding:0px!important;
+  list-style: disc!important;
+  overflow: visible!important;
+  margin:0px 0px 0px 20px!important;
 }
 
 .news_show_tresc li {
-	width:100%!important;
-	height:100%!important;
-	margin: 0px 5.5px 8px!important;
+  width:100%!important;
+  height:100%!important;
+  margin: 0px 5.5px 8px!important;
 }
