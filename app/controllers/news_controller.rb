@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find(:all, :conditions => ['rodzaj != ? ', "OTWP"])
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @aktualnosci_atom =  News.all
@@ -40,88 +40,88 @@ class NewsController < ApplicationController
   # GET /news/new.json
   def new
    if current_user
-       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
-    @news = News.new
-    @news_kalendarz = News.all
-    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @zdjecia_stopka = Image.last(3)
-    @statystyki = Statistic.find_by_rok(Time.now.year)
+     if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+       @news = News.new
+       @news_kalendarz = News.all
+       @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
+       @zdjecia_stopka = Image.last(3)
+       @statystyki = Statistic.find_by_rok(Time.now.year)
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @news }
-    end
-	else
-  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
-  	end
-    else
-        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
-    end
+       respond_to do |format|
+         format.html # new.html.erb
+         format.json { render json: @news }
+       end
+     else
+       redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+     end
+   else
+     redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+   end
   end
 
   # GET /news/1/edit
   def edit
    if current_user
-       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
-    @news_kalendarz = News.all
-    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.find(params[:id])
-    @zdjecia_stopka = Image.last(3)
-    @statystyki = Statistic.find_by_rok(Time.now.year)
-	else
-  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
-  	end
-    else
-        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
-    end
+     if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+       @news_kalendarz = News.all
+       @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
+       @news = News.find(params[:id])
+       @zdjecia_stopka = Image.last(3)
+       @statystyki = Statistic.find_by_rok(Time.now.year)
+     else
+       redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+     end
+   else
+     redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+   end
   end
 
   # POST /news
   # POST /news.json
   def create
    if current_user
-       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
-    @news = News.new(params[:news])
+     if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+       @news = News.new(params[:news])
 
-    respond_to do |format|
-      if @news.save
-        format.html { redirect_to @news, notice: 'Gratulacje! Dodano now&#261; aktualno&#347;&#263;!' }
-        format.json { render json: @news, status: :created, location: @news }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
-      end
-    end
-	else
-  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
-  	end
-    else
-        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
-    end
+       respond_to do |format|
+         if @news.save
+           format.html { redirect_to @news, notice: 'Gratulacje! Dodano now&#261; aktualno&#347;&#263;!' }
+           format.json { render json: @news, status: :created, location: @news }
+         else
+           format.html { render action: "new" }
+           format.json { render json: @news.errors, status: :unprocessable_entity }
+         end
+       end
+     else
+       redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+     end
+   else
+     redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+   end
   end
 
   # PUT /news/1
   # PUT /news/1.json
   def update
    if current_user
-       if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
-    @news = News.find(params[:id])
+     if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
+        @news = News.find(params[:id])
 
-    respond_to do |format|
-      if @news.update_attributes(params[:news])
-        format.html { redirect_to @news, notice: 'Gratulacje! Poprawiono aktualno&#347;&#263;!' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
-      end
-    end
-	else
-  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
-  	end
-    else
-        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
-    end
+        respond_to do |format|
+          if @news.update_attributes(params[:news])
+            format.html { redirect_to @news, notice: 'Gratulacje! Poprawiono aktualno&#347;&#263;!' }
+            format.json { head :no_content }
+          else
+            format.html { render action: "edit" }
+            format.json { render json: @news.errors, status: :unprocessable_entity }
+          end
+        end
+     else
+       redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+     end
+   else
+     redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+   end
   end
 
   # DELETE /news/1
@@ -129,19 +129,19 @@ class NewsController < ApplicationController
   def destroy
    if current_user
        if (current_user.username == 'Administrator'&&current_user.id==1)||(current_user.username == 'strazak'&&current_user.id==2)
-    @news = News.find(params[:id])
-    @news.destroy
+          @news = News.find(params[:id])
+          @news.destroy
 
-    respond_to do |format|
-      format.html { redirect_to news_index_url }
-      format.json { head :no_content }
-    end
-	else
-  	redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
-  	end
-    else
-        redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
-    end
+          respond_to do |format|
+            format.html { redirect_to news_index_url }
+            format.json { head :no_content }
+          end
+       else
+         redirect_to root_url, :notice => 'Uwaga! Nie masz uprawnie&#324;!'
+       end
+   else
+     redirect_to :login, :notice => 'Informacja! Zaloguj si&#281; aby obejrze&#263;!'
+   end
   end
 
   def group
@@ -160,7 +160,7 @@ class NewsController < ApplicationController
   def imprezy
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Imprezy")
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find_all_by_rodzaj("Imprezy")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -173,7 +173,7 @@ class NewsController < ApplicationController
   def interwencje
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Interwencje")
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find_all_by_rodzaj("Interwencje")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -186,7 +186,7 @@ class NewsController < ApplicationController
   def szkolenia
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Szkolenia")
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find_all_by_rodzaj("Szkolenia")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -199,7 +199,7 @@ class NewsController < ApplicationController
   def inne
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("Inne")
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find_all_by_rodzaj("Inne")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
 
@@ -212,7 +212,7 @@ class NewsController < ApplicationController
   def otwp
     @news_kalendarz = News.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @news = News.page(params[:page]).per_page(6).order("created_at DESC").find_all_by_rodzaj("OTWP")
+    @news = News.paginate(:page => params[:page], :per_page => 6, :order => 'created_at DESC').search(params[:search], params[:page]).find_all_by_rodzaj("OTWP")
     @zdjecia_stopka = Image.last(3)
     @statystyki = Statistic.find_by_rok(Time.now.year)
     @pliki = Plik.all
