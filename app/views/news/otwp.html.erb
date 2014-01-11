@@ -5,6 +5,12 @@
 <%= will_paginate @articles, :container => false %>
 </ul>
 </div>
+  <%= form_tag request.path, :method => 'get', :class=>"form-search" do %>
+    <div class="input-append" style="overflow: hidden;background:transparent">
+      <%= text_field_tag :search, params[:search], :class=>"search-query", :placeholder=>"Szukaj.." %>
+      <button type="submit" class="btn"><span style="font-size:32px;"><i class="icon-search"></i></span></button>
+    </div>
+  <% end %>
 <ul>
 <center><h4>Materiały Szkoleniowe
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
