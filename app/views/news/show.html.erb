@@ -29,6 +29,7 @@
 	<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
 <% end %>           
 <br><br>
+<%= render :partial => "shared/disqus", :locals => { title: @news.tytul } %>
 </div>
 <form>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
