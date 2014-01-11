@@ -5,31 +5,33 @@
   <%= raw(@news.tresc) %>
 </p>
 <div class="galeria">
-    <ul class="section">
-      <% @calosc.each do |calosc| %>
-	<% if calosc.nazwa.end_with?('.webm','.WEBM') %>
-	  <%= link_to("#div#{calosc.id}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
-	  	<%= image_tag("video.png", :class=>"img-polaroid", "style"=>"width:135px;height:140px;border:0px;padding:0px;") %>
-	  <% end %>
+  <ul class="section">
+    <% @calosc.each do |calosc| %>
+        <% if calosc.nazwa.end_with?('.webm','.WEBM') %>
+          <%= link_to("#div#{calosc.id}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
+            <%= image_tag("video.png", :class=>"img-polaroid", "style"=>"width:135px;height:140px;border:0px;padding:0px;") %>
+          <% end %>
 
-	  <div id="div<%= calosc.id %>" style="display:none" class="fancybox_video">
-    		<%= video_tag("http://serwer.osp-lesniewo.pl/video/#{calosc.nazwa}", :size => "640x480", :controls => true, :autobuffer => true) %>
-	  </div>
+          <div id="div<%= calosc.id %>" style="display:none" class="fancybox_video">
+            <%= video_tag("http://serwer.osp-lesniewo.pl/video/#{calosc.nazwa}", :size => "640x480", :controls => true, :autobuffer => true) %>
+          </div>
 
-	<% else %>
-	    <%= link_to("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
-             <%= image_tag("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
-	    <% end %>
-	<% end %>
+        <% else %>
+          <%= link_to("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"fancybox", "title"=>"#{calosc.opis}") do %>
+            <%= image_tag("http://serwer.osp-lesniewo.pl/#{calosc.nazwa}", :class=>"img-polaroid", "style"=>"width:125px;height:130px;") %>
+          <% end %>
+        <% end %>
       <% end %>
     </ul>
 </div>
 
 <% if @zdjecia.count != 0 && @album != nil %>
-	<%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
+  <%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
 <% end %>           
 <br><br>
-<%= render :partial => "shared/disqus", :locals => { title: @news.tytul } %>
+<div id ="disqus_thread">
+  <%= raw disqus_thread %>
+</div>
 </div>
 <form>
 <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
