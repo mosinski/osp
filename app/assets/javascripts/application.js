@@ -15,3 +15,14 @@
 //= require twitter/bootstrap
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+  $("form.form-search").hover(
+    function() {
+      $("input.search-query").css("margin-left", "0px");
+    },
+    function() {
+      $("input.search-query").css("margin-left", "-236px");
+    }
+  );
+});
