@@ -3,6 +3,5 @@
 /log/*.log
 /tmp
 *~
-config/initializers/secret_token.rb
 *.lock
 *.swp
