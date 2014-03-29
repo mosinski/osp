@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
@@ -151,6 +151,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 3.2.3)
   sqlite3
+  therubyracer
   thin
   tinymce-rails
   twitter-bootstrap-rails
