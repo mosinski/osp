@@ -1370,6 +1370,16 @@ textarea {
   color: rgb(243, 243, 243)!important;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
+.calendar_pelne .dropdown-menu::after {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid white;
+  border-left: 6px solid transparent;
+  content: '';
+}
 .pogoda_widget {
   height:220px;
   overflow:hidden;
