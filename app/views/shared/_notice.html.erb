@@ -1,0 +1,14 @@
+<% if notice %>
+<div class="notice">
+<% if notice.match(/Uwaga!/) %>
+  <div class="alert alert-error">
+<% elsif notice.match(/Gratulacje!/) %>
+  <div class="alert alert-success">
+<% elsif notice.match(/Informacja!/) %>
+  <div class="alert alert-info">
+<% end %>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= notice.html_safe %></strong>
+  </div>
+</div>
+<% end %>
