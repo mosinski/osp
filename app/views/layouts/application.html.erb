@@ -60,168 +60,68 @@
       <div class="sidebar">
         <div style="margin-top:-20px;float:right;color:white;"><%= I18n.l Time.now, :format => "%A, %B %d, %Y" %></div>
         <%= render "shared/statistics" %>
-        <h4>Kalendarz Zdarzeń</h4>
-        <div id="calendar">
-          <h2 id="month">
-            <%= link_to month: (calendar_date.beginning_of_month-1).strftime("%Y-%m") do %>
-              <i class="icon-circle-arrow-left"></i>
+        <%= render "shared/calendar" %>
+        <%= render "shared/weather" %>
+      </div>
+      <div class="section">
+        <div>
+          <h4>Galeria</h4>
+          <ul>
+            <% footer_images.each do |zdjecia| %>
+              <li><%= link_to("/galeria") do %><%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", "style"=>"height:115px;width:175px;") %><% end %></li>
             <% end %>
-            <%=I18n.l calendar_date, :format => "%B %Y" %>
-            <%= link_to month: (calendar_date.end_of_month+1).strftime("%Y-%m") do %>
-              <i class="icon-circle-arrow-right"></i>
-            <% end %>
-          </h2>
-          <%= calendar_for calendar_news,:first_day_of_week => 1, :year => calendar_date.year, :month => calendar_date.month do |t| %>
-            <%= t.head('Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd') %>
-            <%= t.day(:day_method => :termin) do |date, news| %>
-              <% licznik = 0 %>
-              <% for news in calendar_news %>
-                <% if (date.to_s == news.termin.to_s) %>
-                  <% licznik += 1 %>
-                  <% if licznik == 1 %>
-                    <div class="dropdown calendar_pelne">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= date.day %></a>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <% if licznik == 0 %>
-                <div class="calendar_puste">
-                <%= date.day %>
-              <% end %>
-              <ul class="dropdown-menu">
-                <% for news in calendar_news %>
-                  <% if (date.to_s == news.termin.to_s) %>
-                    <li><%= link_to h(news.tytul), news, :title => news.tytul %></li>
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-            <% end %>
+          </ul>
+        </div>
+        <div class="connect">
+          <h4>Linki</h4>
+          <%= link_to("http://www.kppsp.puck.pl/", "target"=>"_blank") do %>
+            <%= image_tag("psp.png") %>
+          <% end %>
+          <%= link_to("http://www.zosprp.pl/", "target"=>"_blank") do %>
+            <%= image_tag("zosp.png") %>
+          <% end %>
+          <%= link_to("http://www.tartak-mika.pl/", "target"=>"_blank") do %>
+            <%= image_tag("mika.png","style"=> "margin-left: 0px !important;") %>
           <% end %>
         </div>
-				<h4>Pogada</h4>
-				<div class="pogoda_widget">
-				  <div id="tp-widget-default" data-widget="default/polska/pomorskie/lesniewo">
-				    <div id="tp-widget-default-beam">
-					<a id="tp-widget-default-flink" href="http://www.twojapogoda.pl/polska/pomorskie/lesniewo" target="_blank" title="Leśniewo - prognoza pogody" data-ga="#utm_source=3days&utm_medium=forecast&utm_campaign=widget-free">Pogoda Leśniewo</a><span> z serwisu</span>
-				    </div>
-				  <script type="text/javascript">
-					(function(d, t, i) {
-						if (d.getElementById(i)) return;
-						var f = d.getElementsByTagName(t)[0], js = d.createElement(t);
-						js.id = i; js.src = 'http://www.twojapogoda.pl/widget/main.js';
-						f.parentNode.appendChild(js);
-					}(document, 'script', 'tp-widget'));
-				  </script>
-				  </div>
-				</div>
-			</div>
-			<div class="section">
-				<div>
-					<h4>Galeria</h4>
-					<ul>
-					<% footer_images.each do |zdjecia| %>
-						<li>
-						<%= link_to("/galeria") do %><%= image_tag("http://serwer.osp-lesniewo.pl/#{zdjecia.nazwa}", "style"=>"height:115px;width:175px;") %><% end %>
-						</li>
-					<% end %>
-					</ul>
-				</div>
-				<div class="connect">
-					<h4>Linki</h4>
-					<%= link_to("http://www.kppsp.puck.pl/", "target"=>"_blank") do %>
-					<%= image_tag("psp.png") %>
-					<% end %>
-					<%= link_to("http://www.zosprp.pl/", "target"=>"_blank") do %>
-					<%= image_tag("zosp.png") %>
-					<% end %>
-					<%= link_to("http://www.tartak-mika.pl/", "target"=>"_blank") do %>
-					<%= image_tag("mika.png","style"=> "margin-left: 0px !important;") %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div>
-				<ul>
-					<li>
-						<%= link_to "Start", "/" %>
-					</li>
-					<li>
-						<%= link_to "O nas", "/about" %>
-					</li>
-					<li>
-						<% if current_user %>
-						<%= current_user.username %>
-						<%= link_to "Wyloguj", :logout%>
-						<% else %>
-						<%= link_to "Logowanie", :login %>
-						<% end %>
-					</li>
-					<li>
-						<%= link_to "Kontakt", "#kontakt", "data-toggle"=>"modal" %>
-					</li>
-					<% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
-					<%= link_to 'Dodaj News', new_news_path %> | 
-					<%= link_to 'Lista Zdjęć', images_path %> |
-					<%= link_to 'Lista Plików', pliks_path %>
-					<% else %>
-					<iframe src="http://www.facebook.com/plugins/like.php?href=http://osp-lesniewo.pl&layout=standard&show_faces=false&
-2.width=250&action=like&colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:70px; height:25px; margin-right:10px;">
-3.</iframe><div class="g-plusone" data-href="http://osp-lesniewo.pl/" data-annotation="none"></div>
-					<% end %>
-				</ul>
-				<p>
-					Copyright &#169; <%= Time.now.year %>. OSP Leśniewo all rights reserved.
-				</p>
-			</div>
-		</div>
-		<div style="margin-top:-50px">
-		<center>Projekt <%= link_to "Miłosz Osiński", "http://m1l05z.pl" %> i <%= link_to "Krystian Hallmann", "http://khallmann.pl" %></center>
-		</div>
-</div>
-<div id="kontakt" class="modal hide fade">
-            <div class="modal-header" style="background:rgb(116, 149, 150)">
-              <a class="close" data-dismiss="modal">×</a>
-              <h3>Kontakt</h3>
-            </div>
-            <div class="modal-body">
- <%= image_tag("miniatura.JPG", :class=>"img-circle",:width=>"170px;","style"=>"display:inline;vertical-align:top;") %>
-<h4 style="display:inline-block;">Ochotnicza Straż Pożarna w Leśniewie<br>ul. Starowiejska 16<br>
-84-106 Leśniewo<br>osplesniewo@gmai​l.com</h4><br><br>
-<table style="width: 90%;margin-left: 13%;">
-<tbody>
-<tr>
-<td width="50%"><span style="text-decoration: underline;"><span style="font-size: 14pt;"><strong style="color: #000000; text-decoration: underline;">Prezes:</strong></span></span></td>
-<td><span style="text-decoration: underline;"><span style="font-size: 14pt;"><strong style="color: #000000; text-decoration: underline;">Naczelnik:</strong></span></span></td>
-</tr>
-<tr>
-<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">Lanc Wincenty</span></strong></td>
-<td><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">Semmerling Ryszard</span></strong></span></td>
-</tr>
-<tr>
-<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">ul. Starowiejska 22</span></strong></td>
-<td><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">ul. Cicha 2</span></strong></span></td>
-</tr>
-<tr>
-<td width="50%"><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">84-106 Leśniewo</span></strong></td>
-<td><strong><span style="font-size: 16px; font-style: normal; color: #ff0000;">84-106 Leśniewo</span></strong></td>
-</tr>
-<tr>
-<td width="50%"><span style="color: #ff0000;"><strong><span style="font-size: 16px; font-style: normal;">tel. 509-445-521</span></strong></span></td>
-<td><strong><span style="font-size: small; color: #ff0000;"><span style="font-size: 16px; font-style: normal;">tel. 692-328-905</span></span></strong></td>
-</tr>
-</tbody>
-</table>
-            </div>
-            <div class="modal-footer">
-      		<center><%= button_tag "Zamknij Okno",:type => 'button',:class => 'button', "data-dismiss" => "modal" %></center>
-            </div>
-</div> 
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        <ul>
+          <li><%= link_to "Start", "/" %></li>
+          <li><%= link_to "O nas", "/about" %></li>
+          <li>
+            <% if current_user %>
+              <%= current_user.username %>
+              <%= link_to "Wyloguj", :logout %>
+            <% else %>
+                <%= link_to "Logowanie", :login %>
+            <% end %>
+          </li>
+          <li><%= link_to "Kontakt", "#kontakt", "data-toggle"=>"modal" %></li>
+          <% if current_user && ((current_user.username == "Administrator" && current_user.id == 1)||(current_user.username == "strazak"&& current_user.id == 2)) %>
+            <%= link_to 'Dodaj News', new_news_path %> | 
+            <%= link_to 'Lista Zdjęć', images_path %> |
+            <%= link_to 'Lista Plików', pliks_path %>
+          <% else %>
+              <iframe src="http://www.facebook.com/plugins/like.php?href=http://osp-lesniewo.pl&layout=standard&show_faces=false&2.width=250&action=like&colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:70px; height:25px; margin-right:10px;">3.</iframe>
+              <div class="g-plusone" data-href="http://osp-lesniewo.pl/" data-annotation="none"></div>
+          <% end %>
+        </ul>
+        <p>
+          Copyright &#169; <%= Time.now.year %>. OSP Leśniewo all rights reserved.
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:-50px">
+      <center>Projekt <%= link_to "Miłosz Osiński", "http://m1l05z.pl" %> i <%= link_to "Krystian Hallmann", "http://khallmann.pl" %></center>
+    </div>
+  </div>
+  <%= render "shared/contact_modal" %>
 </body>
 <script type="text/javascript">
   window.___gcfg = {lang: 'pl'};
-
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
     po.src = 'https://apis.google.com/js/plusone.js';

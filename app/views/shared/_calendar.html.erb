@@ -1,0 +1,39 @@
+<h4>Kalendarz Zdarzeń</h4>
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to month: (calendar_date.beginning_of_month-1).strftime("%Y-%m") do %>
+      <i class="icon-circle-arrow-left"></i>
+    <% end %>
+    <%=I18n.l calendar_date, :format => "%B %Y" %>
+    <%= link_to month: (calendar_date.end_of_month+1).strftime("%Y-%m") do %>
+      <i class="icon-circle-arrow-right"></i>
+    <% end %>
+  </h2>
+  <%= calendar_for calendar_news,:first_day_of_week => 1, :year => calendar_date.year, :month => calendar_date.month do |t| %>
+    <%= t.head('Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd') %>
+    <%= t.day(:day_method => :termin) do |date, news| %>
+      <% licznik = 0 %>
+      <% for news in calendar_news %>
+        <% if (date.to_s == news.termin.to_s) %>
+          <% licznik += 1 %>
+          <% if licznik == 1 %>
+            <div class="dropdown calendar_pelne">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= date.day %></a>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if licznik == 0 %>
+        <div class="calendar_puste">
+        <%= date.day %>
+      <% end %>
+      <ul class="dropdown-menu">
+        <% for news in calendar_news %>
+          <% if (date.to_s == news.termin.to_s) %>
+            <li><%= link_to h(news.tytul), news, :title => news.tytul %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  <% end %>
+</div>
