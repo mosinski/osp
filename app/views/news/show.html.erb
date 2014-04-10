@@ -4,7 +4,7 @@
 <p>
   <%= raw(@news.tresc) %>
 </p>
-<span><i class="icon-calendar"></i> Ostatnia modyfikacja <%= @news.updated_at.strftime("%d-%m-%Y %H:%M") %> <i class="icon-comment"></i> <%= link_to "##", news_url(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id %></span>
+<span><i class="icon-calendar"></i> Ostatnia modyfikacja <%= @news.updated_at.strftime("%d-%m-%Y %H:%M") %> <i class="icon-comment"></i> <%= link_to "##", news_url(@news, :anchor => "disqus_thread"), :"data-disqus-identifer" => @news.id %></span>
 <div class="galeria">
   <ul class="section">
     <% @calosc.each do |calosc| %>
@@ -28,7 +28,7 @@
 
 <% if @zdjecia.count != 0 && @album != nil %>
   <%= link_to "przejdź do galeri »", "/albums/#{@album.id}", :class=>"link_do_galerii" %>
-<% end %>           
+<% end %>
 <br><br>
 <div id ="disqus_thread">
   <%= raw disqus_thread %>
