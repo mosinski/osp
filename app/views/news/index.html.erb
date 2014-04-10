@@ -43,9 +43,9 @@
         <div>
           <h3 id="news_index_tytul"><%= news.tytul.gsub(/^([a-z])/) { $1.capitalize } %></h3>
           <% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
-            <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+            <span style="margin-top:-5px">Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %> <i class="icon-comment"></i> <%= link_to "##", news_url(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id %></span>
           <% else %>
-            <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+            <span style="margin-top:-5px">Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %> <i class="icon-comment"></i> <%= link_to "##", news_url(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id %></span>
           <% end %>
           <p>
             <%= (strip_tags(news.tresc))[0..300]+"..." %>
@@ -59,6 +59,18 @@
       </li>
     <% end %>
   </ul>
-
 <br />
 </div>
+
+<script type="text/javascript">
+  var disqus_shortname = '<%= ENV['disqus_shortname'] %>';
+
+  if (disqus_shortname.length > 0) {
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+  }
+</script>
