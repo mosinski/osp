@@ -43,15 +43,16 @@
         <div>
           <h3 id="news_index_tytul"><%= news.tytul.gsub(/^([a-z])/) { $1.capitalize } %></h3>
           <% if (((Time.now - news.created_at).to_i / 60) / 60) > 24  %>
-            <span style="margin-top:-5px"><i class="icon-calendar"></i> Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+            <span style="margin-top:-5px">
+              <i class="icon-calendar"></i> Opublikowano <%= news.created_at.strftime("%d-%m-%Y %H:%M") %>
+              <i class="icon-comment"></i> <%= link_to "##", news_url(@news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id, style: "float:none" %>
+            </span>
           <% else %>
-            <span style="margin-top:-5px"><i class="icon-calendar"></i> Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %></span>
+            <span style="margin-top:-5px">
+              <i class="icon-calendar"></i> Opublikowano <%= time_ago_in_words(news.created_at) + ' temu' %>
+              <i class="icon-comment"></i> <%= link_to "##", news_url(@news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id, style: "float:none" %>
+            </span>
           <% end %>
-          <span >
-            <%= link_to news_url(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id, "style" => "width:100%;color:white;" do %>
-              <i class="icon-comment"></i> ##
-            <% end %>
-          </span>
           <p>
             <%= (strip_tags(news.tresc))[0..300]+"..." %>
           </p>
